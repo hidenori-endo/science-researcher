@@ -32,12 +32,17 @@ This structural representation can then be retrieved for a problem in number the
 
 ## Quick start
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e .
+Requires [uv](https://docs.astral.sh/uv/).
 
-science-researcher demo --db /tmp/science.db --problem riemann-hypothesis
+```bash
+uv sync
+uv run science-researcher demo --db /tmp/science.db --problem riemann-hypothesis
+```
+
+Add the `postgres` extra to use the Neon/Postgres storage backend:
+
+```bash
+uv sync --extra postgres
 ```
 
 The demo will:
@@ -54,14 +59,14 @@ The demo will:
 Inspect a stored run:
 
 ```bash
-science-researcher runs --db /tmp/science.db
-science-researcher show-run --db /tmp/science.db --run-id <RUN_ID>
+uv run science-researcher runs --db /tmp/science.db
+uv run science-researcher show-run --db /tmp/science.db --run-id <RUN_ID>
 ```
 
 Run tests:
 
 ```bash
-python -m unittest discover -s tests -v
+uv run python -m unittest discover -s tests -v
 ```
 
 ## Architecture
