@@ -103,7 +103,7 @@ Structural Abstractions ---- Multi-axis vectors
                           Discovery memory
 ```
 
-See [docs/architecture.md](docs/architecture.md) for the full design, [docs/providers.md](docs/providers.md) for LLM integration, [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup, and [docs/evaluation.md](docs/evaluation.md) for the historical-rediscovery benchmark proposal.
+See [docs/architecture.md](docs/architecture.md) for the full design, [docs/providers.md](docs/providers.md) for LLM integration, and [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup.
 
 ## Current scope
 
@@ -122,7 +122,7 @@ The MVP implements:
 - A deterministic offline provider for reproducible tests.
 - Seed cards for historical breakthroughs and hard scientific problems.
 
-It deliberately does **not** claim autonomous scientific discovery. The immediate objective is to build an auditable search substrate and evaluate whether it can rediscover historical conceptual jumps under time-cutoff constraints.
+It deliberately does **not** claim autonomous scientific discovery. The immediate objective is to build an auditable search substrate for structural analogy retrieval, hypothesis generation, and falsification.
 
 ## Design principles
 
@@ -132,7 +132,6 @@ It deliberately does **not** claim autonomous scientific discovery. The immediat
 - **Generators and critics are isolated.** They should not share the same immediate reasoning context.
 - **Distance is useful.** Retrieval should prefer mechanism similarity while penalizing domain similarity.
 - **Proof obligations are edges, not prose.** A hypothesis is only as strong as its weakest unknown implication.
-- **Historical backtesting comes before grand claims.**
 
 ## Roadmap
 
@@ -141,8 +140,7 @@ It deliberately does **not** claim autonomous scientific discovery. The immediat
 3. Push first-stage vector top-k retrieval into pgvector indexes.
 4. Add a graph-aware retrieval planner.
 5. Add Python experiment workers and Lean 4 proof workers.
-6. Build historical rediscovery benchmarks (Dirac, Lee–Yang, RG, Hubbard–Stratonovich, etc.).
-7. Learn retrieval and mutation policies from successful and failed discovery traces.
+6. Learn retrieval and mutation policies from successful and failed discovery traces.
 
 ## License
 

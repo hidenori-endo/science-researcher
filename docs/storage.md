@@ -77,7 +77,7 @@ uv run science-researcher demo \
   --problem navier-stokes
 ```
 
-`--embedding-dimensions 512` is a practical starting point because each scientific node is embedded along multiple axes. The dimension should eventually be selected by the historical rediscovery benchmark rather than by generic retrieval benchmarks.
+`--embedding-dimensions 512` is a practical starting point because each scientific node is embedded along multiple axes. The dimension should eventually be selected by measured retrieval quality rather than by generic retrieval benchmarks.
 
 ## Environment variables
 
