@@ -4,12 +4,28 @@ import argparse
 import json
 import os
 import sys
+import uuid
+from pathlib import Path
 
 from .embedding_openai import OpenAIEmbeddingProvider
 from .embeddings import HashEmbedder
+from .models import (
+    EpistemicStatus,
+    Evidence,
+    EvidenceType,
+    RecordType,
+    ResearchClaim,
+    ResearchRelationType,
+)
 from .provider import HeuristicProvider
 from .provider_http import OpenAICompatibleChatProvider
-from .service import build_engine, initialize_postgres_store, initialize_store, seed_store
+from .research import ResearchIndex
+from .service import (
+    build_engine,
+    initialize_postgres_store,
+    initialize_store,
+    seed_store,
+)
 
 
 def _json_dump(value: object) -> None:
@@ -84,6 +100,122 @@ def cmd_show_run(args: argparse.Namespace) -> int:
     return 0
 
 
+def _metadata_from_args(args: argparse.Namespace) -> dict[str, object]:
+    raw = getattr(args, "metadata_json", None)
+    if not raw:
+        return {}
+    value = json.loads(raw)
+    if not isinstance(value, dict):
+        raise TypeError("--metadata-json must decode to an object")
+    return value
+
+
+def _axis_texts_from_args(args: argparse.Namespace) -> dict[str, str]:
+    values = {
+        "mechanism": getattr(args, "mechanism", None),
+        "math_structure": getattr(args, "math_structure", None),
+        "problem_shape": getattr(args, "problem_shape", None),
+        "failure": getattr(args, "failure", None),
+    }
+    return {axis: text for axis, text in values.items() if text}
+
+
+def cmd_add_claim(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    claim = ResearchClaim(
+        id=str(uuid.uuid4()),
+        external_id=args.external_id,
+        title=args.title,
+        statement=args.statement,
+        record_type=args.record_type,
+        epistemic_status=args.epistemic_status,
+        domain=args.domain,
+        source=args.source,
+        axis_texts=_axis_texts_from_args(args),
+        metadata=_metadata_from_args(args),
+    )
+    ResearchIndex(store, _make_embedder(args)).index_claim(claim)
+    _json_dump(store.get_research_claim(claim.id).to_dict())
+    return 0
+
+
+def cmd_add_evidence(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    metadata = _metadata_from_args(args)
+    if args.domain:
+        metadata.setdefault("domain", args.domain)
+    evidence = Evidence(
+        id=str(uuid.uuid4()),
+        external_id=args.external_id,
+        title=args.title,
+        summary=args.summary,
+        evidence_type=args.evidence_type,
+        epistemic_status=args.epistemic_status,
+        source_uri=args.source_uri,
+        citation=args.citation,
+        axis_texts=_axis_texts_from_args(args),
+        metadata=metadata,
+    )
+    ResearchIndex(store, _make_embedder(args)).index_evidence(evidence)
+    _json_dump(store.get_evidence(evidence.id).to_dict())
+    return 0
+
+
+def cmd_link_evidence(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    relation_id = store.link_evidence(
+        args.claim_id,
+        args.evidence_id,
+        args.relation,
+        metadata=_metadata_from_args(args),
+    )
+    _json_dump({"id": relation_id})
+    return 0
+
+
+def cmd_link_claim(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    relation_id = store.link_claims(
+        args.claim_id,
+        args.target_claim_id,
+        args.relation,
+        metadata=_metadata_from_args(args),
+    )
+    _json_dump({"id": relation_id})
+    return 0
+
+
+def cmd_list_claims(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    _json_dump([claim.to_dict() for claim in store.list_research_claims(record_type=args.record_type)])
+    return 0
+
+
+def cmd_list_evidence(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    _json_dump([item.to_dict() for item in store.list_evidence()])
+    return 0
+
+
+def cmd_show_claim(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    _json_dump(store.get_claim_with_relations(args.claim_id))
+    return 0
+
+
+def cmd_import_research(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    data = json.loads(Path(args.path).read_text(encoding="utf-8"))
+    result = store.import_research_bundle(data)
+    index = ResearchIndex(store, _make_embedder(args))
+    for claim_id in result["claims"].values():
+        index.index_existing_claim(store.get_research_claim(claim_id))
+    for evidence_id in result["evidence"].values():
+        index.index_existing_evidence(store.get_evidence(evidence_id))
+    _json_dump(result)
+    return 0
+
+
 def _add_storage_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--store",
@@ -111,6 +243,14 @@ def _add_embedding_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--embedding-dimensions", type=int, default=None)
     parser.add_argument("--embedding-base-url", default=None)
     parser.add_argument("--embedding-api-key-env", default="OPENAI_API_KEY")
+
+
+def _add_research_content_args(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--mechanism", default=None)
+    parser.add_argument("--math-structure", default=None)
+    parser.add_argument("--problem-shape", default=None)
+    parser.add_argument("--failure", default=None)
+    parser.add_argument("--metadata-json", default=None, help="JSON object with additional metadata")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -168,6 +308,79 @@ def build_parser() -> argparse.ArgumentParser:
     _add_storage_args(show_parser)
     show_parser.add_argument("--run-id", required=True)
     show_parser.set_defaults(func=cmd_show_run)
+
+    add_claim_parser = subparsers.add_parser("add-claim", help="register a first-class research claim")
+    _add_storage_args(add_claim_parser)
+    _add_embedding_args(add_claim_parser)
+    _add_research_content_args(add_claim_parser)
+    add_claim_parser.add_argument("--title", required=True)
+    add_claim_parser.add_argument("--statement", required=True)
+    add_claim_parser.add_argument("--record-type", choices=[item.value for item in RecordType], required=True)
+    add_claim_parser.add_argument(
+        "--epistemic-status", choices=[item.value for item in EpistemicStatus], required=True
+    )
+    add_claim_parser.add_argument("--domain", required=True)
+    add_claim_parser.add_argument("--source", default="")
+    add_claim_parser.add_argument("--external-id", default=None)
+    add_claim_parser.set_defaults(func=cmd_add_claim)
+
+    add_evidence_parser = subparsers.add_parser("add-evidence", help="register independently addressable evidence")
+    _add_storage_args(add_evidence_parser)
+    _add_embedding_args(add_evidence_parser)
+    _add_research_content_args(add_evidence_parser)
+    add_evidence_parser.add_argument("--title", required=True)
+    add_evidence_parser.add_argument("--summary", required=True)
+    add_evidence_parser.add_argument(
+        "--evidence-type", choices=[item.value for item in EvidenceType], required=True
+    )
+    add_evidence_parser.add_argument(
+        "--epistemic-status", choices=[item.value for item in EpistemicStatus], required=True
+    )
+    add_evidence_parser.add_argument("--domain", default="")
+    add_evidence_parser.add_argument("--source-uri", default="")
+    add_evidence_parser.add_argument("--citation", default="")
+    add_evidence_parser.add_argument("--external-id", default=None)
+    add_evidence_parser.set_defaults(func=cmd_add_evidence)
+
+    link_evidence_parser = subparsers.add_parser("link-evidence", help="link evidence to a research claim")
+    _add_storage_args(link_evidence_parser)
+    link_evidence_parser.add_argument("--claim-id", required=True)
+    link_evidence_parser.add_argument("--evidence-id", required=True)
+    link_evidence_parser.add_argument(
+        "--relation", choices=[item.value for item in ResearchRelationType], required=True
+    )
+    link_evidence_parser.add_argument("--metadata-json", default=None)
+    link_evidence_parser.set_defaults(func=cmd_link_evidence)
+
+    link_claim_parser = subparsers.add_parser("link-claim", help="link one research claim to another")
+    _add_storage_args(link_claim_parser)
+    link_claim_parser.add_argument("--claim-id", required=True)
+    link_claim_parser.add_argument("--target-claim-id", required=True)
+    link_claim_parser.add_argument(
+        "--relation", choices=[item.value for item in ResearchRelationType], required=True
+    )
+    link_claim_parser.add_argument("--metadata-json", default=None)
+    link_claim_parser.set_defaults(func=cmd_link_claim)
+
+    list_claims_parser = subparsers.add_parser("list-claims", help="list registered research claims")
+    _add_storage_args(list_claims_parser)
+    list_claims_parser.add_argument("--record-type", choices=[item.value for item in RecordType], default=None)
+    list_claims_parser.set_defaults(func=cmd_list_claims)
+
+    list_evidence_parser = subparsers.add_parser("list-evidence", help="list registered evidence")
+    _add_storage_args(list_evidence_parser)
+    list_evidence_parser.set_defaults(func=cmd_list_evidence)
+
+    show_claim_parser = subparsers.add_parser("show-claim", help="show a claim and its outgoing research relations")
+    _add_storage_args(show_claim_parser)
+    show_claim_parser.add_argument("--claim-id", required=True)
+    show_claim_parser.set_defaults(func=cmd_show_claim)
+
+    import_parser = subparsers.add_parser("import-research", help="transactionally import a versioned research bundle")
+    _add_storage_args(import_parser)
+    _add_embedding_args(import_parser)
+    import_parser.add_argument("path")
+    import_parser.set_defaults(func=cmd_import_research)
 
     return parser
 

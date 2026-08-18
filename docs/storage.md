@@ -5,7 +5,7 @@
 - `sqlite`: dependency-free local development and CI.
 - `postgres`: production-oriented storage for Neon or any Postgres database with `pgvector`.
 
-The application stores relational graph data and vectors together because discovery runs need to join concepts, analogy edges, hypotheses, proof obligations, and axis-specific embeddings.
+The application stores relational graph data and vectors together because discovery runs need to join concepts, analogy edges, hypotheses, proof obligations, first-class research claims/evidence, and axis-specific embeddings.
 
 ## SQLite
 
@@ -48,7 +48,29 @@ science-researcher demo \
   --problem riemann-hypothesis
 ```
 
-The Postgres schema creates the `vector` extension and a `vectors` table with one row per entity and axis. The MVP still combines multi-axis scores in application code because the scoring function mixes mechanism similarity, structure similarity, domain distance, and failure penalties. A later storage layer can push the first-stage top-k search into pgvector indexes.
+The Postgres schema creates the `vector` extension, the existing node `vectors` table, and a `research_vectors` table for claims and evidence. Both use axis-specific vectors. The MVP still combines multi-axis scores in application code because the scoring function mixes mechanism similarity, structure similarity, domain distance, and failure penalties. A later storage layer can push the first-stage top-k search into pgvector indexes.
+
+The same Postgres/Neon connection is used for `research_claims`, `evidences`, and `research_relations`; no separate research database is introduced.
+
+Import the repository's initial research bundle with deterministic offline embeddings:
+
+```bash
+science-researcher import-research \
+  --store postgres \
+  research/initial-research.json
+```
+
+Or index the same records with OpenAI embeddings:
+
+```bash
+science-researcher import-research \
+  --store postgres \
+  --embedder openai \
+  --embedding-model text-embedding-3-small \
+  research/initial-research.json
+```
+
+See [research-records.md](research-records.md) for the schema, epistemic-status rules, and relation types.
 
 ## OpenAI embeddings with Neon
 

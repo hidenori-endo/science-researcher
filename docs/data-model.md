@@ -1,6 +1,6 @@
 # Data model
 
-The MVP uses SQLite because it is inspectable, portable, and sufficient for early experiments. Dedicated vector or graph databases can be introduced only after the access patterns justify them.
+The project exposes the same high-level graph and research-record APIs through SQLite and Postgres/Neon. SQLite remains the default inspectable local backend; Postgres uses pgvector for production-oriented vector storage.
 
 ## Node
 
@@ -42,14 +42,33 @@ Each node can store several independent embeddings:
 
 Vectors are stored as JSON arrays in the MVP. This is intentionally simple; pgvector or a dedicated ANN index can replace it later without changing the conceptual model.
 
+## Research claim
+
+A long-lived scientific statement independent of any one discovery run. Claims include hypotheses, conjectures, obstructions, known results, counterexamples, failed approaches, verified finite results, and methodological lessons. Every claim carries an explicit `record_type` and `epistemic_status`.
+
+Generated discovery hypotheses create a canonical research claim, while manual claims can be registered without a discovery run.
+
+## Evidence
+
+An independently addressable observation, theorem, literature result, counterexample, Lean proof, symbolic calculation, dataset observation, or experiment. Evidence has its own epistemic status so computational or experimental support cannot silently become proof.
+
+## Research relation
+
+A typed graph edge from a claim to either evidence or another claim. Supported relations are `SUPPORTS`, `CONTRADICTS`, `WEAKENS`, `REFINES`, `MOTIVATES`, `FALSIFIES`, `DEPENDS_ON`, and `DERIVED_FROM`.
+
+## Research vector
+
+Claims and evidence can each store separate `semantic`, `domain`, `mechanism`, `math_structure`, `problem_shape`, and `failure` vectors. Canonical text is axis-specific rather than one blob duplicated six times.
+
 ## Hypothesis
 
-A generated speculative bridge:
+A generated speculative bridge associated with one discovery run:
 
 - `id`
 - `run_id`
 - `problem_id`
 - `analogy_node_id`
+- `claim_id`: canonical `research_claims` record.
 - `title`
 - `bridge`
 - `prediction`

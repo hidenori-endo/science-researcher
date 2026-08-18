@@ -6,6 +6,7 @@ from typing import Any
 from .db import GraphStore
 from .models import ScientificNode
 from .provider import ReasoningProvider
+from .research import ResearchIndex
 from .retrieval import MultiAxisRetriever
 
 
@@ -75,6 +76,9 @@ class DiscoveryEngine:
                     critic_score=critique.score,
                     failure_reason=critique.failure_reason,
                     obligations=obligations,
+                )
+                ResearchIndex(self.store, self.retriever.embedder).index_existing_claim(
+                    self.store.get_hypothesis_claim(hypothesis_id)
                 )
                 branch["hypotheses"].append(
                     {

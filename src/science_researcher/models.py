@@ -22,6 +22,123 @@ class ObligationStatus(StrEnum):
     UNKNOWN = "unknown"
 
 
+class RecordType(StrEnum):
+    KNOWN_RESULT = "known_result"
+    DERIVED_RESULT = "derived_result"
+    COMPUTATIONAL_OBSERVATION = "computational_observation"
+    HYPOTHESIS = "hypothesis"
+    CONJECTURE = "conjecture"
+    COUNTEREXAMPLE = "counterexample"
+    OBSTRUCTION = "obstruction"
+    FAILED_APPROACH = "failed_approach"
+    LEAN_VERIFIED = "lean_verified"
+    EXPERIMENTAL_RESULT = "experimental_result"
+    METHODOLOGICAL_LESSON = "methodological_lesson"
+
+
+class EvidenceType(StrEnum):
+    COMPUTATIONAL_OBSERVATION = "computational_observation"
+    LITERATURE_RESULT = "literature_result"
+    THEOREM = "theorem"
+    COUNTEREXAMPLE = "counterexample"
+    LEAN_PROOF = "lean_proof"
+    SYMBOLIC_CALCULATION = "symbolic_calculation"
+    DATASET_OBSERVATION = "dataset_observation"
+    EXPERIMENTAL_RESULT = "experimental_result"
+
+
+class EpistemicStatus(StrEnum):
+    ESTABLISHED = "established"
+    LEAN_VERIFIED = "lean_verified"
+    MATHEMATICALLY_DERIVED = "mathematically_derived"
+    COMPUTATIONAL = "computational"
+    EXPERIMENTAL = "experimental"
+    CONJECTURAL = "conjectural"
+    SPECULATIVE = "speculative"
+    FALSIFIED = "falsified"
+    UNKNOWN = "unknown"
+
+
+class ResearchRelationType(StrEnum):
+    SUPPORTS = "SUPPORTS"
+    CONTRADICTS = "CONTRADICTS"
+    WEAKENS = "WEAKENS"
+    REFINES = "REFINES"
+    MOTIVATES = "MOTIVATES"
+    FALSIFIES = "FALSIFIES"
+    DEPENDS_ON = "DEPENDS_ON"
+    DERIVED_FROM = "DERIVED_FROM"
+
+
+RESEARCH_AXES = ("semantic", "domain", "mechanism", "math_structure", "problem_shape", "failure")
+
+
+@dataclass(slots=True)
+class ResearchClaim:
+    id: str
+    title: str
+    statement: str
+    record_type: str
+    epistemic_status: str
+    domain: str
+    external_id: str | None = None
+    source: str = ""
+    axis_texts: dict[str, str] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
+    created_at: str | None = None
+
+    def axis_text(self, axis: str) -> str:
+        if axis not in RESEARCH_AXES:
+            raise ValueError(f"unknown axis: {axis}")
+        if axis in self.axis_texts:
+            return self.axis_texts[axis]
+        defaults = {
+            "semantic": f"{self.title}. {self.statement}",
+            "domain": self.domain,
+            "mechanism": "",
+            "math_structure": "",
+            "problem_shape": "",
+            "failure": "",
+        }
+        return defaults[axis]
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(slots=True)
+class Evidence:
+    id: str
+    title: str
+    summary: str
+    evidence_type: str
+    epistemic_status: str
+    external_id: str | None = None
+    source_uri: str = ""
+    citation: str = ""
+    axis_texts: dict[str, str] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
+    created_at: str | None = None
+
+    def axis_text(self, axis: str) -> str:
+        if axis not in RESEARCH_AXES:
+            raise ValueError(f"unknown axis: {axis}")
+        if axis in self.axis_texts:
+            return self.axis_texts[axis]
+        defaults = {
+            "semantic": f"{self.title}. {self.summary}",
+            "domain": str(self.metadata.get("domain", "")),
+            "mechanism": "",
+            "math_structure": "",
+            "problem_shape": "",
+            "failure": "",
+        }
+        return defaults[axis]
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
 @dataclass(slots=True)
 class ScientificNode:
     id: str
