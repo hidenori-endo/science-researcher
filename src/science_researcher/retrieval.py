@@ -24,7 +24,7 @@ class MultiAxisRetriever:
     def __init__(
         self,
         store: GraphStore,
-        embedder: HashEmbedder | None = None,
+        embedder: object | None = None,
         weights: RetrievalWeights | None = None,
     ) -> None:
         self.store = store

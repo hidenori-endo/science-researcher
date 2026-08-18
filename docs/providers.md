@@ -56,3 +56,34 @@ A production integration should:
 - record raw provider responses for audit where policy permits,
 - support reproducible low-temperature critic runs,
 - never promote numerical or LLM-generated claims to `proved` status automatically.
+
+## OpenAI embeddings
+
+The vector layer can use OpenAI's `/embeddings` API independently of the chat-completions provider. The default model is `text-embedding-3-small`.
+
+```bash
+export OPENAI_API_KEY='...'
+
+science-researcher init \
+  --db /tmp/science.db \
+  --embedder openai \
+  --embedding-model text-embedding-3-small \
+  --embedding-dimensions 512 \
+  --seed
+```
+
+The system embeds each node separately per axis. Do not embed the same raw paragraph six times. The node's canonical axis text is used instead: semantic, domain, mechanism, mathematical structure, problem shape, and failure mode.
+
+Use the OpenAI embedding provider with the Postgres store for a hosted setup:
+
+```bash
+export DATABASE_URL='postgresql://USER:PASSWORD@HOST.neon.tech/DB?sslmode=require'
+export OPENAI_API_KEY='...'
+
+science-researcher demo \
+  --store postgres \
+  --embedder openai \
+  --embedding-model text-embedding-3-small \
+  --embedding-dimensions 512 \
+  --problem riemann-hypothesis
+```

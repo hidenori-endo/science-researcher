@@ -98,15 +98,17 @@ Structural Abstractions ---- Multi-axis vectors
                           Discovery memory
 ```
 
-See [docs/architecture.md](docs/architecture.md) for the full design, [docs/providers.md](docs/providers.md) for LLM integration, and [docs/evaluation.md](docs/evaluation.md) for the historical-rediscovery benchmark proposal.
+See [docs/architecture.md](docs/architecture.md) for the full design, [docs/providers.md](docs/providers.md) for LLM integration, [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup, and [docs/evaluation.md](docs/evaluation.md) for the historical-rediscovery benchmark proposal.
 
 ## Current scope
 
 The MVP implements:
 
 - SQLite-backed typed graph storage.
+- Optional Neon/Postgres + pgvector storage.
 - Multiple dense vector representations per node.
 - Deterministic local text embeddings based on feature hashing.
+- Optional OpenAI `text-embedding-3-small` embeddings.
 - Mechanism-near / domain-far analogy scoring.
 - Problem reframing and analogical mutation pipeline.
 - Separate generator and critic stages.
@@ -131,7 +133,7 @@ It deliberately does **not** claim autonomous scientific discovery. The immediat
 
 1. Connect one or more production LLM providers behind the provider protocol.
 2. Add paper ingestion with provenance and claim extraction.
-3. Add true dense embedding providers while retaining independent axis embeddings.
+3. Push first-stage vector top-k retrieval into pgvector indexes.
 4. Add a graph-aware retrieval planner.
 5. Add Python experiment workers and Lean 4 proof workers.
 6. Build historical rediscovery benchmarks (Dirac, Lee–Yang, RG, Hubbard–Stratonovich, etc.).

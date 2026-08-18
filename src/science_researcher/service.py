@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from .db import GraphStore
 from .embeddings import HashEmbedder
+from .embedding_openai import OpenAIEmbeddingProvider
+from .postgres_store import PostgresGraphStore
 from .pipeline import DiscoveryEngine
 from .provider import HeuristicProvider, ReasoningProvider
 from .retrieval import MultiAxisRetriever
@@ -14,19 +16,26 @@ def initialize_store(path: str) -> GraphStore:
     return store
 
 
-def seed_store(store: GraphStore) -> None:
-    retriever = MultiAxisRetriever(store, HashEmbedder())
+def initialize_postgres_store(database_url: str) -> PostgresGraphStore:
+    store = PostgresGraphStore(database_url)
+    store.initialize()
+    return store
+
+
+def seed_store(store: object, embedder: object | None = None) -> None:
+    retriever = MultiAxisRetriever(store, embedder or HashEmbedder())
     for node in SEED_NODES:
         retriever.index_node(node)
 
 
 def build_engine(
-    store: GraphStore,
+    store: object,
     *,
     generator: ReasoningProvider | None = None,
     critic: ReasoningProvider | None = None,
+    embedder: object | None = None,
 ) -> DiscoveryEngine:
-    retriever = MultiAxisRetriever(store, HashEmbedder())
+    retriever = MultiAxisRetriever(store, embedder or HashEmbedder())
     return DiscoveryEngine(
         store=store,
         retriever=retriever,
