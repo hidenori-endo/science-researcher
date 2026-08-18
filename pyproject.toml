@@ -12,6 +12,9 @@ license = {text = "MIT"}
 authors = [{name = "Hidenori Endo"}]
 dependencies = []
 
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.2"]
+
 [project.scripts]
 science-researcher = "science_researcher.cli:main"
 
