@@ -103,7 +103,7 @@ Structural Abstractions ---- Multi-axis vectors
                           Discovery memory
 ```
 
-See [docs/architecture.md](docs/architecture.md) for the full design, [docs/providers.md](docs/providers.md) for LLM integration, and [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup.
+See [docs/architecture.md](docs/architecture.md) for the full design, [docs/research-records.md](docs/research-records.md) for first-class claims/evidence and JSON import, [docs/providers.md](docs/providers.md) for LLM integration, and [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup.
 
 ## Current scope
 
@@ -118,6 +118,9 @@ The MVP implements:
 - Problem reframing and analogical mutation pipeline.
 - Separate generator and critic stages.
 - Hypothesis and proof-obligation persistence.
+- First-class research claims, evidence, typed claim/evidence relations, and versioned idempotent research-bundle import.
+- Canonical research records linked from generated discovery hypotheses.
+- Axis-specific embeddings for claims and evidence through the same hash/OpenAI embedding abstraction.
 - Failed-idea memory.
 - A deterministic offline provider for reproducible tests.
 - Seed cards for historical breakthroughs and hard scientific problems.

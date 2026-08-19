@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "external_id": "grokking-lee-yang-hypothesis-001",
+      "title": "Dynamical Lee-Yang diagnostics for grokking",
+      "statement": "Training trajectories may admit a dynamical partition function Z_T(s) = E[exp(-s A[tau])] whose complex zeros diagnose a genuine large-system grokking or emergence transition.",
+      "record_type": "hypothesis",
+      "epistemic_status": "conjectural",
+      "domain": "machine-learning/statistical-physics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "semantic": "Use complex zeros of a trajectory-generating function as a possible diagnostic of grokking or emergence.",
+        "mechanism": "A trajectory order parameter is exponentially tilted; singular behavior in the large-system or long-time limit may be reflected by zeros approaching the physical axis.",
+        "math_structure": "trajectory ensemble; moment-generating function; complex zeros; large-deviation scaling",
+        "problem_shape": "Distinguish a genuine collective transition in training from a smooth finite-size crossover.",
+        "failure": "Closest-zero motion can also occur in naive controls and smooth finite-size models."
+      },
+      "metadata": {
+        "assessment": "weakened",
+        "warning": "Closest-zero approach alone is not sufficient evidence of a phase transition."
+      }
+    },
+    {
+      "external_id": "grokking-finite-size-obstruction-001",
+      "title": "Finite-size zero signatures are not diagnostic by themselves",
+      "statement": "A closest complex zero approaching the real axis is not by itself sufficient evidence for a genuine grokking phase transition because similar behavior can occur in random-label controls and smooth finite-size models.",
+      "record_type": "obstruction",
+      "epistemic_status": "computational",
+      "domain": "machine-learning/statistical-physics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "semantic": "Naive Lee-Yang zero proximity is vulnerable to finite-size false positives in grokking experiments.",
+        "mechanism": "Finite-time or finite-size generating functions can develop near-axis zeros without a nonanalytic thermodynamic limit.",
+        "problem_shape": "A proposed phase-transition signature is reproduced by null controls.",
+        "failure": "random-label and sigmoid-like control models reproduce the proposed signature"
+      }
+    },
+    {
+      "external_id": "origin-life-trajectory-hypothesis-001",
+      "title": "Origin of life as a trajectory phase transition and possible RG class",
+      "statement": "The transition from nonliving chemistry to self-sustaining autocatalysis may be characterizable as a dynamical phase transition and possibly as a reaction-network renormalization-group universality class.",
+      "record_type": "hypothesis",
+      "epistemic_status": "conjectural",
+      "domain": "origin-of-life/non-equilibrium-statistical-mechanics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "semantic": "Treat self-sustaining autocatalysis as a dynamical phase transition in reaction trajectories.",
+        "mechanism": "Trajectory tilting separates low-activity and self-maintaining dynamical sectors; coarse graining may expose scale-stable network structure.",
+        "math_structure": "chemical reaction network; tilted generator; large deviations; Lee-Yang zeros; renormalization",
+        "problem_shape": "Find an order parameter and scaling limit that separates nonliving from self-sustaining dynamics without relying on a specific reaction sequence.",
+        "failure": "Finite-time zero motion does not establish system-size criticality or an RG fixed point."
+      },
+      "metadata": {
+        "assessment": "weakly positive but inconclusive"
+      }
+    },
+    {
+      "external_id": "origin-life-scaling-obstruction-001",
+      "title": "System-size scaling and defensible coarse graining remain missing",
+      "statement": "Finite-time Lee-Yang-like behavior in toy autocatalytic reaction networks is insufficient without system-size scaling and a defensible coarse-graining transformation with evidence for an RG fixed point or universality structure.",
+      "record_type": "obstruction",
+      "epistemic_status": "computational",
+      "domain": "origin-of-life/non-equilibrium-statistical-mechanics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "mechanism": "A finite-time spectral signature must survive an independently defined thermodynamic or network-size limit and controlled coarse graining.",
+        "problem_shape": "Promising toy behavior lacks the scaling theorem needed to infer a true phase transition.",
+        "failure": "missing system-size scaling; missing controlled coarse-graining map; no established RG fixed point"
+      }
+    },
+    {
+      "external_id": "navier-stokes-alpha-continuation-001",
+      "title": "Continue generalized Navier-Stokes regularity toward alpha equals one",
+      "statement": "Study three-dimensional Navier-Stokes regularity by continuing from a safer generalized-dissipation regime toward the physical alpha = 1 equation.",
+      "record_type": "hypothesis",
+      "epistemic_status": "conjectural",
+      "domain": "partial-differential-equations/fluid-dynamics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "semantic": "Attempt to transfer regularity from a generalized Navier-Stokes parameter regime to the physical alpha equals one case.",
+        "mechanism": "Construct solution branches in a regular parameter regime and pass to a boundary parameter using uniform estimates, compactness, and compatibility of the limit equation.",
+        "math_structure": "parameterized PDE; fractional dissipation; compactness; limiting argument; a priori estimates",
+        "problem_shape": "Transfer a theorem from a safe parameter regime to a critical boundary parameter.",
+        "failure": "The parameter-uniform estimate needed for continuation may encode essentially the original regularity difficulty."
+      },
+      "metadata": {
+        "assessment": "weakened",
+        "warning": "No proof of three-dimensional Navier-Stokes regularity is claimed."
+      }
+    },
+    {
+      "external_id": "navier-stokes-uniform-bound-obstruction-001",
+      "title": "Uniform alpha-to-one control is the unresolved bridge",
+      "statement": "To transfer regularity to alpha = 1 one needs parameter-uniform a priori bounds, compactness, convergence of solution branches, control of limiting norms, and compatibility with the alpha = 1 equation; the required uniform estimate appears to contain much of the original difficulty.",
+      "record_type": "obstruction",
+      "epistemic_status": "mathematically_derived",
+      "domain": "partial-differential-equations/fluid-dynamics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "semantic": "The continuation route is blocked by estimates uniform in the dissipation parameter.",
+        "mechanism": "Boundary-parameter continuation cannot preserve regularity unless the controlling norm remains uniform as the parameter approaches the physical case.",
+        "math_structure": "uniform a priori estimate; compactness; convergence; boundary parameter",
+        "problem_shape": "A safe regime cannot be transferred to a target regime because the bridge estimate may be equivalent in difficulty to the target theorem.",
+        "failure": "bridge assumption may be essentially as hard as the original regularity theorem"
+      }
+    },
+    {
+      "external_id": "riemann-ferromagnetic-bridge-001",
+      "title": "Root-free arithmetic structure to ferromagnetic positivity",
+      "statement": "A non-circular Lee-Yang route to Riemann-type zero constraints would require deriving an explicit ferromagnetic or comparably zero-constraining representation from arithmetic coefficient structure without using root information in the construction.",
+      "record_type": "hypothesis",
+      "epistemic_status": "conjectural",
+      "domain": "analytic-number-theory/statistical-mechanics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "semantic": "Derive a Lee-Yang-compatible positivity representation from arithmetic coefficients without feeding zero locations into the construction.",
+        "mechanism": "Arithmetic coefficient inequalities would imply ferromagnetic positivity, which would then constrain zeros through an independent Lee-Yang theorem.",
+        "math_structure": "finite polynomial; coefficient inequalities; ferromagnetic partition function; Lee-Yang theorem",
+        "problem_shape": "Replace direct zero analysis by an independently verifiable structural representation theorem.",
+        "failure": "Required positivity may fail because arithmetic coefficients need sign changes, frustration, or stronger inequalities than they satisfy."
+      },
+      "metadata": {
+        "assessment": "conjectural",
+        "prior_art": "The broad RH/Lee-Yang analogy is known; novelty would require a root-free positivity bridge or an obstruction theorem."
+      }
+    },
+    {
+      "external_id": "riemann-ferromagnetic-obstruction-program-001",
+      "title": "Finite inverse ferromagnetic representability as an obstruction program",
+      "statement": "Derive necessary coefficient inequalities for finite ferromagnetic representability and identify the first degree at which Riemann-derived finite polynomials violate them, with the goal of converting that failure into an obstruction theorem.",
+      "record_type": "conjecture",
+      "epistemic_status": "speculative",
+      "domain": "analytic-number-theory/statistical-mechanics",
+      "source": "prior exploratory research session",
+      "axis_texts": {
+        "mechanism": "Turn a failed representation search into necessary inequalities and a finite-degree impossibility certificate.",
+        "math_structure": "inverse representation problem; polynomial coefficient inequalities; positivity cone; finite obstruction",
+        "problem_shape": "Prove a proposed cross-domain representation impossible before attempting an infinite-dimensional construction.",
+        "failure": "pure ferromagnetic representability may be too restrictive"
+      }
+    },
+    {
+      "external_id": "method-structural-preconditions-001",
+      "title": "Breakthrough techniques depend on enabling structural preconditions",
+      "statement": "A historical breakthrough technique cannot usually be transferred by copying its visible operation alone; the positivity, symmetry, invariant, uniform estimate, or scale structure that made the original theorem powerful must also survive the transfer.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "speculative",
+      "domain": "scientific-methodology/automated-discovery",
+      "source": "cross-project synthesis",
+      "axis_texts": {
+        "mechanism": "Evaluate an analogy by matching the source theorem's enabling invariant or structural precondition rather than its surface operation.",
+        "problem_shape": "A method appears transferable at the vocabulary level but loses the property that actually powered the source result.",
+        "failure": "surface-level method transfer without the source method's enabling structure"
+      }
+    },
+    {
+      "external_id": "method-automatic-rejection-001",
+      "title": "Automatic rejection criteria for scientific analogies",
+      "statement": "Candidate analogies should be rejected or heavily penalized when the bridge theorem assumes essentially the target theorem, the desired conclusion is built into the construction, null controls reproduce the signature, or the imported method loses its decisive positivity, symmetry, or invariant.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "speculative",
+      "domain": "scientific-methodology/automated-discovery",
+      "source": "cross-project synthesis",
+      "axis_texts": {
+        "mechanism": "Adversarially test bridge assumptions for equivalence-to-target, circularity, null-control reproduction, and loss of enabling invariants.",
+        "problem_shape": "Cheap falsification should eliminate structurally weak analogies before expensive proof search.",
+        "failure": "circular bridge; equivalent-hardness assumption; finite-size false positive; lost invariant"
+      }
+    },
+    {
+      "external_id": "method-ai-native-search-loop-001",
+      "title": "AI-native discovery should search structurally before expanding combinatorially",
+      "statement": "AI-assisted scientific search should emphasize structural abstraction, distant-domain analogy retrieval, analogical mutation, adversarial falsification, and minimal theorem extraction rather than pure combinatorial cross-product search.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "speculative",
+      "domain": "scientific-methodology/automated-discovery",
+      "source": "cross-project synthesis",
+      "axis_texts": {
+        "mechanism": "Compress a problem into structural bottlenecks, retrieve distant mechanisms, mutate the analogy, falsify cheaply, then isolate minimal proof obligations.",
+        "problem_shape": "Search space grows too quickly if domains and techniques are crossed without structural filters.",
+        "failure": "semantic-nearest retrieval and combinatorial method crossing produce many plausible but vacuous analogies"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "external_id": "grokking-random-label-control-001",
+      "title": "Random-label controls reproduce closest-zero behavior",
+      "summary": "Exploratory numerical experiments found that closest-zero behavior can also appear in random-label controls, weakening the claim that this signature alone identifies genuine grokking criticality.",
+      "evidence_type": "computational_observation",
+      "epistemic_status": "computational",
+      "axis_texts": {
+        "mechanism": "A null-control trajectory ensemble produces a similar finite-size complex-zero signature.",
+        "problem_shape": "A proposed diagnostic fails specificity against a random-label control.",
+        "failure": "false-positive transition signature"
+      },
+      "metadata": {
+        "domain": "machine-learning/statistical-physics"
+      }
+    },
+    {
+      "external_id": "grokking-smooth-control-001",
+      "title": "Smooth finite-size models can mimic zero approach",
+      "summary": "Smooth sigmoid-like finite-size behavior can produce zero patterns resembling the proposed grokking Lee-Yang signature without establishing a nonanalytic large-system transition.",
+      "evidence_type": "computational_observation",
+      "epistemic_status": "computational",
+      "axis_texts": {
+        "mechanism": "Analytic finite-size crossover can mimic the motion of the nearest complex zero.",
+        "failure": "finite-size crossover masquerades as critical scaling"
+      },
+      "metadata": {
+        "domain": "machine-learning/statistical-physics"
+      }
+    },
+    {
+      "external_id": "origin-life-toy-zero-scaling-001",
+      "title": "Toy autocatalytic networks showed compatible finite-time zero behavior",
+      "summary": "In toy autocatalytic reaction-network experiments, empirical zeros and tilted-generator zeros appeared compatible in some settings, with behavior roughly resembling Im(s0) proportional to 1/T over explored finite times.",
+      "evidence_type": "computational_observation",
+      "epistemic_status": "computational",
+      "axis_texts": {
+        "mechanism": "Finite-time trajectory statistics and tilted-generator spectra produce compatible candidate Lee-Yang zeros.",
+        "math_structure": "finite-time tilted generator; complex zero; inverse-time scaling",
+        "failure": "no system-size scaling established"
+      },
+      "metadata": {
+        "domain": "origin-of-life/non-equilibrium-statistical-mechanics",
+        "warning": "This does not establish a thermodynamic phase transition."
+      }
+    },
+    {
+      "external_id": "navier-stokes-continuation-requirements-001",
+      "title": "Continuation requires uniform estimates and a compatible limit",
+      "summary": "A continuation argument from generalized dissipation to alpha = 1 requires parameter-uniform control, compactness, convergence of solution branches, limiting norm control, and compatibility with the physical equation.",
+      "evidence_type": "theorem",
+      "epistemic_status": "mathematically_derived",
+      "axis_texts": {
+        "mechanism": "Regularity can pass to a boundary parameter only through a compactness and stability argument backed by uniform estimates.",
+        "math_structure": "uniform estimate; compactness; convergence; limiting PDE",
+        "failure": "nonuniform bounds prevent transfer of regularity"
+      },
+      "metadata": {
+        "domain": "partial-differential-equations/fluid-dynamics",
+        "note": "This records a structural requirement, not a proof of alpha=1 regularity."
+      }
+    },
+    {
+      "external_id": "riemann-lee-yang-prior-art-001",
+      "title": "Broad Riemann and Lee-Yang analogies are prior art",
+      "summary": "Connections among Riemann-type zero problems, Lee-Yang ideas, Laguerre-Polya classes, and partition-function viewpoints have substantial prior art; novelty requires a more specific non-circular bridge or obstruction result.",
+      "evidence_type": "literature_result",
+      "epistemic_status": "established",
+      "axis_texts": {
+        "mechanism": "Prior art removes novelty from the broad analogy and shifts attention to explicit coefficient-to-positivity mechanisms.",
+        "problem_shape": "A high-level analogy is known, so a new contribution must isolate an unproved structural implication or impossibility theorem."
+      },
+      "metadata": {
+        "domain": "analytic-number-theory/statistical-mechanics"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "claim": "grokking-lee-yang-hypothesis-001",
+      "evidence": "grokking-random-label-control-001",
+      "relation": "WEAKENS"
+    },
+    {
+      "claim": "grokking-lee-yang-hypothesis-001",
+      "evidence": "grokking-smooth-control-001",
+      "relation": "WEAKENS"
+    },
+    {
+      "claim": "grokking-lee-yang-hypothesis-001",
+      "target_claim": "grokking-finite-size-obstruction-001",
+      "relation": "DEPENDS_ON"
+    },
+    {
+      "claim": "origin-life-trajectory-hypothesis-001",
+      "evidence": "origin-life-toy-zero-scaling-001",
+      "relation": "SUPPORTS"
+    },
+    {
+      "claim": "origin-life-trajectory-hypothesis-001",
+      "target_claim": "origin-life-scaling-obstruction-001",
+      "relation": "DEPENDS_ON"
+    },
+    {
+      "claim": "navier-stokes-alpha-continuation-001",
+      "evidence": "navier-stokes-continuation-requirements-001",
+      "relation": "REFINES"
+    },
+    {
+      "claim": "navier-stokes-alpha-continuation-001",
+      "target_claim": "navier-stokes-uniform-bound-obstruction-001",
+      "relation": "DEPENDS_ON"
+    },
+    {
+      "claim": "riemann-ferromagnetic-bridge-001",
+      "evidence": "riemann-lee-yang-prior-art-001",
+      "relation": "REFINES"
+    },
+    {
+      "claim": "riemann-ferromagnetic-obstruction-program-001",
+      "target_claim": "riemann-ferromagnetic-bridge-001",
+      "relation": "DERIVED_FROM"
+    },
+    {
+      "claim": "method-automatic-rejection-001",
+      "target_claim": "method-structural-preconditions-001",
+      "relation": "DERIVED_FROM"
+    },
+    {
+      "claim": "method-ai-native-search-loop-001",
+      "target_claim": "method-automatic-rejection-001",
+      "relation": "DEPENDS_ON"
+    }
+  ]
+}
