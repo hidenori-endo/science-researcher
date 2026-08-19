@@ -120,6 +120,35 @@ def _axis_texts_from_args(args: argparse.Namespace) -> dict[str, str]:
     return {axis: text for axis, text in values.items() if text}
 
 
+def _search_axis_texts_from_args(args: argparse.Namespace) -> dict[str, str]:
+    values = {
+        "semantic": getattr(args, "semantic", None),
+        "domain": getattr(args, "domain", None),
+        "mechanism": getattr(args, "mechanism", None),
+        "math_structure": getattr(args, "math_structure", None),
+        "problem_shape": getattr(args, "problem_shape", None),
+        "failure": getattr(args, "failure", None),
+    }
+    return {axis: text for axis, text in values.items() if text}
+
+
+def cmd_search(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    embedder = _make_embedder(args)
+    query = ResearchClaim(
+        id="query",
+        title="",
+        statement="",
+        record_type=RecordType.HYPOTHESIS.value,
+        epistemic_status=EpistemicStatus.UNKNOWN.value,
+        domain="",
+        axis_texts=_search_axis_texts_from_args(args),
+    )
+    hits = ResearchIndex(store, embedder).search(query, entity_kind=args.entity_kind, limit=args.limit)
+    _json_dump(hits)
+    return 0
+
+
 def cmd_add_claim(args: argparse.Namespace) -> int:
     store = _make_store(args)
     claim = ResearchClaim(
@@ -308,6 +337,21 @@ def build_parser() -> argparse.ArgumentParser:
     _add_storage_args(show_parser)
     show_parser.add_argument("--run-id", required=True)
     show_parser.set_defaults(func=cmd_show_run)
+
+    search_parser = subparsers.add_parser(
+        "search", help="multi-axis structural search over claims/evidence (mechanism-near, domain-far)"
+    )
+    _add_storage_args(search_parser)
+    _add_embedding_args(search_parser)
+    search_parser.add_argument("--entity-kind", choices=["claim", "evidence"], default=None)
+    search_parser.add_argument("--limit", type=int, default=10)
+    search_parser.add_argument("--semantic", default=None, help="free-text semantic query")
+    search_parser.add_argument("--domain", default=None)
+    search_parser.add_argument("--mechanism", default=None)
+    search_parser.add_argument("--math-structure", default=None)
+    search_parser.add_argument("--problem-shape", default=None)
+    search_parser.add_argument("--failure", default=None, help="known failure mode to penalize overlap with")
+    search_parser.set_defaults(func=cmd_search)
 
     add_claim_parser = subparsers.add_parser("add-claim", help="register a first-class research claim")
     _add_storage_args(add_claim_parser)
