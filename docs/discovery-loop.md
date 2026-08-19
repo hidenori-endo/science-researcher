@@ -13,9 +13,14 @@ Example for the Riemann hypothesis:
 
 ## 2. Structural retrieval
 
-For each reframing, retrieve cards that maximize mechanism similarity while rewarding domain distance.
+For each reframing, retrieval runs in two channels:
 
-A nearby number-theory paper is useful for prior art, but it is not the primary discovery candidate. A theorem in statistical mechanics, operator theory, or geometry may rank higher if its mechanism matches.
+1. **Analogy retrieval** maximizes mechanism/structure similarity while rewarding domain distance. Historical breakthrough nodes and structurally indexed research claims can become mutation sources.
+2. **Research-memory retrieval** favors relevant prior work, same-domain context, and matching failure modes. Claims and evidence from prior sessions are attached to the reasoning payload so known obstructions and negative results remain visible.
+
+Evidence is not treated as a transferable mechanism by default. It can support, weaken, contradict, or falsify claims in memory, while direct analogical mutation is restricted to historical nodes and claims.
+
+A nearby number-theory paper is useful for prior art, but it is not necessarily the primary discovery candidate. A theorem in statistical mechanics, operator theory, or geometry may rank higher in the analogy channel if its mechanism matches, while same-problem prior work can still rank highly in the memory channel.
 
 ## 3. Analogical mutation
 

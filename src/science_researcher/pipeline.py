@@ -4,10 +4,10 @@ from dataclasses import asdict
 from typing import Any
 
 from .db import GraphStore
+from .hybrid_retrieval import HybridRetriever
 from .models import ScientificNode
 from .provider import ReasoningProvider
 from .research import ResearchIndex
-from .retrieval import MultiAxisRetriever
 
 
 class DiscoveryEngine:
@@ -15,7 +15,7 @@ class DiscoveryEngine:
         self,
         *,
         store: GraphStore,
-        retriever: MultiAxisRetriever,
+        retriever: HybridRetriever,
         generator: ReasoningProvider,
         critic: ReasoningProvider,
     ) -> None:
@@ -49,16 +49,20 @@ class DiscoveryEngine:
                 problem_shape=reframing.problem_shape_query,
                 failure_modes=problem.failure_modes,
             )
-            analogies = self.retriever.search(query, limit=candidates_per_reframing)
+            retrieval = self.retriever.retrieve(query, limit=candidates_per_reframing)
+            analogies = retrieval.analogies
 
             branch = {
                 "reframing": reframing.label,
                 "analogies": [asdict(item) for item in analogies],
+                "research_memory": retrieval.research_memory,
                 "hypotheses": [],
             }
 
             for analogy_score in analogies:
-                analogy = self.store.get_node(analogy_score.node_id)
+                analogy = self.retriever.contextualize(
+                    self.store.get_node(analogy_score.node_id), retrieval.research_memory
+                )
                 draft = self.generator.mutate(problem, reframing, analogy)
                 critique = self.critic.critique(problem, analogy, draft)
                 obligations = self.critic.extract_obligations(problem, analogy, draft, critique)
@@ -77,9 +81,14 @@ class DiscoveryEngine:
                     failure_reason=critique.failure_reason,
                     obligations=obligations,
                 )
-                ResearchIndex(self.store, self.retriever.embedder).index_existing_claim(
-                    self.store.get_hypothesis_claim(hypothesis_id)
-                )
+                generated_claim = self.store.get_hypothesis_claim(hypothesis_id)
+                ResearchIndex(self.store, self.retriever.embedder).index_existing_claim(generated_claim)
+                memory_kind = analogy.metadata.get("research_memory_kind")
+                memory_id = analogy.metadata.get("research_memory_id")
+                if memory_kind == "claim" and isinstance(memory_id, str):
+                    self.store.link_claims(generated_claim.id, memory_id, "DERIVED_FROM")
+                elif memory_kind == "evidence" and isinstance(memory_id, str):
+                    self.store.link_evidence(generated_claim.id, memory_id, "MOTIVATES")
                 branch["hypotheses"].append(
                     {
                         "id": hypothesis_id,
