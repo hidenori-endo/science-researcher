@@ -12,8 +12,8 @@ The application stores relational graph data and vectors together because discov
 SQLite remains the default so a fresh checkout can run without external services.
 
 ```bash
-science-researcher init --db /tmp/science.db --seed
-science-researcher demo --db /tmp/science.db --problem riemann-hypothesis
+uv run science-researcher init --db /tmp/science.db --seed
+uv run science-researcher demo --db /tmp/science.db --problem riemann-hypothesis
 ```
 
 SQLite stores vectors as JSON. This is suitable for tests and small local experiments, not for large-scale retrieval.
@@ -23,7 +23,7 @@ SQLite stores vectors as JSON. This is suitable for tests and small local experi
 Install the optional Postgres dependency:
 
 ```bash
-pip install -e '.[postgres]'
+uv sync --extra postgres
 ```
 
 Set a Neon connection string:
@@ -35,7 +35,7 @@ export DATABASE_URL='postgresql://USER:PASSWORD@HOST.neon.tech/DB?sslmode=requir
 Initialize and seed the database:
 
 ```bash
-science-researcher init \
+uv run science-researcher init \
   --store postgres \
   --seed
 ```
@@ -43,7 +43,7 @@ science-researcher init \
 Run a discovery pass using the Postgres store:
 
 ```bash
-science-researcher demo \
+uv run science-researcher demo \
   --store postgres \
   --problem riemann-hypothesis
 ```
@@ -80,7 +80,7 @@ For learned embeddings:
 export OPENAI_API_KEY='...'
 export DATABASE_URL='postgresql://USER:PASSWORD@HOST.neon.tech/DB?sslmode=require'
 
-science-researcher init \
+uv run science-researcher init \
   --store postgres \
   --embedder openai \
   --embedding-model text-embedding-3-small \
@@ -91,7 +91,7 @@ science-researcher init \
 Then run:
 
 ```bash
-science-researcher demo \
+uv run science-researcher demo \
   --store postgres \
   --embedder openai \
   --embedding-model text-embedding-3-small \
@@ -99,7 +99,7 @@ science-researcher demo \
   --problem navier-stokes
 ```
 
-`--embedding-dimensions 512` is a practical starting point because each scientific node is embedded along multiple axes. The dimension should eventually be selected by the historical rediscovery benchmark rather than by generic retrieval benchmarks.
+`--embedding-dimensions 512` is a practical starting point because each scientific node is embedded along multiple axes. The dimension should eventually be selected by measured retrieval quality rather than by generic retrieval benchmarks.
 
 ## Environment variables
 

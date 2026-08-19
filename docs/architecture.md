@@ -144,7 +144,7 @@ score =
   - 0.20 * known_failure_overlap
 ```
 
-Weights are configuration, not truth. Historical backtesting should eventually learn them.
+Weights are configuration, not truth. They should eventually be learned from expert-judged retrieval outcomes rather than hand-tuned.
 
 ## Discovery loop
 

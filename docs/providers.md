@@ -7,7 +7,7 @@ The discovery engine separates the generator and critic behind a small `Reasonin
 The default provider is `HeuristicProvider`. It is deliberately simple, deterministic, and dependency-free. Its purpose is architectural testing and CI, not scientific creativity.
 
 ```bash
-science-researcher demo \
+uv run science-researcher demo \
   --db /tmp/science.db \
   --problem riemann-hypothesis \
   --provider heuristic
@@ -20,7 +20,7 @@ The MVP includes a standard-library HTTP adapter for services that implement the
 For a local compatible server:
 
 ```bash
-science-researcher demo \
+uv run science-researcher demo \
   --db /tmp/science.db \
   --problem navier-stokes \
   --provider openai-compatible \
@@ -34,7 +34,7 @@ For a hosted provider:
 export SCIENCE_RESEARCHER_API_KEY='...'
 export SCIENCE_RESEARCHER_BASE_URL='https://provider.example/v1'
 
-science-researcher demo \
+uv run science-researcher demo \
   --db /tmp/science.db \
   --problem origin-of-life \
   --provider openai-compatible \
@@ -64,7 +64,7 @@ The vector layer can use OpenAI's `/embeddings` API independently of the chat-co
 ```bash
 export OPENAI_API_KEY='...'
 
-science-researcher init \
+uv run science-researcher init \
   --db /tmp/science.db \
   --embedder openai \
   --embedding-model text-embedding-3-small \
@@ -80,7 +80,7 @@ Use the OpenAI embedding provider with the Postgres store for a hosted setup:
 export DATABASE_URL='postgresql://USER:PASSWORD@HOST.neon.tech/DB?sslmode=require'
 export OPENAI_API_KEY='...'
 
-science-researcher demo \
+uv run science-researcher demo \
   --store postgres \
   --embedder openai \
   --embedding-model text-embedding-3-small \
