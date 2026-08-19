@@ -1,7 +1,10 @@
-.PHONY: test demo
+.PHONY: sync test demo
+
+sync:
+	uv sync --extra postgres
 
 test:
-	python -m unittest discover -s tests -v
+	uv run python -m unittest discover -s tests -v
 
 demo:
-	python -m science_researcher demo --db /tmp/science-researcher-demo.db --problem riemann-hypothesis
+	uv run python -m science_researcher demo --db /tmp/science-researcher-demo.db --problem riemann-hypothesis

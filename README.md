@@ -32,12 +32,17 @@ This structural representation can then be retrieved for a problem in number the
 
 ## Quick start
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -e .
+Requires [uv](https://docs.astral.sh/uv/).
 
-science-researcher demo --db /tmp/science.db --problem riemann-hypothesis
+```bash
+uv sync
+uv run science-researcher demo --db /tmp/science.db --problem riemann-hypothesis
+```
+
+Add the `postgres` extra to use the Neon/Postgres storage backend:
+
+```bash
+uv sync --extra postgres
 ```
 
 The demo will:
@@ -54,14 +59,14 @@ The demo will:
 Inspect a stored run:
 
 ```bash
-science-researcher runs --db /tmp/science.db
-science-researcher show-run --db /tmp/science.db --run-id <RUN_ID>
+uv run science-researcher runs --db /tmp/science.db
+uv run science-researcher show-run --db /tmp/science.db --run-id <RUN_ID>
 ```
 
 Run tests:
 
 ```bash
-python -m unittest discover -s tests -v
+uv run python -m unittest discover -s tests -v
 ```
 
 ## Architecture
@@ -98,7 +103,7 @@ Structural Abstractions ---- Multi-axis vectors
                           Discovery memory
 ```
 
-See [docs/architecture.md](docs/architecture.md) for the full design, [docs/research-records.md](docs/research-records.md) for first-class claims/evidence and JSON import, [docs/providers.md](docs/providers.md) for LLM integration, [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup, and [docs/evaluation.md](docs/evaluation.md) for the historical-rediscovery benchmark proposal.
+See [docs/architecture.md](docs/architecture.md) for the full design, [docs/research-records.md](docs/research-records.md) for first-class claims/evidence and JSON import, [docs/providers.md](docs/providers.md) for LLM integration, and [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup.
 
 ## Current scope
 
@@ -120,7 +125,7 @@ The MVP implements:
 - A deterministic offline provider for reproducible tests.
 - Seed cards for historical breakthroughs and hard scientific problems.
 
-It deliberately does **not** claim autonomous scientific discovery. The immediate objective is to build an auditable search substrate and evaluate whether it can rediscover historical conceptual jumps under time-cutoff constraints.
+It deliberately does **not** claim autonomous scientific discovery. The immediate objective is to build an auditable search substrate for structural analogy retrieval, hypothesis generation, and falsification.
 
 ## Design principles
 
@@ -130,7 +135,6 @@ It deliberately does **not** claim autonomous scientific discovery. The immediat
 - **Generators and critics are isolated.** They should not share the same immediate reasoning context.
 - **Distance is useful.** Retrieval should prefer mechanism similarity while penalizing domain similarity.
 - **Proof obligations are edges, not prose.** A hypothesis is only as strong as its weakest unknown implication.
-- **Historical backtesting comes before grand claims.**
 
 ## Roadmap
 
@@ -139,8 +143,7 @@ It deliberately does **not** claim autonomous scientific discovery. The immediat
 3. Push first-stage vector top-k retrieval into pgvector indexes.
 4. Add a graph-aware retrieval planner.
 5. Add Python experiment workers and Lean 4 proof workers.
-6. Build historical rediscovery benchmarks (Dirac, Lee–Yang, RG, Hubbard–Stratonovich, etc.).
-7. Learn retrieval and mutation policies from successful and failed discovery traces.
+6. Learn retrieval and mutation policies from successful and failed discovery traces.
 
 ## License
 

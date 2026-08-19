@@ -17,7 +17,6 @@ Status: implemented in the MVP.
 - Paper metadata and source provenance.
 - Claim extraction with explicit quoted/source spans.
 - Claim-to-claim contradiction and dependency edges.
-- Time-aware corpus snapshots for historical benchmarks.
 - Deduplication across preprints and published versions.
 
 ## Milestone 3: production embeddings and graph retrieval
@@ -25,7 +24,7 @@ Status: implemented in the MVP.
 - Replace hash embeddings with learned embeddings per axis.
 - Keep axes independently queryable.
 - Add graph-neighborhood expansion after vector retrieval.
-- Learn retrieval weights on historical rediscovery tasks.
+- Learn retrieval weights from expert-judged retrieval outcomes.
 - Evaluate whether domain-distance reward improves discovery rather than merely novelty.
 
 ## Milestone 4: research workers
@@ -40,20 +39,7 @@ Route proof obligations to specialized workers:
 
 Every worker returns evidence with an epistemic status. No worker may silently upgrade computational evidence to proof.
 
-## Milestone 5: historical rediscovery benchmark
-
-Create time-cutoff benchmarks around conceptual breakthroughs such as:
-
-- Dirac linearization,
-- Lee–Yang zeros,
-- renormalization group,
-- Hubbard–Stratonovich transformation,
-- path integrals,
-- dimensional regularization.
-
-Compare ordinary semantic RAG with the proposed multi-axis discovery retrieval.
-
-## Milestone 6: policy learning from discovery traces
+## Milestone 5: policy learning from discovery traces
 
 Once enough traces exist, learn which combinations of:
 
@@ -63,6 +49,6 @@ Once enough traces exist, learn which combinations of:
 - critic checks,
 - verification actions
 
-lead to cheap decisive falsification or historically validated rediscovery.
+lead to cheap decisive falsification.
 
 The target is not a model that produces more ideas. It is a system that spends search budget more intelligently.
