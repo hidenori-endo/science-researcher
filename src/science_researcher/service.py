@@ -2,10 +2,11 @@ from __future__ import annotations
 
 from .db import GraphStore
 from .embeddings import HashEmbedder
-from .embedding_openai import OpenAIEmbeddingProvider
-from .postgres_store import PostgresGraphStore
+from .hybrid_retrieval import HybridRetriever
 from .pipeline import DiscoveryEngine
+from .postgres_store import PostgresGraphStore
 from .provider import HeuristicProvider, ReasoningProvider
+from .research import ResearchIndex
 from .retrieval import MultiAxisRetriever
 from .seed import SEED_NODES
 
@@ -35,7 +36,13 @@ def build_engine(
     critic: ReasoningProvider | None = None,
     embedder: object | None = None,
 ) -> DiscoveryEngine:
-    retriever = MultiAxisRetriever(store, embedder or HashEmbedder())
+    resolved_embedder = embedder or HashEmbedder()
+    node_retriever = MultiAxisRetriever(store, resolved_embedder)
+    retriever = HybridRetriever(
+        store,
+        node_retriever=node_retriever,
+        research_index=ResearchIndex(store, resolved_embedder),
+    )
     return DiscoveryEngine(
         store=store,
         retriever=retriever,

@@ -237,9 +237,12 @@ class ResearchIndex:
         *,
         entity_kind: str | None = None,
         limit: int = 10,
+        mode: str = "analogy",
     ) -> list[dict[str, Any]]:
         if entity_kind not in (None, "claim", "evidence"):
             raise ValueError("entity_kind must be claim, evidence, or None")
+        if mode not in ("analogy", "memory"):
+            raise ValueError("mode must be analogy or memory")
         query_vectors = {axis: self.embedder.embed(query.axis_text(axis)) for axis in RESEARCH_AXES}
         records: list[tuple[str, ResearchClaim | Evidence]] = []
         if entity_kind in (None, "claim"):
@@ -249,27 +252,53 @@ class ResearchIndex:
 
         hits: list[dict[str, Any]] = []
         for kind, record in records:
+            try:
+                stored_vectors = {
+                    axis: self.store.get_research_vector(kind, record.id, axis)
+                    for axis in RESEARCH_AXES
+                }
+            except KeyError:
+                # Records created through the low-level store API can exist before
+                # indexing. Search only returns records with a complete axis index.
+                continue
             similarities = {
-                axis: cosine_similarity(
-                    query_vectors[axis], self.store.get_research_vector(kind, record.id, axis)
-                )
+                axis: cosine_similarity(query_vectors[axis], stored_vectors[axis])
                 for axis in RESEARCH_AXES
             }
-            domain_distance = 1.0 - max(0.0, similarities["domain"])
+            domain_similarity = min(1.0, max(0.0, similarities["domain"]))
+            domain_distance = 1.0 - domain_similarity
             failure_overlap = overlap_ratio(query.axis_text("failure"), record.axis_text("failure"))
-            score = (
-                0.45 * similarities["mechanism"]
-                + 0.20 * similarities["math_structure"]
-                + 0.15 * similarities["problem_shape"]
-                + 0.10 * similarities["semantic"]
-                + 0.20 * domain_distance
-                - 0.20 * failure_overlap
-            )
+            if mode == "analogy":
+                score = (
+                    0.50 * similarities["mechanism"]
+                    + 0.20 * similarities["math_structure"]
+                    + 0.15 * similarities["problem_shape"]
+                    + 0.15 * similarities["semantic"]
+                    + 0.20 * domain_distance
+                    - 0.20 * failure_overlap
+                )
+            else:
+                # Memory lookup should surface same-domain prior work and matching
+                # failure modes rather than reward distance as analogy search does.
+                score = (
+                    0.30 * similarities["mechanism"]
+                    + 0.15 * similarities["math_structure"]
+                    + 0.15 * similarities["problem_shape"]
+                    + 0.20 * similarities["semantic"]
+                    + 0.10 * domain_similarity
+                    + 0.10 * failure_overlap
+                )
+            source_type = record.record_type if kind == "claim" else record.evidence_type
+            domain = record.domain if kind == "claim" else str(record.metadata.get("domain", "unknown"))
             hits.append(
                 {
                     "entity_kind": kind,
                     "id": record.id,
+                    "external_id": record.external_id,
                     "title": record.title,
+                    "domain": domain,
+                    "epistemic_status": record.epistemic_status,
+                    "source_type": source_type,
                     "score": score,
                     "mechanism_similarity": similarities["mechanism"],
                     "structure_similarity": similarities["math_structure"],

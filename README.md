@@ -116,6 +116,8 @@ The MVP implements:
 - First-class research claims, evidence, typed claim/evidence relations, and versioned idempotent research-bundle import.
 - Canonical research records linked from generated discovery hypotheses.
 - Axis-specific embeddings for claims and evidence through the same hash/OpenAI embedding abstraction.
+- Hybrid discovery retrieval across historical nodes and prior research claims, with evidence/negative results attached as research-memory context.
+- Separate `memory` and cross-domain `analogy` search objectives plus a `search-research` CLI.
 - Failed-idea memory.
 - A deterministic offline provider for reproducible tests.
 - Seed cards for historical breakthroughs and hard scientific problems.

@@ -77,6 +77,8 @@ def cmd_demo(args: argparse.Namespace) -> int:
     store = _make_store(args)
     embedder = _make_embedder(args)
     seed_store(store, embedder)
+    if args.research_bundle:
+        _import_research_bundle(store, embedder, args.research_bundle)
     problem_id = args.problem if args.problem.startswith("problem:") else f"problem:{args.problem}"
     result = build_engine(
         store,
@@ -203,16 +205,47 @@ def cmd_show_claim(args: argparse.Namespace) -> int:
     return 0
 
 
-def cmd_import_research(args: argparse.Namespace) -> int:
-    store = _make_store(args)
-    data = json.loads(Path(args.path).read_text(encoding="utf-8"))
+def _import_research_bundle(store: object, embedder: object, path: str) -> dict[str, object]:
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
     result = store.import_research_bundle(data)
-    index = ResearchIndex(store, _make_embedder(args))
+    index = ResearchIndex(store, embedder)
     for claim_id in result["claims"].values():
         index.index_existing_claim(store.get_research_claim(claim_id))
     for evidence_id in result["evidence"].values():
         index.index_existing_evidence(store.get_evidence(evidence_id))
+    return result
+
+
+def cmd_import_research(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    result = _import_research_bundle(store, _make_embedder(args), args.path)
     _json_dump(result)
+    return 0
+
+
+def cmd_search_research(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    axis_texts = _axis_texts_from_args(args)
+    axis_texts["semantic"] = args.query
+    if args.domain:
+        axis_texts["domain"] = args.domain
+    query = ResearchClaim(
+        id=f"search:{uuid.uuid4()}",
+        title=args.query,
+        statement=args.query,
+        record_type="hypothesis",
+        epistemic_status="unknown",
+        domain=args.domain or "unknown",
+        axis_texts=axis_texts,
+    )
+    entity_kind = None if args.entity_kind == "all" else args.entity_kind
+    hits = ResearchIndex(store, _make_embedder(args)).search(
+        query,
+        entity_kind=entity_kind,
+        limit=args.limit,
+        mode=args.mode,
+    )
+    _json_dump(hits)
     return 0
 
 
@@ -284,6 +317,11 @@ def build_parser() -> argparse.ArgumentParser:
         ],
     )
     demo_parser.add_argument("--candidates", type=int, default=3)
+    demo_parser.add_argument(
+        "--research-bundle",
+        default=None,
+        help="optional research bundle to import/index before the run",
+    )
     demo_parser.add_argument(
         "--provider",
         choices=["heuristic", "openai-compatible"],
@@ -381,6 +419,26 @@ def build_parser() -> argparse.ArgumentParser:
     _add_embedding_args(import_parser)
     import_parser.add_argument("path")
     import_parser.set_defaults(func=cmd_import_research)
+
+    search_research_parser = subparsers.add_parser(
+        "search-research", help="search first-class research claims and evidence by structural similarity"
+    )
+    _add_storage_args(search_research_parser)
+    _add_embedding_args(search_research_parser)
+    _add_research_content_args(search_research_parser)
+    search_research_parser.add_argument("--query", required=True)
+    search_research_parser.add_argument("--domain", default="")
+    search_research_parser.add_argument(
+        "--entity-kind", choices=["all", "claim", "evidence"], default="all"
+    )
+    search_research_parser.add_argument(
+        "--mode",
+        choices=["memory", "analogy"],
+        default="memory",
+        help="memory favors relevant prior work/failure modes; analogy rewards domain distance",
+    )
+    search_research_parser.add_argument("--limit", type=int, default=10)
+    search_research_parser.set_defaults(func=cmd_search_research)
 
     return parser
 

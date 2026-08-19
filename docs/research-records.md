@@ -100,7 +100,12 @@ Claims and evidence participate in the same structural retrieval philosophy as s
 
 The system does not duplicate one raw text blob across all six axes. If an axis has no meaningful representation, it is allowed to be empty. `ResearchIndex` embeds each canonical axis through the existing embedding interface, so the deterministic hash embedder and OpenAI `text-embedding-3-small` both work without coupling the domain model to OpenAI.
 
-Future retrieval can therefore favor mechanism-near, structure-near, domain-far records while penalizing overlap with known failure modes.
+The discovery engine now uses two explicit retrieval objectives rather than treating every stored record as the same kind of analogy:
+
+- `analogy` mode rewards mechanism/structure similarity and domain distance. Historical breakthrough nodes and research **claims** can become mutation sources.
+- `memory` mode favors relevant prior work in the same domain and matching failure modes. Both claims and evidence are returned as context for the generator/critic payload, but evidence is not mutated directly into a new hypothesis.
+
+When a research claim is selected as a direct analogy source, the engine creates a non-canonical `research_memory` projection node only to preserve compatibility with the existing hypothesis provenance foreign key. The generated canonical claim is linked back to the source claim with `DERIVED_FROM`. Canonical research records remain in `research_claims` / `evidences`.
 
 ## CLI
 
@@ -146,6 +151,29 @@ Inspect records:
 science-researcher list-claims --db science.db
 science-researcher list-evidence --db science.db
 science-researcher show-claim --db science.db --claim-id CLAIM_ID
+```
+
+Search research memory directly:
+
+```bash
+science-researcher search-research \
+  --db science.db \
+  --query "parameter continuation uniform estimates" \
+  --mechanism "uniform control parameter continuation" \
+  --domain "partial differential equations" \
+  --mode memory \
+  --limit 10
+```
+
+Use `--mode analogy` when the intent is cross-domain mechanism discovery rather than same-problem prior-work recall.
+
+A discovery run can import/index a research bundle immediately before retrieval:
+
+```bash
+science-researcher demo \
+  --db science.db \
+  --problem navier-stokes \
+  --research-bundle research/initial-research.json
 ```
 
 The same commands work with the existing Neon backend by adding `--store postgres` and providing `DATABASE_URL`.
