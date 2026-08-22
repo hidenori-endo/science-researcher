@@ -1,0 +1,156 @@
+{
+  "summary": {
+    "glass": {
+      "alpha": 0.12594155974246102,
+      "alpha_spread": [
+        0.077270152926738,
+        0.17461296655818404
+      ],
+      "navrami": null,
+      "navrami_spread": null,
+      "phi_temp": null,
+      "phi_temp_spread": null,
+      "phi_null": null,
+      "phi_null_spread": null,
+      "pers_end": 0.097065,
+      "pers_end_spread": [
+        0.09253,
+        0.1016
+      ]
+    },
+    "control": {
+      "alpha": 0.14990688190017462,
+      "alpha_spread": [
+        0.08489458548134525,
+        0.19545010263882817
+      ],
+      "navrami": null,
+      "navrami_spread": null,
+      "phi_temp": null,
+      "phi_temp_spread": null,
+      "phi_null": null,
+      "phi_null_spread": null,
+      "pers_end": 0.0,
+      "pers_end_spread": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "checks": {
+    "S1 phi_temp(glass)>=0.75": false,
+    "S2 null_ratio>=2": false,
+    "S3a alpha_glass+0.06<alpha_ctrl": false,
+    "S3b alpha_ctrl in [0.40,0.60]": false,
+    "S4 navrami(glass)<1.0": false
+  },
+  "gates": {
+    "measurability": true,
+    "arrest": false
+  },
+  "null_ratio": null,
+  "verdict": "INCONCLUSIVE",
+  "a2a": true,
+  "a2b": false,
+  "ctrl_sane": false,
+  "replicas": {
+    "glass": [
+      {
+        "path": "glass_f2_s1.csv",
+        "ok": false,
+        "sweeps": 12000.0,
+        "f_first": 0.03288,
+        "f_plat": 0.97619,
+        "pers_end": 0.111678,
+        "mob_end": 0.0,
+        "growth_ratio": 1.8689324407813863,
+        "alpha_reason": "only 0 pts in window"
+      },
+      {
+        "path": "glass_f2_s2.csv",
+        "ok": true,
+        "sweeps": 12000.0,
+        "f_first": 0.040816,
+        "f_plat": 1.0,
+        "pers_end": 0.1016,
+        "mob_end": 0.0,
+        "growth_ratio": 3.288572211564812,
+        "alpha": 0.17461296655818404,
+        "r2_alpha": 0.7901395796702444,
+        "n_alpha_pts": 30,
+        "alpha_span_dec": 3.236224463202814
+      },
+      {
+        "path": "glass_f2_s3.csv",
+        "ok": true,
+        "sweeps": 12000.0,
+        "f_first": 0.046485,
+        "f_plat": 1.0,
+        "pers_end": 0.09253,
+        "mob_end": 0.0,
+        "growth_ratio": 3.44423214124632,
+        "alpha": 0.077270152926738,
+        "r2_alpha": 0.49338989185616533,
+        "n_alpha_pts": 31,
+        "alpha_span_dec": 3.3631389001241505
+      }
+    ],
+    "control": [
+      {
+        "path": "control_f0_s1.csv",
+        "ok": true,
+        "sweeps": 12000.0,
+        "f_first": 0.03288,
+        "f_plat": 0.9927924285714286,
+        "pers_end": 0.0,
+        "mob_end": 1.0,
+        "growth_ratio": 4.405271030400067,
+        "alpha": 0.08489458548134525,
+        "r2_alpha": 0.43244115933658756,
+        "n_alpha_pts": 32,
+        "alpha_span_dec": 3.456767232816966
+      },
+      {
+        "path": "control_f0_s2.csv",
+        "ok": true,
+        "sweeps": 12000.0,
+        "f_first": 0.040816,
+        "f_plat": 0.9938449999999998,
+        "pers_end": 0.0,
+        "mob_end": 1.0,
+        "growth_ratio": 4.434972353452111,
+        "alpha": 0.1693759575803504,
+        "r2_alpha": 0.590884318542148,
+        "n_alpha_pts": 31,
+        "alpha_span_dec": 3.369390559019621
+      },
+      {
+        "path": "control_f0_s3.csv",
+        "ok": true,
+        "sweeps": 12000.0,
+        "f_first": 0.046485,
+        "f_plat": 0.9927111428571429,
+        "pers_end": 0.0,
+        "mob_end": 1.0,
+        "growth_ratio": 4.564330292846855,
+        "alpha": 0.19545010263882817,
+        "r2_alpha": 0.8366575356995791,
+        "n_alpha_pts": 36,
+        "alpha_span_dec": 3.9122555365302283
+      }
+    ]
+  },
+  "ablation": [
+    {
+      "path": "glass_f3_s1_ablation.csv",
+      "ok": false,
+      "sweeps": 12000.0,
+      "f_first": 0.03288,
+      "f_plat": 0.39172299999999993,
+      "pers_end": 0.740993,
+      "mob_end": 0.0,
+      "growth_ratio": 1.0,
+      "alpha_reason": "only 0 pts in window"
+    }
+  ]
+}
