@@ -102,7 +102,15 @@
         "source_breakthrough": "breakthrough:prion",
         "target_problem": "problem:glass-transition",
         "bridge": "Prion's move: strip the process to its abstract transfer rule, find minimal carrier. Here the candidate carrier is the configuration itself.",
-        "cheap_falsification": "Colloidal glasses: check whether locally-ordered regions grow by boundary conversion kinetics (templated) versus bulk nucleation; distinguishable growth-law exponent."
+        "cheap_falsification": "Colloidal glasses: check whether locally-ordered regions grow by boundary conversion kinetics (templated) versus bulk nucleation; distinguishable growth-law exponent.",
+        "assessment": "inconclusive at stage 1",
+        "verification": {
+          "branch": "verify/prion-glass",
+          "commit": "79baca0",
+          "experiment": "experiments/prion-glass",
+          "verdict": "INCONCLUSIVE",
+          "summary": "2D spin-flip KCM (FA facilitation, exact detailed balance), L=126, quench to T=1.5: growth-kinetics discrimination between templated/interface-limited, nucleation, and coarsening channels was INCONCLUSIVE under pre-registered criteria (amendments v2/v2.1 registered before fits; two inadmissible batches archived)."
+        }
       }
     },
     {
