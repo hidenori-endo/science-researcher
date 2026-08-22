@@ -1,0 +1,3409 @@
+{
+ "summary": {
+  "files_seen": 798,
+  "whiles_found": 1011,
+  "loops_extracted": 273,
+  "duplicates_removed": 141,
+  "parsed_loops_evaluated": 132,
+  "skip_reasons": {
+   "duplicates": 141,
+   "func-skipped:syntax": 71,
+   "loop:body-stmt:for": 33,
+   "loop:body-stmt:while": 4,
+   "loop:body-unsupported": 615,
+   "loop:no-mutated-vars": 4,
+   "loop:no-paths": 2,
+   "loop:nondet-assign-in-body": 15,
+   "loop:uninitialized-local": 11,
+   "loop:unsigned-var": 54,
+   "parse-crash:recursion": 1,
+   "prefix:array-access": 95,
+   "prefix:div-mod": 17,
+   "prefix:float-var": 4,
+   "prefix:opaque-in-comparison": 3,
+   "prefix:return-before-loop": 551,
+   "prefix:stmt:goto": 37,
+   "prefix:stmt:switch": 2,
+   "prefix:syntax": 92,
+   "prefix:token:&": 6,
+   "prefix:token:)": 1,
+   "prefix:token:*": 17,
+   "prefix:token:,": 1,
+   "prefix:token:;": 2,
+   "prefix:token:<": 5,
+   "prefix:token:<=": 7,
+   "prefix:token:=": 3,
+   "prefix:token:==": 4,
+   "prefix:token:>": 1,
+   "prefix:unary:~": 2,
+   "prefix:undeclared-assign": 3,
+   "prefix:unsigned-var": 159
+  },
+  "coverage": {
+   "symmetry_strict": 0.3333333333333333,
+   "symmetry_extended": 0.5227272727272727,
+   "baseline_conserved_only": 0.48484848484848486,
+   "baseline_conserved_plus_eigen": 0.48484848484848486
+  },
+  "counts": {
+   "symmetry_strict_hits": 44,
+   "symmetry_extended_hits": 69,
+   "baseline_conserved_hits": 64,
+   "baseline_hits": 64,
+   "both_methods": 37,
+   "symmetry_strict_only": 7,
+   "baseline_only": 27,
+   "nonlinear_wins": 7
+  },
+  "runtime_s": {
+   "symmetry_engine_strict": 61.7,
+   "symmetry_engine_translation_half": 60.6,
+   "baseline": 4.5
+  }
+ },
+ "rows": [
+  {
+   "loop": "array-examples/sanfoundry_10_ground",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_copy1_ground-1",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_partial_init_ground",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_partition_ground-1",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_partition_ground-1",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_password_ground",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_01",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "size*j - i*size == 0",
+    "j - i == 0",
+    "j - i + size*j - i*size == 0",
+    "j - i - size*j + i*size == 0",
+    "j + size - i == 0",
+    "- j + size + i == 0",
+    "1 + size*j - i*size == 1",
+    "1 - size*j + i*size == 1",
+    "size*j + size^2 - i*size == 0",
+    "- size*j + size^2 + i*size == 0"
+   ],
+   "symext_claims": [
+    "size*j - i*size == 0",
+    "j - i == 0",
+    "j - i + size*j - i*size == 0",
+    "j - i - size*j + i*size == 0",
+    "j + size - i == 0",
+    "- j + size + i == 0",
+    "1 + size*j - i*size == 1",
+    "1 - size*j + i*size == 1",
+    "size*j + size^2 - i*size == 0",
+    "- size*j + size^2 + i*size == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "j - i == 0"
+   ],
+   "base_eigen_claims": [
+    "j - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_02",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/2*i == -1/2"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/2*i == -1/2"
+   ],
+   "base_eigen_claims": [
+    "j - 1/2*i == -1/2"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_03",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/3*i == -1/3"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/3*i == -1/3"
+   ],
+   "base_eigen_claims": [
+    "j - 1/3*i == -1/3"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_04",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/4*i == -1/4"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/4*i == -1/4"
+   ],
+   "base_eigen_claims": [
+    "j - 1/4*i == -1/4"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_05",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/5*i == -1/5"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/5*i == -1/5"
+   ],
+   "base_eigen_claims": [
+    "j - 1/5*i == -1/5"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_06",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/6*i == -1/6"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/6*i == -1/6"
+   ],
+   "base_eigen_claims": [
+    "j - 1/6*i == -1/6"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_07",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/7*i == -1/7"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/7*i == -1/7"
+   ],
+   "base_eigen_claims": [
+    "j - 1/7*i == -1/7"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_08",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/8*i == -1/8"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/8*i == -1/8"
+   ],
+   "base_eigen_claims": [
+    "j - 1/8*i == -1/8"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_09",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/9*i == -1/9"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/9*i == -1/9"
+   ],
+   "base_eigen_claims": [
+    "j - 1/9*i == -1/9"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "bitvector/gcd_4",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "bitvector/jain_5-1",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/down",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "n*k - i*n == 0",
+    "k - i == 0",
+    "k - i + n*k - i*n == 0",
+    "k - i - n*k + i*n == 0",
+    "k + n - i == 0",
+    "- k + n + i == 0",
+    "1 + n*k - i*n == 1",
+    "1 - n*k + i*n == 1",
+    "n*k + n^2 - i*n == 0",
+    "- n*k + n^2 + i*n == 0"
+   ],
+   "symext_claims": [
+    "n*k - i*n == 0",
+    "k - i == 0",
+    "k - i + n*k - i*n == 0",
+    "k - i - n*k + i*n == 0",
+    "k + n - i == 0",
+    "- k + n + i == 0",
+    "1 + n*k - i*n == 1",
+    "1 - n*k + i*n == 1",
+    "n*k + n^2 - i*n == 0",
+    "- n*k + n^2 + i*n == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - i == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/down",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "k - j == 0"
+   ],
+   "symext_claims": [
+    "k - j == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "k - j == 0"
+   ],
+   "base_eigen_claims": [
+    "k - j == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/fragtest_simple",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/fragtest_simple",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 3,
+   "sym_claims": [
+    "LARGE_INT*k - i*LARGE_INT == 0",
+    "k - i == 0"
+   ],
+   "symext_claims": [
+    "LARGE_INT*k - i*LARGE_INT == 0",
+    "k - i == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - i == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/fragtest_simple",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 5,
+   "sym_claims": [
+    "j + k == 0",
+    "k - i == 0",
+    "j^2 + k*j + k^2 + i*j - i*k + i^2 == 0",
+    "j + i == 0"
+   ],
+   "symext_claims": [
+    "j + k == 0",
+    "k - i == 0",
+    "j^2 + k*j + k^2 + i*j - i*k + i^2 == 0",
+    "j + i == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - i == 0",
+    "j + i == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i == 0",
+    "j + i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/half_2",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "k + 1/2*i == 0"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "k + 1/2*i == 0"
+   ],
+   "base_eigen_claims": [
+    "k + 1/2*i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/large_const",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "n*k + n*j == 0",
+    "k + j == 0",
+    "k + j + n*k + n*j == 0",
+    "k + j - n*k - n*j == 0",
+    "k + j + n == 0",
+    "k + j - n == 0",
+    "1 + n*k + n*j == 1",
+    "1 - n*k - n*j == 1",
+    "n*k + n*j + n^2 == 0",
+    "n*k + n*j - n^2 == 0"
+   ],
+   "symext_claims": [
+    "n*k + n*j == 0",
+    "k + j == 0",
+    "k + j + n*k + n*j == 0",
+    "k + j - n*k - n*j == 0",
+    "k + j + n == 0",
+    "k + j - n == 0",
+    "1 + n*k + n*j == 1",
+    "1 - n*k - n*j == 1",
+    "n*k + n*j + n^2 == 0",
+    "n*k + n*j - n^2 == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k + j == 0"
+   ],
+   "base_eigen_claims": [
+    "k + j == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/seq-3",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "n0*k - n0*i0 == 0",
+    "k - i0 == 0",
+    "k - i0 + n0*k - n0*i0 == 0",
+    "k - i0 - n0*k + n0*i0 == 0",
+    "k - i0 + n0 == 0",
+    "k - i0 - n0 == 0",
+    "1 + n0*k - n0*i0 == 1",
+    "1 - n0*k + n0*i0 == 1",
+    "n0*k - n0*i0 + n0^2 == 0",
+    "n0*k - n0*i0 - n0^2 == 0"
+   ],
+   "symext_claims": [
+    "n0*k - n0*i0 == 0",
+    "k - i0 == 0",
+    "k - i0 + n0*k - n0*i0 == 0",
+    "k - i0 - n0*k + n0*i0 == 0",
+    "k - i0 + n0 == 0",
+    "k - i0 - n0 == 0",
+    "1 + n0*k - n0*i0 == 1",
+    "1 - n0*k + n0*i0 == 1",
+    "n0*k - n0*i0 + n0^2 == 0",
+    "n0*k - n0*i0 - n0^2 == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - i0 == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i0 == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/seq-3",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "n1*k - n1*i1 == 0",
+    "k - i1 == 0",
+    "k - i1 + n1*k - n1*i1 == 0",
+    "k - i1 - n1*k + n1*i1 == 0",
+    "k - i1 + n1 == 0",
+    "k - i1 - n1 == 0",
+    "1 + n1*k - n1*i1 == 1",
+    "1 - n1*k + n1*i1 == 1",
+    "n1*k - n1*i1 + n1^2 == 0",
+    "n1*k - n1*i1 - n1^2 == 0"
+   ],
+   "symext_claims": [
+    "n1*k - n1*i1 == 0",
+    "k - i1 == 0",
+    "k - i1 + n1*k - n1*i1 == 0",
+    "k - i1 - n1*k + n1*i1 == 0",
+    "k - i1 + n1 == 0",
+    "k - i1 - n1 == 0",
+    "1 + n1*k - n1*i1 == 1",
+    "1 - n1*k + n1*i1 == 1",
+    "n1*k - n1*i1 + n1^2 == 0",
+    "n1*k - n1*i1 - n1^2 == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - i1 == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i1 == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/seq-3",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 3,
+   "sym_nsyms": 63,
+   "sym_claims": [
+    "n1*k + n1*j1 == 0",
+    "k + j1 == 0",
+    "n0*k + n0*j1 == 0",
+    "k + j1 + n1*k + n1*j1 == 0",
+    "k + j1 - n1*k - n1*j1 == 0",
+    "k + j1 + n0*k + n0*j1 == 0",
+    "k + j1 - n0*k - n0*j1 == 0",
+    "n1*k + n1*j1 + n0*k + n0*j1 == 0",
+    "n1*k + n1*j1 - n0*k - n0*j1 == 0",
+    "k + j1 + n1 == 0",
+    "k + j1 - n1 == 0",
+    "k + j1 + n0*n1 == 0",
+    "k + j1 - n0*n1 == 0",
+    "n1 + n0*k + n0*j1 == 0",
+    "n1 - n0*k - n0*j1 == 0",
+    "n0*k + n0*j1 + n0*n1 == 0",
+    "n0*k + n0*j1 - n0*n1 == 0",
+    "1 + n1*k + n1*j1 == 1",
+    "1 - n1*k - n1*j1 == 1",
+    "n0 + n1*k + n1*j1 == 0",
+    "n0 - n1*k - n1*j1 == 0",
+    "n1*k + n1*j1 + n1^2 == 0",
+    "n1*k + n1*j1 - n1^2 == 0",
+    "n1*k + n1*j1 + n0^2 == 0",
+    "n1*k + n1*j1 - n0^2 == 0",
+    "k + j1 + n0 == 0",
+    "k + j1 - n0 == 0",
+    "n1*k + n1*j1 + n0*n1 == 0",
+    "n1*k + n1*j1 - n0*n1 == 0",
+    "1 + n0*k + n0*j1 == 1",
+    "1 - n0*k - n0*j1 == 1",
+    "n1^2 + n0*k + n0*j1 == 0",
+    "n1^2 - n0*k - n0*j1 == 0",
+    "n0*k + n0*j1 + n0^2 == 0",
+    "n0*k + n0*j1 - n0^2 == 0",
+    "k + j1 + n1 - n0 == 0",
+    "k + j1 - n1 + n0 == 0",
+    "k + j1 + n1^2 - n0^2 == 0",
+    "k + j1 - n1^2 + n0^2 == 0",
+    "k + j1 + n1 + n0 == 0",
+    "k + j1 - n1 - n0 == 0"
+   ],
+   "symext_claims": [
+    "n1*k + n1*j1 == 0",
+    "k + j1 == 0",
+    "n0*k + n0*j1 == 0",
+    "k + j1 + n1*k + n1*j1 == 0",
+    "k + j1 - n1*k - n1*j1 == 0",
+    "k + j1 + n0*k + n0*j1 == 0",
+    "k + j1 - n0*k - n0*j1 == 0",
+    "n1*k + n1*j1 + n0*k + n0*j1 == 0",
+    "n1*k + n1*j1 - n0*k - n0*j1 == 0",
+    "k + j1 + n1 == 0",
+    "k + j1 - n1 == 0",
+    "k + j1 + n0*n1 == 0",
+    "k + j1 - n0*n1 == 0",
+    "n1 + n0*k + n0*j1 == 0",
+    "n1 - n0*k - n0*j1 == 0",
+    "n0*k + n0*j1 + n0*n1 == 0",
+    "n0*k + n0*j1 - n0*n1 == 0",
+    "1 + n1*k + n1*j1 == 1",
+    "1 - n1*k - n1*j1 == 1",
+    "n0 + n1*k + n1*j1 == 0",
+    "n0 - n1*k - n1*j1 == 0",
+    "n1*k + n1*j1 + n1^2 == 0",
+    "n1*k + n1*j1 - n1^2 == 0",
+    "n1*k + n1*j1 + n0^2 == 0",
+    "n1*k + n1*j1 - n0^2 == 0",
+    "k + j1 + n0 == 0",
+    "k + j1 - n0 == 0",
+    "n1*k + n1*j1 + n0*n1 == 0",
+    "n1*k + n1*j1 - n0*n1 == 0",
+    "1 + n0*k + n0*j1 == 1",
+    "1 - n0*k - n0*j1 == 1",
+    "n1^2 + n0*k + n0*j1 == 0",
+    "n1^2 - n0*k - n0*j1 == 0",
+    "n0*k + n0*j1 + n0^2 == 0",
+    "n0*k + n0*j1 - n0^2 == 0",
+    "k + j1 + n1 - n0 == 0",
+    "k + j1 - n1 + n0 == 0",
+    "k + j1 + n1^2 - n0^2 == 0",
+    "k + j1 - n1^2 + n0^2 == 0",
+    "k + j1 + n1 + n0 == 0",
+    "k + j1 - n1 - n0 == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k + j1 == 0"
+   ],
+   "base_eigen_claims": [
+    "k + j1 == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/afnp2014",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/bhmr2007",
+   "nvars": 4,
+   "nbranches": 2,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "b + a - 3*i == 0"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "b + a - 3*i == 0"
+   ],
+   "base_eigen_claims": [
+    "b + a - 3*i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/cggmp2005",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "i + 2*j == 21"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "i + 2*j == 21"
+   ],
+   "base_eigen_claims": [
+    "i + 2*j == 21"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/cggmp2005_variant",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 5,
+   "sym_claims": [
+    "hi + lo == 0",
+    "lo + mid == 0",
+    "hi^2 + lo*hi + lo^2 - mid*hi + mid*lo + mid^2 == 0",
+    "hi - mid == 0"
+   ],
+   "symext_claims": [
+    "hi + lo == 0",
+    "lo + mid == 0",
+    "hi^2 + lo*hi + lo^2 - mid*hi + mid*lo + mid^2 == 0",
+    "hi - mid == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "lo + mid == 0",
+    "hi - mid == 0"
+   ],
+   "base_eigen_claims": [
+    "lo + mid == 0",
+    "hi - mid == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/css2003",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 3,
+   "sym_claims": [
+    "i*LARGE_INT + k*LARGE_INT == 0",
+    "i + k == 1"
+   ],
+   "symext_claims": [
+    "i*LARGE_INT + k*LARGE_INT == 0",
+    "i + k == 1"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "i + k == 1"
+   ],
+   "base_eigen_claims": [
+    "i + k == 1"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/gj2007",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/gj2007b",
+   "nvars": 3,
+   "nbranches": 2,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/gr2006",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/gsv2008",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/hhk2008",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "res + cnt == 0"
+   ],
+   "symext_claims": [
+    "res + cnt == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "res + cnt == 0"
+   ],
+   "base_eigen_claims": [
+    "res + cnt == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/jm2006",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "y - x == 0"
+   ],
+   "symext_claims": [
+    "y - x == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "y - x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/jm2006_variant",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "z + x == 0",
+    "z^2 + y*z + x*y - x^2 == 0",
+    "z + y - x == 0"
+   ],
+   "symext_claims": [
+    "z + x == 0",
+    "z^2 + y*z + x*y - x^2 == 0",
+    "z + y - x == 0",
+    "y - 2*x == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "y - 2*x == 0",
+    "z + x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - 2*x == 0",
+    "z + x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-new/count_by_2",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-new/count_by_k",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-new/gauss_sum",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-simple/nested_1",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark01_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 19,
+   "sym_claims": [
+    "y - x == 0",
+    "y^2 - x*y == 0",
+    "y^2 - x^2 == 0",
+    "x*y - x^2 == 0",
+    "y - x + y^2 - x^2 == 0",
+    "y - x - y^2 + x^2 == 0"
+   ],
+   "symext_claims": [
+    "y - x == 0",
+    "y^2 - x*y == 0",
+    "y^2 - x^2 == 0",
+    "x*y - x^2 == 0",
+    "y - x + y^2 - x^2 == 0",
+    "y - x - y^2 + x^2 == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": true
+  },
+  {
+   "loop": "loop-zilu/benchmark02_linear",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark03_linear",
+   "nvars": 5,
+   "nbranches": 2,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [
+    "y*flag - x*flag == 0",
+    "y - x == 0",
+    "y - x + y*flag - x*flag == 0",
+    "y - x - y*flag + x*flag == 0",
+    "flag + y - x == 0",
+    "flag - y + x == 0",
+    "1 + y*flag - x*flag == 1",
+    "1 - y*flag + x*flag == 1",
+    "flag^2 + y*flag - x*flag == 0",
+    "flag^2 - y*flag + x*flag == 0"
+   ],
+   "symext_claims": [
+    "y*flag - x*flag == 0",
+    "y - x == 0",
+    "y - x + y*flag - x*flag == 0",
+    "y - x - y*flag + x*flag == 0",
+    "flag + y - x == 0",
+    "flag - y + x == 0",
+    "1 + y*flag - x*flag == 1",
+    "1 - y*flag + x*flag == 1",
+    "flag^2 + y*flag - x*flag == 0",
+    "flag^2 - y*flag + x*flag == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "y - x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark04_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "n*j + n*k == 0",
+    "j + k == 0",
+    "j + k + n*j + n*k == 0",
+    "j + k - n*j - n*k == 0",
+    "j + k + n == 0",
+    "j + k - n == 0",
+    "1 + n*j + n*k == 1",
+    "1 - n*j - n*k == 1",
+    "n*j + n*k + n^2 == 0",
+    "n*j + n*k - n^2 == 0"
+   ],
+   "symext_claims": [
+    "n*j + n*k == 0",
+    "j + k == 0",
+    "j + k + n*j + n*k == 0",
+    "j + k - n*j - n*k == 0",
+    "j + k + n == 0",
+    "j + k - n == 0",
+    "1 + n*j + n*k == 1",
+    "1 - n*j - n*k == 1",
+    "n*j + n*k + n^2 == 0",
+    "n*j + n*k - n^2 == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "j + k == 0"
+   ],
+   "base_eigen_claims": [
+    "j + k == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark05_conjunctive",
+   "nvars": 3,
+   "nbranches": 2,
+   "params": 3,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark06_conjunctive",
+   "nvars": 4,
+   "nbranches": 2,
+   "params": 3,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "y*i + x*i == 0",
+    "y + x == 0",
+    "y + x + y*i + x*i == 0",
+    "y + x - y*i - x*i == 0",
+    "i + y + x == 0",
+    "i - y - x == 0",
+    "1 + y*i + x*i == 1",
+    "1 - y*i - x*i == 1",
+    "i^2 + y*i + x*i == 0",
+    "i^2 - y*i - x*i == 0"
+   ],
+   "symext_claims": [
+    "y*i + x*i == 0",
+    "y + x == 0",
+    "y + x + y*i + x*i == 0",
+    "y + x - y*i - x*i == 0",
+    "i + y + x == 0",
+    "i - y - x == 0",
+    "1 + y*i + x*i == 1",
+    "1 - y*i - x*i == 1",
+    "i^2 + y*i + x*i == 0",
+    "i^2 - y*i - x*i == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "y + x == 0"
+   ],
+   "base_eigen_claims": [
+    "y + x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark07_linear",
+   "nvars": 4,
+   "nbranches": 2,
+   "params": 3,
+   "sym_nsyms": 31,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark08_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark10_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark11_linear",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark12_linear",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark13_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "j*k - i*k == 0",
+    "j - i == 0",
+    "j - i + j*k - i*k == 0",
+    "j - i - j*k + i*k == 0",
+    "k + j - i == 0",
+    "k - j + i == 0",
+    "1 + j*k - i*k == 1",
+    "1 - j*k + i*k == 1",
+    "k^2 + j*k - i*k == 0",
+    "k^2 - j*k + i*k == 0"
+   ],
+   "symext_claims": [
+    "j*k - i*k == 0",
+    "j - i == 0",
+    "j - i + j*k - i*k == 0",
+    "j - i - j*k + i*k == 0",
+    "k + j - i == 0",
+    "k - j + i == 0",
+    "1 + j*k - i*k == 1",
+    "1 - j*k + i*k == 1",
+    "k^2 + j*k - i*k == 0",
+    "k^2 - j*k + i*k == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "j - i == 0"
+   ],
+   "base_eigen_claims": [
+    "j - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark14_linear",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark15_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 5,
+   "sym_claims": [
+    "high - mid == 0",
+    "mid + low == 0",
+    "- high^2 + mid*high - mid^2 - low*high - low*mid - low^2 == 0",
+    "high + low == 0"
+   ],
+   "symext_claims": [
+    "high - mid == 0",
+    "mid + low == 0",
+    "- high^2 + mid*high - mid^2 - low*high - low*mid - low^2 == 0",
+    "high + low == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "mid + low == 0",
+    "high + low == 0"
+   ],
+   "base_eigen_claims": [
+    "mid + low == 0",
+    "high + low == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark16_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "i + k == 1"
+   ],
+   "symext_claims": [
+    "i + k == 1"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "i + k == 1"
+   ],
+   "base_eigen_claims": [
+    "i + k == 1"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark17_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "k*n - i*n == 0",
+    "k - i == 0",
+    "k - i + k*n - i*n == 0",
+    "k - i - k*n + i*n == 0",
+    "n + k - i == 0",
+    "n - k + i == 0",
+    "1 + k*n - i*n == 1",
+    "1 - k*n + i*n == 1",
+    "n^2 + k*n - i*n == 0",
+    "n^2 - k*n + i*n == 0"
+   ],
+   "symext_claims": [
+    "k*n - i*n == 0",
+    "k - i == 0",
+    "k - i + k*n - i*n == 0",
+    "k - i - k*n + i*n == 0",
+    "n + k - i == 0",
+    "n - k + i == 0",
+    "1 + k*n - i*n == 1",
+    "1 - k*n + i*n == 1",
+    "n^2 + k*n - i*n == 0",
+    "n^2 - k*n + i*n == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - i == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark19_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 3,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "n*k - j*n == 0",
+    "k - j == 0",
+    "k - j + n*k - j*n == 0",
+    "k - j - n*k + j*n == 0",
+    "k + n - j == 0",
+    "- k + n + j == 0",
+    "1 + n*k - j*n == 1",
+    "1 - n*k + j*n == 1",
+    "n*k + n^2 - j*n == 0",
+    "- n*k + n^2 + j*n == 0"
+   ],
+   "symext_claims": [
+    "n*k - j*n == 0",
+    "k - j == 0",
+    "k - j + n*k - j*n == 0",
+    "k - j - n*k + j*n == 0",
+    "k + n - j == 0",
+    "- k + n + j == 0",
+    "1 + n*k - j*n == 1",
+    "1 - n*k + j*n == 1",
+    "n*k + n^2 - j*n == 0",
+    "- n*k + n^2 + j*n == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - j == 0"
+   ],
+   "base_eigen_claims": [
+    "k - j == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark20_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark21_disjunctive",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark22_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark23_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 2*i == 0"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 2*i == 0"
+   ],
+   "base_eigen_claims": [
+    "j - 2*i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark24_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "k + 1/2*i == 0"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "k + 1/2*i == 0"
+   ],
+   "base_eigen_claims": [
+    "k + 1/2*i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark25_linear",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark26_linear",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark27_linear",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 3,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "j*k - i*j == 0",
+    "k - i == 0",
+    "k - i + j*k - i*j == 0",
+    "k - i - j*k + i*j == 0",
+    "k + j - i == 0",
+    "- k + j + i == 0",
+    "1 + j*k - i*j == 1",
+    "1 - j*k + i*j == 1",
+    "j*k + j^2 - i*j == 0",
+    "- j*k + j^2 + i*j == 0"
+   ],
+   "symext_claims": [
+    "j*k - i*j == 0",
+    "k - i == 0",
+    "k - i + j*k - i*j == 0",
+    "k - i - j*k + i*j == 0",
+    "k + j - i == 0",
+    "- k + j + i == 0",
+    "1 + j*k - i*j == 1",
+    "1 - j*k + i*j == 1",
+    "j*k + j^2 - i*j == 0",
+    "- j*k + j^2 + i*j == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k - i == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark28_linear",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark29_linear",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark30_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "x - y == 0"
+   ],
+   "symext_claims": [
+    "x - y == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "x - y == 0"
+   ],
+   "base_eigen_claims": [
+    "x - y == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark31_disjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark32_linear",
+   "nvars": 1,
+   "nbranches": 3,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark33_linear",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark34_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "k*n + j*n == 0",
+    "k + j == 0",
+    "k + j + k*n + j*n == 0",
+    "k + j - k*n - j*n == 0",
+    "n + k + j == 0",
+    "n - k - j == 0",
+    "1 + k*n + j*n == 1",
+    "1 - k*n - j*n == 1",
+    "n^2 + k*n + j*n == 0",
+    "n^2 - k*n - j*n == 0"
+   ],
+   "symext_claims": [
+    "k*n + j*n == 0",
+    "k + j == 0",
+    "k + j + k*n + j*n == 0",
+    "k + j - k*n - j*n == 0",
+    "n + k + j == 0",
+    "n - k - j == 0",
+    "1 + k*n + j*n == 1",
+    "1 - k*n - j*n == 1",
+    "n^2 + k*n + j*n == 0",
+    "n^2 - k*n - j*n == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "k + j == 0"
+   ],
+   "base_eigen_claims": [
+    "k + j == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark35_linear",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark36_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "y - x == 0"
+   ],
+   "symext_claims": [
+    "y - x == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "y - x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark38_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "y - 1/4*x == 0"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "y - 1/4*x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - 1/4*x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark39_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "y - 1/4*x == 0"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "y - 1/4*x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - 1/4*x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark40_polynomial",
+   "nvars": 2,
+   "nbranches": 6,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark41_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "y - x == 0",
+    "y*z + y^2 - x*z - x^2 == 0",
+    "z + y + x == 0"
+   ],
+   "symext_claims": [
+    "y - x == 0",
+    "y*z + y^2 - x*z - x^2 == 0",
+    "z + y + x == 0",
+    "z + 2*x == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "y - x == 0",
+    "z + 2*x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0",
+    "z + 2*x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark42_conjunctive",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 3,
+   "sym_nsyms": 5,
+   "sym_claims": [
+    "z + y == 0",
+    "y - x == 0",
+    "z^2 + y*z + y^2 + x*z - x*y + x^2 == 0",
+    "z + x == 0"
+   ],
+   "symext_claims": [
+    "z + y == 0",
+    "y - x == 0",
+    "z^2 + y*z + y^2 + x*z - x*y + x^2 == 0",
+    "z + x == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "y - x == 0",
+    "z + x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0",
+    "z + x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark43_conjunctive",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "y - x == 0"
+   ],
+   "symext_claims": [
+    "y - x == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "y - x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark44_disjunctive",
+   "nvars": 2,
+   "nbranches": 6,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark45_disjunctive",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark46_disjunctive",
+   "nvars": 3,
+   "nbranches": 4,
+   "params": 3,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark47_linear",
+   "nvars": 2,
+   "nbranches": 4,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark49_linear",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "j + i == 0"
+   ],
+   "symext_claims": [
+    "j + i == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "j + i == 0"
+   ],
+   "base_eigen_claims": [
+    "j + i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark50_linear",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "ya + xa == 0"
+   ],
+   "symext_claims": [
+    "ya + xa == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "ya + xa == 0"
+   ],
+   "base_eigen_claims": [
+    "ya + xa == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark51_polynomial",
+   "nvars": 1,
+   "nbranches": 4,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-zilu/benchmark52_polynomial",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum01-1",
+   "nvars": 4,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum01-2",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [
+    "sn - i*a == 0"
+   ],
+   "symext_claims": [
+    "sn - i*a == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": true
+  },
+  {
+   "loop": "loops/sum01_bug02",
+   "nvars": 5,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "j*a + i*a == 0",
+    "j + i == 11",
+    "n*j + i*n == 0",
+    "j + i + j*a + i*a == 11",
+    "j + i - j*a - i*a == 11",
+    "j + i + n*j + i*n == 11",
+    "j + i - n*j - i*n == 11",
+    "j*a + n*j + i*a + i*n == 0",
+    "j*a - n*j + i*a - i*n == 0",
+    "a + j + i == 11",
+    "a - j - i == -11",
+    "a + n*j + i*n == 0",
+    "a - n*j - i*n == 0",
+    "j + i + n*a == 11",
+    "j + i - n*a == 11",
+    "n*a + n*j + i*n == 0",
+    "n*a - n*j - i*n == 0",
+    "1 + j*a + i*a == 1",
+    "1 - j*a - i*a == 1",
+    "n + j*a + i*a == 0",
+    "n - j*a - i*a == 0",
+    "a^2 + j*a + i*a == 0",
+    "a^2 - j*a - i*a == 0",
+    "j*a + n^2 + i*a == 0",
+    "- j*a + n^2 - i*a == 0",
+    "j + n + i == 11",
+    "- j + n - i == -11",
+    "j*a + n*a + i*a == 0",
+    "- j*a + n*a - i*a == 0",
+    "1 + n*j + i*n == 1",
+    "1 - n*j - i*n == 1",
+    "a^2 + n*j + i*n == 0",
+    "a^2 - n*j - i*n == 0",
+    "n*j + n^2 + i*n == 0",
+    "- n*j + n^2 - i*n == 0"
+   ],
+   "symext_claims": [
+    "j*a + i*a == 0",
+    "j + i == 11",
+    "n*j + i*n == 0",
+    "j + i + j*a + i*a == 11",
+    "j + i - j*a - i*a == 11",
+    "j + i + n*j + i*n == 11",
+    "j + i - n*j - i*n == 11",
+    "j*a + n*j + i*a + i*n == 0",
+    "j*a - n*j + i*a - i*n == 0",
+    "a + j + i == 11",
+    "a - j - i == -11",
+    "a + n*j + i*n == 0",
+    "a - n*j - i*n == 0",
+    "j + i + n*a == 11",
+    "j + i - n*a == 11",
+    "n*a + n*j + i*n == 0",
+    "n*a - n*j - i*n == 0",
+    "1 + j*a + i*a == 1",
+    "1 - j*a - i*a == 1",
+    "n + j*a + i*a == 0",
+    "n - j*a - i*a == 0",
+    "a^2 + j*a + i*a == 0",
+    "a^2 - j*a - i*a == 0",
+    "j*a + n^2 + i*a == 0",
+    "- j*a + n^2 - i*a == 0",
+    "j + n + i == 11",
+    "- j + n - i == -11",
+    "j*a + n*a + i*a == 0",
+    "- j*a + n*a - i*a == 0",
+    "1 + n*j + i*n == 1",
+    "1 - n*j - i*n == 1",
+    "a^2 + n*j + i*n == 0",
+    "a^2 - n*j - i*n == 0",
+    "n*j + n^2 + i*n == 0",
+    "- n*j + n^2 - i*n == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "j + i == 11"
+   ],
+   "base_eigen_claims": [
+    "j + i == 11"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum01_bug02_sum01_bug02_base.case",
+   "nvars": 4,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum04-1",
+   "nvars": 4,
+   "nbranches": 2,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum04-2",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [
+    "sn - i*a == 0"
+   ],
+   "symext_claims": [
+    "sn - i*a == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": true
+  },
+  {
+   "loop": "loops/terminator_03-1",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/trex01-1",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 64,
+   "sym_claims": [
+    "k*z == 0"
+   ],
+   "symext_claims": [
+    "k*z == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": true
+  },
+  {
+   "loop": "loops-crafted-1/Mono4_1",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/loopv2",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/loopv3",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 0,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/mono-crafted_1",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/mono-crafted_1",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "y*z - x*z == 0",
+    "y - x == 0",
+    "y - x + y*z - x*z == 0",
+    "y - x - y*z + x*z == 0",
+    "z + y - x == 0",
+    "z - y + x == 0",
+    "1 + y*z - x*z == 1",
+    "1 - y*z + x*z == 1",
+    "z^2 + y*z - x*z == 0",
+    "z^2 - y*z + x*z == 0"
+   ],
+   "symext_claims": [
+    "y*z - x*z == 0",
+    "y - x == 0",
+    "y - x + y*z - x*z == 0",
+    "y - x - y*z + x*z == 0",
+    "z + y - x == 0",
+    "z - y + x == 0",
+    "1 + y*z - x*z == 1",
+    "1 - y*z + x*z == 1",
+    "z^2 + y*z - x*z == 0",
+    "z^2 - y*z + x*z == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "y - x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/mono-crafted_14",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "z + x == 0",
+    "z^2 + y*z + x*y - x^2 == 0",
+    "z + y - x == 0"
+   ],
+   "symext_claims": [
+    "z + x == 0",
+    "z^2 + y*z + x*y - x^2 == 0",
+    "z + y - x == 0",
+    "y - 2*x == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "y - 2*x == 0",
+    "z + x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - 2*x == 0",
+    "z + x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/mono-crafted_6",
+   "nvars": 2,
+   "nbranches": 3,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/mono-crafted_7",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "y - x == 0"
+   ],
+   "symext_claims": [
+    "y - x == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "y - x == 0"
+   ],
+   "base_eigen_claims": [
+    "y - x == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops-crafted-1/theatreSquare",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [
+    "b - a*i == 0"
+   ],
+   "symext_claims": [
+    "b - a*i == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": true
+  },
+  {
+   "loop": "loops-crafted-1/theatreSquare",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [
+    "l - a*j == 0"
+   ],
+   "symext_claims": [
+    "l - a*j == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": true
+  },
+  {
+   "loop": "loops-crafted-1/theatreSquare",
+   "nvars": 4,
+   "nbranches": 1,
+   "params": 2,
+   "sym_nsyms": 15,
+   "sym_claims": [
+    "y - j*x == 0"
+   ],
+   "symext_claims": [
+    "y - j*x == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": true
+  },
+  {
+   "loop": "loops-crafted-1/watermelon",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_copy1_ground-1",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_01",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 1,
+   "sym_claims": [
+    "j - i == 0"
+   ],
+   "symext_claims": [
+    "j - i == 0"
+   ],
+   "sym_maxdeg": 1,
+   "base_claims": [
+    "j - i == 0"
+   ],
+   "base_eigen_claims": [
+    "j - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_02",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/2*i == -1/2"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/2*i == -1/2"
+   ],
+   "base_eigen_claims": [
+    "j - 1/2*i == -1/2"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_03",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/3*i == -1/3"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/3*i == -1/3"
+   ],
+   "base_eigen_claims": [
+    "j - 1/3*i == -1/3"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_04",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/4*i == -1/4"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/4*i == -1/4"
+   ],
+   "base_eigen_claims": [
+    "j - 1/4*i == -1/4"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_05",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/5*i == -1/5"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/5*i == -1/5"
+   ],
+   "base_eigen_claims": [
+    "j - 1/5*i == -1/5"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_06",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/6*i == -1/6"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/6*i == -1/6"
+   ],
+   "base_eigen_claims": [
+    "j - 1/6*i == -1/6"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_07",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/7*i == -1/7"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/7*i == -1/7"
+   ],
+   "base_eigen_claims": [
+    "j - 1/7*i == -1/7"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_08",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/8*i == -1/8"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/8*i == -1/8"
+   ],
+   "base_eigen_claims": [
+    "j - 1/8*i == -1/8"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "array-examples/standard_two_index_09",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "j - 1/9*i == -1/9"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "j - 1/9*i == -1/9"
+   ],
+   "base_eigen_claims": [
+    "j - 1/9*i == -1/9"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/fragtest_simple",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-invgen/fragtest_simple",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "k - i == 0"
+   ],
+   "base_eigen_claims": [
+    "k - i == 0"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-lit/css2003",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "i + k == 1"
+   ],
+   "base_eigen_claims": [
+    "i + k == 1"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-new/count_by_2",
+   "nvars": 1,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loop-new/count_by_k",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 9,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum01-1",
+   "nvars": 3,
+   "nbranches": 2,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum01-2",
+   "nvars": 3,
+   "nbranches": 1,
+   "params": 1,
+   "sym_nsyms": 3,
+   "sym_claims": [],
+   "symext_claims": [
+    "sn - 2*i == -2"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "sn - 2*i == -2"
+   ],
+   "base_eigen_claims": [
+    "sn - 2*i == -2"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum01_bug02",
+   "nvars": 4,
+   "nbranches": 2,
+   "params": 1,
+   "sym_nsyms": 7,
+   "sym_claims": [
+    "n*j + i*n == 0",
+    "j + i == 11",
+    "j + i + n*j + i*n == 11",
+    "j + i - n*j - i*n == 11",
+    "j + n + i == 11",
+    "- j + n - i == -11",
+    "1 + n*j + i*n == 1",
+    "1 - n*j - i*n == 1",
+    "n*j + n^2 + i*n == 0",
+    "- n*j + n^2 - i*n == 0"
+   ],
+   "symext_claims": [
+    "n*j + i*n == 0",
+    "j + i == 11",
+    "j + i + n*j + i*n == 11",
+    "j + i - n*j - i*n == 11",
+    "j + n + i == 11",
+    "- j + n - i == -11",
+    "1 + n*j + i*n == 1",
+    "1 - n*j - i*n == 1",
+    "n*j + n^2 + i*n == 0",
+    "- n*j + n^2 - i*n == 0"
+   ],
+   "sym_maxdeg": 2,
+   "base_claims": [
+    "j + i == 11"
+   ],
+   "base_eigen_claims": [
+    "j + i == 11"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": true,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum01_bug02_sum01_bug02_base.case",
+   "nvars": 3,
+   "nbranches": 2,
+   "params": 1,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum04-1",
+   "nvars": 2,
+   "nbranches": 2,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [],
+   "sym_maxdeg": 0,
+   "base_claims": [],
+   "base_eigen_claims": [],
+   "base_maxdeg": 0,
+   "sym_hit": false,
+   "symext_hit": false,
+   "basecons_hit": false,
+   "base_hit": false,
+   "nonlinear_win": false
+  },
+  {
+   "loop": "loops/sum04-2",
+   "nvars": 2,
+   "nbranches": 1,
+   "params": 0,
+   "sym_nsyms": 0,
+   "sym_claims": [],
+   "symext_claims": [
+    "sn - 2*i == -2"
+   ],
+   "sym_maxdeg": 0,
+   "base_claims": [
+    "sn - 2*i == -2"
+   ],
+   "base_eigen_claims": [
+    "sn - 2*i == -2"
+   ],
+   "base_maxdeg": 1,
+   "sym_hit": false,
+   "symext_hit": true,
+   "basecons_hit": true,
+   "base_hit": true,
+   "nonlinear_win": false
+  }
+ ]
+}
