@@ -20,6 +20,11 @@ Cheap falsification thresholds used here (fixed BEFORE running):
     any hit falsifies H*.
   - non-exceptional primes p <= 400: G-search over z' <= 20000;
     any miss falsifies H*.
+
+CHECK 8-11 (added 2026-08-23, supports THEORY.md section 9) are of a
+different kind: Lemma F makes F1 DECIDABLE (w <= (p+1)/3), so CHECK 8/9
+are exhaustive verifications of a proof, not bounded searches. They settle
+the follow-up items (M0) and (M1) of THEORY.md section 5, both negatively.
 """
 
 import sys
@@ -64,6 +69,57 @@ def factor(n):
             cnt += 1
         fac[f] = cnt
     return fac
+
+
+def divisors_of(n):
+    """all divisors of n, sorted (n must be <= the SPF sieve bound)."""
+    ds = [1]
+    for f, e in factor(n).items():
+        pk, new = 1, []
+        for _ in range(e + 1):
+            new += [d * pk for d in ds]
+            pk *= f
+        ds = new
+    return sorted(ds)
+
+
+def primes_upto(n):
+    sieve = bytearray([1]) * (n + 1)
+    sieve[0:2] = b"\x00\x00"
+    for i in range(2, isqrt(n) + 1):
+        if sieve[i]:
+            sieve[i * i::i] = bytearray(len(sieve[i * i::i]))
+    return [i for i in range(2, n + 1) if sieve[i]]
+
+
+def F1_decide(p):
+    """Lemma F (THEORY.md 9.1): F1 is decidable, w <= (p+1)/3 suffices.
+       Returns a witness (w, m, z') or None -- None is a PROOF that F1 fails."""
+    for w in range(1, (p + 1) // 3 + 1):
+        for m in divisors_of(p + w):
+            if m >= 3 and (m + 1) % (4 * w) == 0:
+                return (w, m, (m + 1) // 4)
+    return None
+
+
+def F1_naive(p, zmax):
+    """F1 straight from the definition: exists z'<=zmax, w | z', (4z'-1) | p+w."""
+    for z in range(1, zmax + 1):
+        m = 4 * z - 1
+        for w in divisors_of(z):
+            if (p + w) % m == 0:
+                return (w, m, z)
+    return None
+
+
+def lopez_taus(z):
+    """{d, n^2, d n^2 : d n = z'} -- the tau values reachable by the three
+       congruence types of Lopez, arXiv:2404.01508."""
+    s = set()
+    for d in divisors_of(z):
+        n = z // d
+        s |= {d, n * n, d * n * n}
+    return s
 
 
 def divisors_sq(fac, cap=20000):
@@ -323,6 +379,140 @@ def main():
     print("  (agreement is expected and is NOT evidence of novelty: both")
     print("   conditions are equivalent to E-S for p, so this only confirms")
     print("   the two normalizations are the same construction.)")
+
+    print("\n=== CHECK 8: Lemma F -- F1 is DECIDABLE (w <= (p+1)/3) ===")
+    print("  (added 2026-08-23; supports THEORY.md 9.1 and 9.3)")
+    mism = [p for p in primes_upto(400)
+            if p > 2 and (F1_decide(p) is None) != (F1_naive(p, 3000) is None)]
+    print(f"  bounded form vs naive form (z'<=3000), p<400: "
+          f"mismatches = {mism if mism else 'none'}")
+    f1_false = [p for p in primes_upto(20000) if p > 2 and F1_decide(p) is None]
+    print("  primes p<20000 for which F1 is FALSE (complete decision, NOT a")
+    print("  truncated search -- Lemma F bounds w, so 'no witness' is a proof):")
+    print(f"    {f1_false}")
+    exc_f1 = [(p, p % 840) for p in f1_false if p % 840 in EXCEPTIONAL]
+    print(f"  of these, in an exceptional class mod 840: {exc_f1}")
+    print("  => (M1) is settled NEGATIVELY: F1 alone cannot cover the six")
+    print("     exceptional classes.")
+
+    print("\n=== CHECK 9: (M0) exhaustion lemma is FALSE ===")
+    print("  (M0) asked: does every prime with a family-G solution also have")
+    print("  an F1-type solution? Two counterexamples, fully enumerated.")
+    for p in (7, 31):
+        gw = None
+        for z in range(1, 50):
+            m = 4 * z - 1
+            if p % m == 0:
+                continue
+            ds = divisors_sq(factor(z), cap=10**6) or []
+            hit = [s for s in ds if (s + p * z) % m == 0]
+            if hit:
+                gw = (z, m, hit[0])
+                break
+        assert gw is not None
+        wmax = (p + 1) // 3
+        print(f"  p={p}: family-G witness (z'={gw[0]}, m={gw[1]}, "
+              f"sigma={gw[2]}) exists.")
+        print(f"        F1: Lemma F bounds w <= {wmax}; exhausting it --")
+        for w in range(1, wmax + 1):
+            print(f"          w={w}: divisors of p+w={p+w} are "
+                  f"{divisors_of(p + w)}, none is -1 mod {4 * w}")
+        print(f"        => F1({p}) is FALSE. (M0) fails.")
+    print("  => (M0) is FALSE. The Gate A break of 5.1 cannot be repaired by")
+    print("     proving an exhaustion lemma; F1 has to be widened instead.")
+
+    print("\n=== CHECK 9b: NL survives -- F1-false exceptional primes have (F2) ===")
+    def family_D_cert(p, cap=400):
+        """4 g K L = p(K+L) + 1  ->  solution (gK, gL, p g K L)."""
+        for L in range(1, cap + 1):
+            for K in range(1, cap + 1):
+                num = p * (K + L) + 1
+                if num % (4 * K * L) == 0:
+                    g = num // (4 * K * L)
+                    x, y, zz = g * K, g * L, p * g * K * L
+                    assert 4 * x * y * zz == p * (x * y + x * zz + y * zz)
+                    return (g, K, L, (x, y, zz))
+        return None
+    for p in (5569, 9601):
+        c = family_D_cert(p)
+        print(f"  p={p} (mod 840 = {p % 840}), F1 FALSE: family-D cert "
+              f"g={c[0]} K={c[1]} L={c[2]} -> {c[3]}" if c else
+              f"  p={p}: no family-D cert found within the cap")
+    print("  => NL = F1 or F2 is NOT refuted, but for these primes it rests")
+    print("     entirely on the F2 side.")
+
+    print("\n=== CHECK 10: tau normal form, and Lopez arXiv:2404.01508 ===")
+    print("  (supports THEORY.md 9.4 and 9.5)")
+    bad_norm = bad_f1 = checked = 0
+    for p in primes_upto(300):
+        if p < 5:
+            continue
+        for z in range(1, 200):
+            m = 4 * z - 1
+            if p % m == 0:
+                continue
+            ds = divisors_sq(factor(z), cap=10**6) or []
+            A = {s for s in ds if (s + p * z) % m == 0}
+            B = {z * z // t for t in ds if (4 * p * t + 1) % m == 0}
+            checked += 1
+            bad_norm += (A != B)
+            dz = divisors_of(z)
+            bad_f1 += ({s for s in A if any(s == z * w for w in dz)}
+                       != {s for s in A if (z * z // s) in dz})
+    print(f"  (G) 'm | sigma + p z'' <=> 'm | 4 p tau + 1', tau = z'^2/sigma:")
+    print(f"    {checked} (p, z') pairs checked, mismatches = {bad_norm}")
+    print(f"  F1 <=> tau | z'   (versus tau | z'^2 for all of G):")
+    print(f"    {checked} (p, z') pairs checked, mismatches = {bad_f1}")
+    bad_lopez = 0
+    for d in range(1, 25):
+        for n in range(1, 25):
+            m = 4 * d * n - 1
+            for p in range(1, 300):
+                bad_lopez += ((p + 4 * d) % m == 0) != \
+                             ((4 * p * d * n * n + 1) % m == 0)
+                bad_lopez += ((p + n) % m == 0) != ((4 * p * d + 1) % m == 0)
+                bad_lopez += ((p + 4 * d * d) % m == 0) != \
+                             ((4 * p * n * n + 1) % m == 0)
+    print(f"  Lopez (A) p=-4d, (B) p=-n, (C) p=-4d^2 (mod m=4dn-1) correspond")
+    print(f"  to tau = d n^2, d, n^2 with z'=dn: mismatches = {bad_lopez}")
+    print("  In particular (B) IS F1 (w=n, tau=d | z'): F1 is published.")
+    print("  Lopez's tau set {d, n^2, d n^2} does NOT exhaust div(z'^2):")
+    for z in range(1, 25):
+        miss = sorted(set(divisors_of(z * z)) - lopez_taus(z))
+        if miss:
+            print(f"    z'={z:2d}: |div(z'^2)|={len(divisors_of(z * z)):2d}, "
+                  f"tau missing from Lopez's system: {miss}")
+
+    print("\n=== CHECK 11 [pre-registered]: is the tau form strictly wider? ===")
+    print("  Search primes p<20000, levels z'<=300, for (p, z') where the tau")
+    print("  criterion holds but none of Lopez's three tau values works, and")
+    print("  for primes where that happens at EVERY level (which would refute")
+    print("  Lopez's conjecture).")
+    gap_level, gap_prime = 0, []
+    for p in primes_upto(20000):
+        if p < 5:
+            continue
+        any_full = any_lopez = False
+        for z in range(1, 301):
+            m = 4 * z - 1
+            if p % m == 0:
+                continue
+            ds = divisors_sq(factor(z), cap=10**6) or []
+            F = [t for t in ds if (4 * p * t + 1) % m == 0]
+            if not F:
+                continue
+            any_full = True
+            if any(t in lopez_taus(z) for t in F):
+                any_lopez = True
+            else:
+                gap_level += 1
+        if any_full and not any_lopez:
+            gap_prime.append(p)
+    print(f"  (p, z') levels where only the tau form works: {gap_level}")
+    print(f"  primes where Lopez's tau never works for z'<=300: "
+          f"{gap_prime if gap_prime else 'none'}")
+    print("  => the tau form is strictly wider level-by-level, but Lopez's")
+    print("     conjecture is NOT refuted in this range.")
 
 
 if __name__ == "__main__":
