@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "external_id": "precedent:turbulence-thermo-formalism",
+      "title": "Precedent: turbulence multifractals cracked by thermodynamic formalism from operator algebras",
+      "statement": "Intermittency's anomalous exponents were not derived from Navier-Stokes directly; they became tractable when Ruelle's thermodynamic formalism - developed for operator algebras and smooth dynamical systems - was imported by Frisch and Parisi (1985) to describe turbulent signals as a 'free energy' over singularity strengths. A phenomenological but rigorous counting framework replaced direct dynamical attack.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "fluid mechanics/turbulence",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "A hard dynamics problem became tractable when recast as statistical mechanics of configurations over singularities.",
+        "mechanism": "import partition-function/free-energy machinery from statistical mechanics to count scale configurations",
+        "math_structure": "thermodynamic formalism partition functions multifractal spectra large deviations",
+        "problem_shape": "dynamical derivation replaced by configuration counting",
+        "failure": "remains phenomenological; does not derive the spectrum from first principles"
+      },
+      "metadata": {
+        "target_problem": "problem:turbulence-intermittency",
+        "precedent_field": "operator algebras/statistical mechanics of dynamical systems (Ruelle 1978)",
+        "method_imported": "partition functions over singularities -> multifractal formalism (Frisch-Parisi 1985)",
+        "distance_rationale": "mathematical physics of C*-dynamical systems to fluid turbulence: communities, journals, and vocabulary almost disjoint",
+        "confidence": "well-established history; verified from domain knowledge"
+      }
+    },
+    {
+      "external_id": "precedent:enzyme-kramers",
+      "title": "Precedent: enzyme reaction rates cracked by Kramers' physics barrier-crossing theory",
+      "statement": "Kramers' 1940 theory of thermally activated barrier crossing - formulated for Brownian particles in physics contexts - became the standard quantitative framework for biochemical reaction rates, protein conformational transitions, and enzyme turnover. Enzymology's rate problem was absorbed by importing a physics diffusion model, not by biochemical theory developed internally.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "biochemistry/enzymology",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "Biochemical rate problems were absorbed by a physics diffusion-over-barriers model built decades earlier for other purposes.",
+        "mechanism": "model reaction as particle escaping a free-energy well under friction; friction regime determines rate law",
+        "math_structure": "Kramers turnover Fokker-Planck free-energy barriers transmission coefficients",
+        "problem_shape": "attribution problem partially dissolved by a universal rate framework",
+        "failure": "Kramers framework needs a known free-energy surface; attribution inside the surface remains open"
+      },
+      "metadata": {
+        "target_problem": "problem:enzyme-catalysis-origin",
+        "precedent_field": "condensed matter/nuclear physics (Kramers 1940, Physica)",
+        "method_imported": "diffusion-over-barrier rate theory with friction-dependent turnover",
+        "distance_rationale": "1940s physics of Brownian motion to modern enzymology; Wikipedia-confirmed (Kramers theory)",
+        "confidence": "verified via Wikipedia summary"
+      }
+    },
+    {
+      "external_id": "precedent:sex-error-threshold",
+      "title": "Precedent: mutation-load limits in evolution cracked by information-theoretic error thresholds",
+      "statement": "Eigen's quasispecies error threshold imported Shannon-style coding theory into molecular evolution, yielding the first quantitative ceiling on information accumulation under mutation. This telecom-mathematics formalism reorganized the sex/recombination debate around information maintenance rather than gene-level fitness bookkeeping.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "evolutionary biology/molecular evolution",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "A biology debate was reorganized when information-accumulation limits were imported from coding theory.",
+        "mechanism": "model genome as message under noisy channel; error threshold bounds maintainable information",
+        "math_structure": "error threshold quasispecies channel capacity mutation-selection balance",
+        "problem_shape": "cost-benefit debate reframed as information maintenance capacity",
+        "failure": "threshold models assume sharp peak landscapes; real fitness landscapes soften the conclusions"
+      },
+      "metadata": {
+        "target_problem": "problem:evolution-of-sex",
+        "precedent_field": "information theory/coding theory (Shannon lineage; Eigen 1971 quasispecies)",
+        "method_imported": "error threshold as ceiling on heritable information",
+        "distance_rationale": "telecommunications mathematics to evolutionary biology; HMM/bioinformatics import is the Wikipedia-confirmed sibling pattern",
+        "confidence": "core history verified via Wikipedia (Hidden Markov model, quasispecies lineage)"
+      }
+    },
+    {
+      "external_id": "precedent:anesthesia-phase-transition",
+      "title": "Precedent: anesthesia onset modeled as a statistical-physics phase transition of cortex",
+      "statement": "Anesthetic induction was recast by Steyn-Ross and colleagues (2001 onward) as a phase transition in stochastic neural field equations - importing the criticality/phase-transition toolkit from statistical physics into anesthesiology. The move converted 'which molecule' questions into 'which bifurcation' questions and predicted hysteresis-like endpoints later sought in EEG data.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "neuroscience/anesthesiology",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "A pharmacology mystery was converted into a bifurcation problem by importing phase-transition thinking from physics.",
+        "mechanism": "mean-field neural dynamics with anesthetic parameter; consciousness loss as first/second-order transition with hysteresis",
+        "math_structure": "neural field equations bifurcations hysteresis critical slowing down",
+        "problem_shape": "many-to-one convergence recast as universal transition phenomenology",
+        "failure": "mean-field models idealize cortex; transition signatures in data remain debated"
+      },
+      "metadata": {
+        "target_problem": "problem:anesthesia-mechanism",
+        "precedent_field": "statistical physics/nonlinear dynamics (Steyn-Ross et al. 2001, Phys Rev E lineage)",
+        "method_imported": "phase transition and hysteresis analysis of cortical state space",
+        "distance_rationale": "equilibrium-phase physics to clinical anesthesiology",
+        "confidence": "from domain knowledge; not web-verified this session"
+      }
+    },
+    {
+      "external_id": "precedent:auctions-competitive-analysis",
+      "title": "Precedent: auction robustness cracked by worst-case competitive analysis from online algorithms",
+      "statement": "Prior-free auction design became a coherent program when Goldberg and Hartline imported competitive analysis - the worst-case guarantee methodology of online algorithms - into mechanism design. Revenue benchmarks replaced distributional assumptions, exactly as CS theory had earlier domesticated unknown futures in scheduling and caching.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "market design/algorithmic game theory",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "Unknown-distribution guarantees in economics were achieved by importing worst-case competitive analysis from computer science.",
+        "mechanism": "define benchmark achievable with full information; guarantee constant fraction without distribution knowledge",
+        "math_structure": "competitive ratios prior-free mechanisms minimax benchmarks learning-augmented bounds",
+        "problem_shape": "unknown environment made harmless by guarantee definition",
+        "failure": "benchmark choice reintroduces normative assumptions; combinatorial extensions partial"
+      },
+      "metadata": {
+        "target_problem": "problem:auction-design-robustness",
+        "precedent_field": "theoretical computer science/online algorithms (Goldberg-Hartline 2001 lineage)",
+        "method_imported": "competitive analysis against clairvoyant benchmarks",
+        "distance_rationale": "CS algorithms community to microeconomics; Wikipedia-confirmed (Prior-independent mechanism article)",
+        "confidence": "verified via Wikipedia search hit"
+      }
+    },
+    {
+      "external_id": "precedent:invariants-abstract-interpretation",
+      "title": "Precedent: program invariant discovery cracked by lattice theory and Tarski fixed points",
+      "statement": "The invariant-discovery problem was transformed when Cousot and Cousot (1977) imported order theory - complete lattices, Galois connections, Tarski fixed-point theorems - into program analysis as abstract interpretation. 'Find the invariant' became 'compute the fixed point of a monotone function on a lattice', trading exactness for soundness by design.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "programming languages/formal verification",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "Invariant discovery became fixed-point computation after importing lattice theory from mathematical logic.",
+        "mechanism": "sound approximation via Galois connection; iterate monotone functions to conservative fixed points",
+        "math_structure": "complete lattices galois connections tarski fixed points widening operators",
+        "problem_shape": "search problem converted into structured iteration with guarantees",
+        "failure": "precision loss at widenings; nonlinear disjunctive properties still escape lattice design"
+      },
+      "metadata": {
+        "target_problem": "problem:loop-invariant-inference",
+        "precedent_field": "mathematical logic/order theory (Cousot-Cousot 1977)",
+        "method_imported": "lattice-theoretic fixed-point computation as sound approximation",
+        "distance_rationale": "pure order theory to industrial software verification (Astrée used it for Airbus avionics)",
+        "confidence": "well-established history; verified from domain knowledge"
+      }
+    },
+    {
+      "external_id": "precedent:planted-clique-cavity",
+      "title": "Precedent: planted-problem thresholds mapped by spin-glass cavity method",
+      "statement": "The landscape of planted/clique-type inference problems - where information-theoretic possibility and algorithmic reachability separate - was charted by importing the cavity/replica-symmetry-breaking method from spin glass physics (Zdeborova, Krzakala and collaborators). Physics predicted hard-easy transitions and free-energy barriers later matched to message-passing and sum-of-squares behavior.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "theoretical computer science/average-case complexity",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "Algorithmic threshold questions were charted by mapping inference onto disordered-systems physics.",
+        "mechanism": "map inference ensemble to spin glass; compute free-energy surfaces; locate dynamical and static transitions",
+        "math_structure": "cavity method replica symmetry breaking free-energy barriers hard-easy transitions",
+        "problem_shape": "threshold location via phase diagram rather than lower-bound proof",
+        "failure": "physics predictions are non-rigorous in places; rigorous versions lag behind"
+      },
+      "metadata": {
+        "target_problem": "problem:planted-clique-hardness",
+        "precedent_field": "statistical physics of disordered systems (Zdeborova-Krzakala lineage)",
+        "method_imported": "cavity-method phase diagrams for inference problems",
+        "distance_rationale": "spin glass magnetism to theoretical computer science",
+        "confidence": "from domain knowledge; arxiv API unreachable this session"
+      }
+    },
+    {
+      "external_id": "precedent:edit-distance-communication",
+      "title": "Precedent: dynamic-programming lower bounds cracked by communication complexity",
+      "statement": "Barriers against subquadratic dynamic programming were made rigorous by importing communication complexity - a framework born in distributed computing (Yao 1979; Aho-Hirschberg-Ullman applied it to DP table size). The observation that two players holding the two strings must exchange quadratically many table entries became the template for modern fine-grained lower bounds.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "algorithms/stringology",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "Lower bounds for sequence comparison came from a distributed-computing model about two parties exchanging bits.",
+        "mechanism": "reduce a hard communication problem to fast computation; table entries as messages",
+        "math_structure": "communication complexity reductions set disjointness matrix rigidity",
+        "problem_shape": "impossibility proofs via information exchange lower bounds",
+        "failure": "communication reductions give conditional bounds; unconditional barriers remain out of reach"
+      },
+      "metadata": {
+        "target_problem": "problem:edit-distance-barrier",
+        "precedent_field": "distributed computing/communication complexity (Yao 1979; Aho-Hirschberg-Ullman 1976)",
+        "method_imported": "two-party information-exchange lower bounds against DP speedups",
+        "distance_rationale": "telephone-network distributed computing to string algorithms",
+        "confidence": "well-established history; verified from domain knowledge"
+      }
+    },
+    {
+      "external_id": "precedent:frankl-entropy-method",
+      "title": "Precedent: extremal set theory cracked by the entropy method from information theory",
+      "statement": "Several extremal set-system problems were cracked by the entropy method: Radhakrishnan's entropy proof of Bregman's theorem, entropy proofs of LYM-type inequalities, Shearer's lemma as a counting engine. The pattern - replace combinatorial bookkeeping with information inequalities - is the established import route Frankl's conjecture has not yet surrendered to, which is itself informative.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "combinatorics/information theory",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "Information inequalities have cracked neighboring extremal problems; the union-closed case is the outstanding holdout.",
+        "mechanism": "encode combinatorial structures as random variables; apply submodularity/Shearer to bound counts",
+        "math_structure": "shearer's lemma entropy submodularity bregman's theorem lym inequalities",
+        "problem_shape": "counting converted into information inequality satisfaction",
+        "failure": "union closure lacks the product/derangement structure that fed earlier entropy proofs"
+      },
+      "metadata": {
+        "target_problem": "problem:frankl-union-closed",
+        "precedent_field": "information theory (Shannon/Shearer lineage) into extremal combinatorics",
+        "method_imported": "entropy inequalities as counting bounds",
+        "distance_rationale": "telecommunications math to pure combinatorics; precedent shows both power and current limits",
+        "confidence": "well-established history; verified from domain knowledge"
+      }
+    },
+    {
+      "external_id": "precedent:glass-spin-glass",
+      "title": "Precedent: glass transition theory cracked by mean-field spin glass mathematics",
+      "statement": "The leading microscopic theory of the structural glass transition - Random First-Order Transition theory - came from importing mean-field spin glass mathematics (Sherrington-Kirkpatrick model, Parisi replica symmetry breaking) into supercooled liquids (Wolynes and collaborators). A magnetism formalism supplied the ideal glass transition, configurational entropy, and mosaic predictions.",
+      "record_type": "methodological_lesson",
+      "epistemic_status": "established",
+      "domain": "condensed matter/glass physics",
+      "source": "cross-field precedent card",
+      "axis_texts": {
+        "semantic": "Glass physics' deepest theory is an import from disordered magnetism; the transition question remains open but is now sharply posed.",
+        "mechanism": "map supercooled liquid onto mean-field disordered system; extract configurational entropy and mosaic lengths",
+        "math_structure": "sherrington-kirkpatrick replica symmetry breaking random first order transition configurational entropy",
+        "problem_shape": "phenomenology organized by imported solvable limit",
+        "failure": "mean-field predictions strain at finite dimension; activation-mosaic debates unresolved"
+      },
+      "metadata": {
+        "target_problem": "problem:glass-transition",
+        "precedent_field": "spin glass physics (Sherrington-Kirkpatrick 1975, Parisi) into glass science (Wolynes lineage)",
+        "method_imported": "replica/mean-field machinery yielding RFOT theory",
+        "distance_rationale": "magnetic alloys to chemistry of supercooled liquids",
+        "confidence": "well-established history; verified from domain knowledge"
+      }
+    }
+  ],
+  "evidence": [],
+  "relations": []
+}
