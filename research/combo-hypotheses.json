@@ -42,7 +42,15 @@
         "source_breakthrough": "breakthrough:boltzmann-statistical",
         "target_problem": "problem:turbulence-intermittency",
         "bridge": "Boltzmann's move: give up trajectory-level explanation; define the right ensemble and count. Extreme events become 'rare but numerous' classes.",
-        "cheap_falsification": "On shell-resolved DNS data or shell models, test whether a two-parameter configuration-entropy fit reproduces known intermittency exponents p=1..8 better than log-Poisson cascades; if not competitive, discard."
+        "cheap_falsification": "On shell-resolved DNS data or shell models, test whether a two-parameter configuration-entropy fit reproduces known intermittency exponents p=1..8 better than log-Poisson cascades; if not competitive, discard.",
+        "assessment": "falsified",
+        "verification": {
+          "branch": "verify/boltzmann-intermittency",
+          "commit": "13ce216",
+          "experiment": "experiments/boltzmann-intermittency",
+          "verdict": "AGAINST (DISCARD)",
+          "summary": "Sabra shell model (N=22) zeta_p p=1..8: bimodal entropy ensemble fails outright (single-kink spectrum, RMS ~0.30); best parabolic rate-function variant merely matches parameter-free She-Leveque (0.025 vs 0.031 RMS) and is an order of magnitude worse than log-Poisson at equal fitting freedom while reducing to log-normal phenomenology - counting adds nothing beyond cascade encoding. The hypothesis's anticipated failure mode (weights are dynamics-dependent) confirmed."
+        }
       }
     },
     {
