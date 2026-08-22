@@ -77,7 +77,13 @@
       "metadata": {
         "agent_testability": "formal",
         "planned": true,
-        "status": "open"
+        "status": "open",
+        "attack_notes": {
+          "branch": "verify/math-singmaster",
+          "commit": "74b588f",
+          "verdict": "OBSTRUCTION-IDENTIFIED",
+          "summary": "Explicit birational elliptic models derived for all pairs k<l<=4 (quartic/biquadratic Pell-fiber for (2,4); Mordell curve twist of 37a1, rank>=1). Route live in the low window; global-multiplicity obstruction identified precisely."
+        }
       }
     },
     {
