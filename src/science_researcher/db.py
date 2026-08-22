@@ -387,6 +387,42 @@ class GraphStore:
             rows = connection.execute("SELECT * FROM evidences ORDER BY created_at, id").fetchall()
         return [_evidence_from_row(row) for row in rows]
 
+    def list_research_relations(self) -> list[dict[str, Any]]:
+        with self.connect() as connection:
+            rows = connection.execute(
+                """
+                SELECT r.relation, r.metadata_json,
+                       s.external_id AS source_external_id,
+                       e.external_id AS evidence_external_id,
+                       t.external_id AS target_claim_external_id
+                FROM research_relations r
+                JOIN research_claims s ON s.id = r.source_claim_id
+                LEFT JOIN evidences e ON e.id = r.evidence_id
+                LEFT JOIN research_claims t ON t.id = r.target_claim_id
+                ORDER BY r.created_at, r.id
+                """
+            ).fetchall()
+        relations: list[dict[str, Any]] = []
+        for row in rows:
+            entry: dict[str, Any] = {"claim": row["source_external_id"], "relation": row["relation"]}
+            if row["evidence_external_id"] is not None:
+                entry["evidence"] = row["evidence_external_id"]
+            if row["target_claim_external_id"] is not None:
+                entry["target_claim"] = row["target_claim_external_id"]
+            metadata = json.loads(row["metadata_json"] or "{}")
+            if metadata:
+                entry["metadata"] = metadata
+            relations.append(entry)
+        return relations
+
+    def export_research_bundle(self) -> dict[str, Any]:
+        return {
+            "schema_version": 1,
+            "claims": [claim.to_dict() for claim in self.list_research_claims()],
+            "evidence": [item.to_dict() for item in self.list_evidence()],
+            "relations": self.list_research_relations(),
+        }
+
     def link_evidence(
         self,
         claim_id: str,
