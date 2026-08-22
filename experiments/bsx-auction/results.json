@@ -1,0 +1,291 @@
+{
+  "T": 2000,
+  "grid": [
+    0.0625,
+    0.125,
+    0.1875,
+    0.25,
+    0.3125,
+    0.375,
+    0.4375,
+    0.5,
+    0.5625,
+    0.625,
+    0.6875,
+    0.75,
+    0.8125,
+    0.875,
+    0.9375,
+    1.0
+  ],
+  "families": {
+    "uniform01": {
+      "kind": "iid",
+      "opt_fixed": 498.37627,
+      "opt_grid": 497.9,
+      "best_p": 0.4895,
+      "seeds": 30,
+      "uniform-mix": {
+        "mean_rev": 333.294,
+        "cr_mean": 1.4953,
+        "cr_worstseed": 1.61
+      },
+      "exp3": {
+        "mean_rev": 393.979,
+        "cr_mean": 1.265,
+        "cr_worstseed": 1.32
+      },
+      "exp3-anytime": {
+        "mean_rev": 417.881,
+        "cr_mean": 1.1926,
+        "cr_worstseed": 1.32
+      },
+      "eps-greedy": {
+        "mean_rev": 461.902,
+        "cr_mean": 1.079,
+        "cr_worstseed": 1.17
+      },
+      "ucb1": {
+        "mean_rev": 383.723,
+        "cr_mean": 1.2988,
+        "cr_worstseed": 1.37
+      }
+    },
+    "powlaw": {
+      "kind": "iid",
+      "opt_fixed": 56.49812,
+      "opt_grid": 56.325,
+      "best_p": 0.2604,
+      "seeds": 30,
+      "uniform-mix": {
+        "mean_rev": 36.323,
+        "cr_mean": 1.5554,
+        "cr_worstseed": 1.82
+      },
+      "exp3": {
+        "mean_rev": 38.133,
+        "cr_mean": 1.4816,
+        "cr_worstseed": 1.8
+      },
+      "exp3-anytime": {
+        "mean_rev": 39.906,
+        "cr_mean": 1.4158,
+        "cr_worstseed": 1.65
+      },
+      "eps-greedy": {
+        "mean_rev": 47.398,
+        "cr_mean": 1.192,
+        "cr_worstseed": 1.48
+      },
+      "ucb1": {
+        "mean_rev": 37.34,
+        "cr_mean": 1.5131,
+        "cr_worstseed": 1.82
+      }
+    },
+    "bimodal": {
+      "kind": "iid",
+      "opt_fixed": 597.72,
+      "opt_grid": 584.08333,
+      "best_p": 0.6,
+      "seeds": 30,
+      "uniform-mix": {
+        "mean_rev": 329.627,
+        "cr_mean": 1.8133,
+        "cr_worstseed": 1.91
+      },
+      "exp3": {
+        "mean_rev": 421.179,
+        "cr_mean": 1.4192,
+        "cr_worstseed": 1.56
+      },
+      "exp3-anytime": {
+        "mean_rev": 459.548,
+        "cr_mean": 1.3007,
+        "cr_worstseed": 1.43
+      },
+      "eps-greedy": {
+        "mean_rev": 516.592,
+        "cr_mean": 1.157,
+        "cr_worstseed": 1.38
+      },
+      "ucb1": {
+        "mean_rev": 403.719,
+        "cr_mean": 1.4805,
+        "cr_worstseed": 1.58
+      }
+    },
+    "lognormal": {
+      "kind": "iid",
+      "opt_fixed": 135.9617,
+      "opt_grid": 135.69167,
+      "best_p": 0.129,
+      "seeds": 30,
+      "uniform-mix": {
+        "mean_rev": 52.683,
+        "cr_mean": 2.5807,
+        "cr_worstseed": 3.14
+      },
+      "exp3": {
+        "mean_rev": 61.067,
+        "cr_mean": 2.2264,
+        "cr_worstseed": 2.56
+      },
+      "exp3-anytime": {
+        "mean_rev": 70.415,
+        "cr_mean": 1.9309,
+        "cr_worstseed": 2.24
+      },
+      "eps-greedy": {
+        "mean_rev": 116.773,
+        "cr_mean": 1.1643,
+        "cr_worstseed": 1.36
+      },
+      "ucb1": {
+        "mean_rev": 59.071,
+        "cr_mean": 2.3017,
+        "cr_worstseed": 2.76
+      }
+    },
+    "perm-spike-zero": {
+      "kind": "perm",
+      "opt_fixed": 1.0,
+      "opt_grid": 1.0,
+      "best_p": 1.0,
+      "instances": [
+        "asc",
+        "desc",
+        "rand0",
+        "rand1",
+        "rand2",
+        "rand3",
+        "rand4",
+        "rand5",
+        "rand6",
+        "rand7",
+        "rand8",
+        "rand9"
+      ],
+      "uniform-mix": {
+        "cr_worst_instance_mean": 2.8235,
+        "cr_worstseed": 16.0,
+        "cr_best_instance": 1.1707
+      },
+      "exp3": {
+        "cr_worst_instance_mean": 5.3333,
+        "cr_worstseed": 16.0,
+        "cr_best_instance": 1.1163
+      },
+      "exp3-anytime": {
+        "cr_worst_instance_mean": 4.3636,
+        "cr_worstseed": 16.0,
+        "cr_best_instance": 1.2
+      },
+      "eps-greedy": {
+        "cr_worst_instance_mean": 16.0,
+        "cr_worstseed": 16.0,
+        "cr_best_instance": 3.2
+      },
+      "ucb1": {
+        "cr_worst_instance_mean": 16.0,
+        "cr_worstseed": 16.0,
+        "cr_best_instance": 1.0
+      }
+    },
+    "perm-two-level": {
+      "kind": "perm",
+      "opt_fixed": 1000.0,
+      "opt_grid": 1000.0,
+      "best_p": 1.0,
+      "instances": [
+        "asc",
+        "desc",
+        "rand0",
+        "rand1",
+        "rand2",
+        "rand3",
+        "rand4",
+        "rand5",
+        "rand6",
+        "rand7",
+        "rand8",
+        "rand9"
+      ],
+      "uniform-mix": {
+        "cr_worst_instance_mean": 1.6644,
+        "cr_worstseed": 1.69,
+        "cr_best_instance": 1.6041
+      },
+      "exp3": {
+        "cr_worst_instance_mean": 1.3512,
+        "cr_worstseed": 1.4,
+        "cr_best_instance": 1.1726
+      },
+      "exp3-anytime": {
+        "cr_worst_instance_mean": 1.5518,
+        "cr_worstseed": 1.6,
+        "cr_best_instance": 1.1728
+      },
+      "eps-greedy": {
+        "cr_worst_instance_mean": 1.2639,
+        "cr_worstseed": 1.4,
+        "cr_best_instance": 0.9762
+      },
+      "ucb1": {
+        "cr_worst_instance_mean": 1.4507,
+        "cr_worstseed": 1.45,
+        "cr_best_instance": 1.1438
+      }
+    },
+    "perm-wide-tail": {
+      "kind": "perm",
+      "opt_fixed": 40.0,
+      "opt_grid": 20.625,
+      "best_p": 0.02,
+      "instances": [
+        "asc",
+        "desc",
+        "rand0",
+        "rand1",
+        "rand2",
+        "rand3",
+        "rand4",
+        "rand5",
+        "rand6",
+        "rand7",
+        "rand8",
+        "rand9"
+      ],
+      "uniform-mix": {
+        "cr_worst_instance_mean": 5.5977,
+        "cr_worstseed": 6.46,
+        "cr_best_instance": 4.3341
+      },
+      "exp3": {
+        "cr_worst_instance_mean": 5.3186,
+        "cr_worstseed": 7.11,
+        "cr_best_instance": 3.9104
+      },
+      "exp3-anytime": {
+        "cr_worst_instance_mean": 5.5172,
+        "cr_worstseed": 6.96,
+        "cr_best_instance": 3.7354
+      },
+      "eps-greedy": {
+        "cr_worst_instance_mean": 17.7778,
+        "cr_worstseed": 22.86,
+        "cr_best_instance": 3.3625
+      },
+      "ucb1": {
+        "cr_worst_instance_mean": 7.1111,
+        "cr_worstseed": 7.11,
+        "cr_best_instance": 3.7427
+      }
+    }
+  },
+  "meta": {
+    "elapsed_seconds": 19.8,
+    "n_iid_seeds": 30,
+    "reps_per_perm_instance": 3
+  }
+}
