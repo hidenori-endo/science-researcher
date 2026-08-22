@@ -23,7 +23,13 @@
           "Paul Erdos",
           "Ernst Straus"
         ],
-        "status": "open"
+        "status": "open",
+        "attack_notes": {
+          "branch": "verify/math-erdos-straus",
+          "commit": "abe4c8b",
+          "verdict": "ROUTE-LIVE",
+          "summary": "Proved complete structural reduction (Theorem A + Lemmas 2.4/2.5): E-S for primes equivalent to explicit two-condition Diophantine forall-statement with no gap in the chain. Six exceptional residue classes identified exactly as the core not coverable by bounded-template unions (mod 3/7/15/35 classes minus 24 units). First fully-proven reduction chain in this DB."
+        }
       }
     },
     {
