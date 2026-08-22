@@ -247,6 +247,21 @@ def cmd_import_research(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_export_research(args: argparse.Namespace) -> int:
+    store = _make_store(args)
+    data = store.export_research_bundle()
+    if args.out:
+        Path(args.out).write_text(
+            json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        print(f"exported {len(data['claims'])} claims, {len(data['evidence'])} evidence, "
+              f"{len(data['relations'])} relations to {args.out}")
+    else:
+        _json_dump(data)
+    return 0
+
+
 def _add_storage_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--store",
@@ -427,6 +442,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_embedding_args(import_parser)
     import_parser.add_argument("path")
     import_parser.set_defaults(func=cmd_import_research)
+
+    export_parser = subparsers.add_parser(
+        "export-research",
+        help="export all claims/evidence/relations from the store as a versioned bundle",
+    )
+    _add_storage_args(export_parser)
+    export_parser.add_argument("--out", default=None, help="write bundle to this path instead of stdout")
+    export_parser.set_defaults(func=cmd_export_research)
 
     return parser
 
