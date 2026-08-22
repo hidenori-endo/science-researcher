@@ -152,7 +152,16 @@
         "source_breakthrough": "breakthrough:noether",
         "target_problem": "problem:loop-invariant-inference",
         "bridge": "Noether's move: conservation is derived from invariance. Programs: assertions preserved by all executions should be derived from transformations preserving the transition relation.",
-        "cheap_falsification": "Benchmark suite (e.g., SV-COMP loops): detect automorphism-like symmetries of integer transition relations; measure how often symmetry-derived candidates match the verification-grade invariant. Below ~20% coverage, pattern too thin."
+        "cheap_falsification": "Benchmark suite (e.g., SV-COMP loops): detect automorphism-like symmetries of integer transition relations; measure how often symmetry-derived candidates match the verification-grade invariant. Below ~20% coverage, pattern too thin.",
+        "assessment": "supported on benchmark",
+        "verification": {
+          "branch": "verify/noether-loops",
+          "commit": "14fc0a1",
+          "experiment": "experiments/noether-loop-invariants",
+          "verdict": "SUPPORT",
+          "summary": "30 SV-COMP-style integer loops, exact rational polynomial engine. Extended coverage 23/30=76.7%, strict (finite automorphisms only) 15/30=50.0% - both clear the 20% kill bar, including nonlinear invariants (y-x^2) found as eigenforms of mixed-rate scaling symmetries. Misses: quadratic conserved quantities with no point symmetry, non-polynomial/gcd targets, irrational-eigenvalue (golden ratio) symmetries, inequality-only control-heavy loops.",
+          "caveat": "translation-duality half of extended coverage reduces to constant-shift linear-invariant generation; honest reading is pure symmetry detection carries ~half the benchmark"
+        }
       }
     },
     {
