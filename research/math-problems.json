@@ -26,7 +26,7 @@
         "status": "open",
         "attack_notes": {
           "branch": "verify/math-erdos-straus-reverdict",
-          "commit": "abe4c8b",
+          "commit": "909e002",
           "verdict": "ROUTE-KNOWN",
           "prior_art": [
             "arXiv:1107.1010 - Elsholtz & Tao, Counting the number of solutions to the Erdos-Straus equation on unit fractions. Type I / Type II classification of prime solutions; the (D)/(G) dichotomy of Theorem A is that split in different coordinates. Also the source of the odd-square obstruction behind the six exceptional classes.",

@@ -16,4 +16,4 @@ restore:
 	bash scripts/restore-db.sh $(ISSUE)
 
 sync-issues:
-	python3 scripts/sync-issues.py --store ${STORE:-postgres}
+	python3 scripts/sync-issues.py --store $(or $(STORE),postgres)
