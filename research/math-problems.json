@@ -25,10 +25,23 @@
         ],
         "status": "open",
         "attack_notes": {
-          "branch": "verify/math-erdos-straus",
-          "commit": "abe4c8b",
-          "verdict": "ROUTE-LIVE",
-          "summary": "Proved complete structural reduction (Theorem A + Lemmas 2.4/2.5): E-S for primes equivalent to explicit two-condition Diophantine forall-statement with no gap in the chain. Six exceptional residue classes identified exactly as the core not coverable by bounded-template unions (mod 3/7/15/35 classes minus 24 units). First fully-proven reduction chain in this DB."
+          "branch": "verify/math-erdos-straus-reverdict",
+          "commit": "909e002",
+          "verdict": "ROUTE-KNOWN",
+          "prior_art": [
+            "arXiv:1107.1010 - Elsholtz & Tao, Counting the number of solutions to the Erdos-Straus equation on unit fractions. Type I / Type II classification of prime solutions; the (D)/(G) dichotomy of Theorem A is that split in different coordinates. Also the source of the odd-square obstruction behind the six exceptional classes.",
+            "Bradford, Elementary Patterns from the Erdos-Straus Conjecture, Integers (2021). Divisor+congruence condition d | x^2, d = -px (mod 4x-p); family (G) is the same SFFT condition with the p-divisible slot eliminated first instead of a non-p slot.",
+            "arXiv:2606.10922 (2026-06-09) - Bello-Hernandez et al., A Divisor Parametrization for the Erdos-Straus Conjecture. Divisor-based completeness theorem, explicitly compared against Type I/II. Published two months before the initial attack.",
+            "NOT checked: explicit variable change to the Elsholtz-Tao (a,b,c,d,e,f) parametrization; body text of arXiv:1107.1010; whether the F1 form itself appears in the literature."
+          ],
+          "summary": "The reduction chain is correct but is a change of coordinates on published parametrizations, so the route opens no new attack surface. Theorem A's (D)/(G) dichotomy is Elsholtz-Tao Type I/II; family (G)'s divisor condition is Bradford's condition with a different denominator eliminated first; the six exceptional classes are the known odd-square obstruction. Two results survive as independently written proofs: the equivalence of E-S with the two-condition forall-statement, and the falsification of conjecture H* (all 27 exceptional primes below 10^4 have family-G solutions with z' <= 25). See experiments/erdos-straus/THEORY.md sections 6 and 8.",
+          "previous": [
+            {
+              "verdict": "ROUTE-LIVE",
+              "commit": "abe4c8b",
+              "reason": "Withdrawn 2026-08-23 on external review. Gate A: THEORY.md section 5 claimed the new lemma NL is 'equivalent in strength' to E-S, but NL is stated over the sigma = z'w subfamily while the reduction produces sigma | z'^2, so E-S => NL needs an unproved exhaustion lemma; only NL => E-S holds. Gate B: no prior-art check had been done, and the central reduction turned out to be known."
+            }
+          ]
         }
       }
     },
@@ -55,7 +68,8 @@
           "branch": "verify/math-lonely-runner",
           "commit": "255ea7d",
           "verdict": "OBSTRUCTION-IDENTIFIED",
-          "summary": "New exact chain up to EQ* yields conditional theorem: C(8) holds for generic 8-speed sets under pair-decay. Unblocking lemma identified in THEORY.md."
+          "prior_art": "unverified",
+          "summary": "New exact chain up to EQ* yields conditional theorem: C(8) holds for generic 8-speed sets under pair-decay. Unblocking lemma identified in THEORY.md. Recorded before docs/theory-verdicts.md existed; THEORY.md section 6 marks its literature claim [unverified], so the label has not passed Gate B and must not be cited as precedent."
         }
       }
     },
@@ -82,7 +96,8 @@
           "branch": "verify/math-singmaster",
           "commit": "74b588f",
           "verdict": "OBSTRUCTION-IDENTIFIED",
-          "summary": "Explicit birational elliptic models derived for all pairs k<l<=4 (quartic/biquadratic Pell-fiber for (2,4); Mordell curve twist of 37a1, rank>=1). Route live in the low window; global-multiplicity obstruction identified precisely."
+          "prior_art": "unverified",
+          "summary": "Recorded before docs/theory-verdicts.md existed; Gate B not passed, not usable as precedent. Explicit birational elliptic models derived for all pairs k<l<=4 (quartic/biquadratic Pell-fiber for (2,4); Mordell curve twist of 37a1, rank>=1). Route live in the low window; global-multiplicity obstruction identified precisely."
         }
       }
     },
@@ -151,7 +166,8 @@
           "branch": "verify/math-graceful-tree",
           "commit": "d4c3313",
           "verdict": "OBSTRUCTION-IDENTIFIED",
-          "summary": "Three classical routes proved blocked (affine rigidity + budget pigeonhole kill composition; leaf-induction strengthening refuted at n=6, machine-checked). Minimal separating lemma stated in THEORY.md."
+          "prior_art": "unverified",
+          "summary": "Recorded before docs/theory-verdicts.md existed; Gate B not passed, not usable as precedent. Three classical routes proved blocked (affine rigidity + budget pigeonhole kill composition; leaf-induction strengthening refuted at n=6, machine-checked). Minimal separating lemma stated in THEORY.md."
         }
       }
     }

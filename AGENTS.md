@@ -36,6 +36,30 @@ formal 問題でも、総当たり的な計算による境界延長を「検証�
 成果物は `THEORY.md` として定義 → 試みた補題 → 破綻点 → 必要な次の手
 という構成で書く。
 
+## THEORY 判定語彙 (formal 攻略の verdict)
+
+`THEORY.md` の verdict と `metadata.attack_notes.verdict` に使う語彙は
+**`docs/theory-verdicts.md` で定義された体系のみ**。下の「検証の梯子」の
+SUPPORT / AGAINST / INCONCLUSIVE とは別系統で、混ぜてはいけない。
+
+判定は必ず 2つの門 → ラダーの順で行う:
+
+1. **Gate A (連鎖健全性)** — verdict が依拠する補題すべてに文書内の証明が
+   あるか。数値確認は補題の代わりにならない。特に「新補題 NL は問題 P と
+   同値な強さ」と書くときは `P ⇒ NL` (exhaustion lemma) を別途証明する。
+   NL が帰着の生んだ族の真部分族に対する主張なら、証明なしに同値とは
+   言えない。抜けがあれば `CHAIN-GAP`。
+2. **Gate B (先行研究照合)** — 使った帰着・パラメトリゼーション・分類・
+   主張した obstruction について、解決可能な引用を挙げた節が文書にあるか。
+   「記憶に基づく・未検証」は引用ではない。無ければ `PRIOR-ART-PENDING`。
+3. 両方を通ったときだけラダーのラベル
+   (`ROUTE-DEAD` / `ROUTE-KNOWN` / `OBSTRUCTION-IDENTIFIED` / `ROUTE-LIVE`)
+   を付ける。`ROUTE-LIVE` は Gate B が必須であって任意ではない。
+
+verdict の格下げは通常の運用であって失敗ではない。旧ラベルは
+`attack_notes.previous` に理由付きで積み、`THEORY.md` の該当箇所は削除せず
+その場で訂正する。
+
 ## 検証の梯子 (仮説の進め方)
 
 1. 組み合わせ仮説には必ず `cheap_falsification` (安い反証テスト) を
