@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "external_id": "combo:galois-edit-distance",
+      "title": "Attack the edit distance barrier via Galois-style invariant obstruction",
+      "statement": "Instead of searching for subquadratic algorithms or refining reductions, identify an invariant that any strongly subquadratic edit-distance algorithm would have to preserve (a coarse-graining under which alignment information collapses), and show the invariant is absent. Impossibility becomes structural, mirroring Galois's treatment of the quintic.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "algorithms/stringology",
+      "source": "cross-domain combination of breakthrough:galois with problem:edit-distance-barrier",
+      "axis_texts": {
+        "semantic": "Prove the quadratic barrier structurally: find what every fast algorithm must respect and show it is missing.",
+        "mechanism": "shift from algorithm search to invariant structure any successful method must respect; obstruction becomes provable",
+        "math_structure": "invariant theory fine-grained reductions information content of dynamic programming tables",
+        "problem_shape": "formula search replaced by structural obstruction",
+        "failure": "edit distance may lack a group-like structure; invariants may be too weak or vacuous"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:galois",
+        "target_problem": "problem:edit-distance-barrier",
+        "bridge": "Galois's move: replace 'try harder to solve' with 'characterize what any solution preserves'. For algorithms: characterize what any subquadratic comparison can read.",
+        "cheap_falsification": "Attempt the invariant formalization on a toy variant (e.g., bounded-alphabet LCS); if even there no nontrivial invariant separates fast from slow algorithms within a month of effort, downgrade."
+      }
+    },
+    {
+      "external_id": "combo:boltzmann-intermittency",
+      "title": "Intermittency as typicality: ensemble counting of extreme vorticity configurations",
+      "statement": "Rather than deriving intermittency from cascade dynamics, treat anomalous exponents as a counting question: enumerate (via large-deviation/ensemble methods) which velocity-field configurations dominate high-order structure functions, and derive the multifractal spectrum as the entropy of that configuration ensemble.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "fluid mechanics/turbulence/statistical mechanics",
+      "source": "cross-domain combination of breakthrough:boltzmann-statistical with problem:turbulence-intermittency",
+      "axis_texts": {
+        "semantic": "Reframe intermittency from dynamical derivation to counting which extreme configurations are typical at each order.",
+        "mechanism": "reframe deterministic question as ensemble counting; moments dominated by configuration classes weighted by their entropy-like weight",
+        "math_structure": "large deviations ensemble counting multifractals saddle-point asymptotics",
+        "problem_shape": "derivation replaced by classification + counting of dominant configurations",
+        "failure": "configuration space may be uncountable in useful coordinates; weights may be dynamics-dependent, reintroducing the unsolved problem"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:boltzmann-statistical",
+        "target_problem": "problem:turbulence-intermittency",
+        "bridge": "Boltzmann's move: give up trajectory-level explanation; define the right ensemble and count. Extreme events become 'rare but numerous' classes.",
+        "cheap_falsification": "On shell-resolved DNS data or shell models, test whether a two-parameter configuration-entropy fit reproduces known intermittency exponents p=1..8 better than log-Poisson cascades; if not competitive, discard."
+      }
+    },
+    {
+      "external_id": "combo:kohnsham-enzyme",
+      "title": "Kohn-Sham-style surrogate twin for enzyme catalysis decomposition",
+      "statement": "Replace the contested decomposition of enzyme rate acceleration with a fictitious solvable reference reaction constrained to match observables (rate constant, isotope effects) exactly; concentrate all model error into one exchange-like functional term. The attribution debate becomes the study of that single functional's variation across enzymes.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "biochemistry/computational chemistry",
+      "source": "cross-domain combination of breakthrough:kohn-sham with problem:enzyme-catalysis-origin",
+      "axis_texts": {
+        "semantic": "Stop partitioning the free-energy surface; build a solvable twin reaction matching observables and push all ambiguity into one improvable functional.",
+        "mechanism": "surrogate system matches target observable-by-observable; error concentrated in single improvable component",
+        "math_structure": "variational reference systems functional decomposition self-consistent calibration",
+        "problem_shape": "attribution problem converted into functional approximation problem",
+        "failure": "no choice of reference reaction may make the residual term small enough across enzyme families"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:kohn-sham",
+        "target_problem": "problem:enzyme-catalysis-origin",
+        "bridge": "Kohn-Sham's move: exactness relocated into a black box improved indefinitely, surrogate stays solvable. Attribution disputes become functional design.",
+        "cheap_falsification": "Take one enzyme family with mutational rate data; fit the surrogate-twin functional to half the mutants and predict the rest. Prediction error above Arrhenius-fit baselines kills it."
+      }
+    },
+    {
+      "external_id": "combo:prion-glass",
+      "title": "Glassy arrest as self-templated configurational order (prion pattern)",
+      "statement": "Hypothesize that below the glass transition the amorphous configuration itself acts as its own template: local structural order propagates by templated conversion of neighbors without any thermodynamic singularity or external carrier. The thermodynamic-versus-kinetic dichotomy is then malformed - the carrier of 'order' is the configuration history itself, analogous to prions carrying form without genome.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "condensed matter/glass physics",
+      "source": "cross-domain combination of breakthrough:prion with problem:glass-transition",
+      "axis_texts": {
+        "semantic": "Ask whether glassy order propagates like a prion: the arrangement templates itself, dissolving the transition-vs-crossover dichotomy.",
+        "mechanism": "separate informational process (templated propagation of local order) from assumed carrier (thermodynamic phase)",
+        "math_structure": "nucleation templated growth kinetic arrest cooperative relaxation dynamic heterogeneity",
+        "problem_shape": "false-dichotomy dissolution by redefining the carrier of order",
+        "failure": "tempered glass phenomenology may be fully explained by existing RFOT/MCT; templating adds nothing falsifiable"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:prion",
+        "target_problem": "problem:glass-transition",
+        "bridge": "Prion's move: strip the process to its abstract transfer rule, find minimal carrier. Here the candidate carrier is the configuration itself.",
+        "cheap_falsification": "Colloidal glasses: check whether locally-ordered regions grow by boundary conversion kinetics (templated) versus bulk nucleation; distinguishable growth-law exponent."
+      }
+    },
+    {
+      "external_id": "combo:cohen-planted-clique",
+      "title": "Forcing-style world construction for planted clique thresholds",
+      "statement": "Treat the planted-clique threshold like Cohen treated set-theoretic independence: explicitly engineer random-graph worlds realizing each candidate answer (detectable at k, undetectable at k) via generic constructions whose properties are controlled through finite approximation, aiming to show threshold location is a property of the construction method, not of nature.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "theoretical computer science/random graphs",
+      "source": "cross-domain combination of breakthrough:cohen-forcing with problem:planted-clique-hardness",
+      "axis_texts": {
+        "semantic": "Build explicit worlds where the planted clique is easy/hard at the same k, forcing the conclusion that 'hardness' is method-relative and constructively manipulable.",
+        "mechanism": "engineer environments realizing each outcome; truth value becomes design parameter controlled by finite approximations",
+        "math_structure": "generic constructions conditional distributions indistinguishability sum-of-squares worlds",
+        "problem_shape": "prove separation by constructing both universes rather than bounding one",
+        "failure": "indistinguishability between engineered worlds may collapse to known pseudodistribution bounds; nothing beyond SSE lower limits"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:cohen-forcing",
+        "target_problem": "problem:planted-clique-hardness",
+        "bridge": "Cohen's move: if undecided inside, build larger universes realizing each outcome. For average-case complexity: build input ensembles making each behavior actual.",
+        "cheap_falsification": "Try engineering two k ~ log^2(n) ensembles that are statistically close yet separate a specific algorithm class (e.g., SDP-based); if closeness always forces same SDP outcome, the constructive program stalls early."
+      }
+    },
+    {
+      "external_id": "combo:black-scholes-auctions",
+      "title": "Prior-free auctions by hedging: make unknown value distributions cancel",
+      "statement": "Import Black-Scholes-Merton's replication logic into auction design: construct payment/allocation mechanisms as portfolios over simple auction instruments such that dependence on the unknown bidder-value distribution cancels by construction, yielding prior-free guarantees the way delta-hedging yields preference-free prices.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "market design/algorithmic game theory/mathematical finance",
+      "source": "cross-domain combination of breakthrough:black-scholes with problem:auction-design-robustness",
+      "axis_texts": {
+        "semantic": "Do not estimate bidder values; design the mechanism so distributional uncertainty cancels dynamically, as hedging cancels risk premia.",
+        "mechanism": "dynamic composite mechanism makes unknown parameter cancel; guarantees by construction not estimation",
+        "math_structure": "replication portfolios worst-case competitive ratios online learning duality minimax",
+        "problem_shape": "unknown environment made harmless by constructed strategy",
+        "failure": "auction allocation discreteness may block continuous rebalancing analogues; cancellation may need clairvoyance"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:black-scholes",
+        "target_problem": "problem:auction-design-robustness",
+        "bridge": "Black-Scholes's move: stop predicting the underlying; build output from hedge. Auctions: stop learning the distribution; build revenue from offsetting positions across bidders/types.",
+        "cheap_falsification": "Single-item case: does a dynamic portfolio of posted prices replicate the optimal-distribution benchmark within constant factor without samples? If even this fails, combinatorial version hopeless."
+      }
+    },
+    {
+      "external_id": "combo:noether-loop-invariants",
+      "title": "Loop invariants as Noether conserved quantities of transition symmetries",
+      "statement": "Treat loop invariants as conserved quantities generated by symmetries of the loop's transition relation: identify transformation groups under which the transition system is invariant, and derive invariants as Noether-type currents instead of searching template space. Inference becomes symmetry detection.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "programming languages/formal verification/dynamical systems",
+      "source": "cross-domain combination of breakthrough:noether with problem:loop-invariant-inference",
+      "axis_texts": {
+        "semantic": "Derive loop invariants from symmetries of the transition relation instead of searching for them.",
+        "mechanism": "vary execution under transformation groups preserving transitions; boundary terms yield conserved assertion forms",
+        "math_structure": "group actions on state space fixed points polynomial ideals inductive assertions",
+        "problem_shape": "search problem converted into structure-detection problem",
+        "failure": "most practical loops have only trivial symmetries; generated currents may be weaker than needed invariants"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:noether",
+        "target_problem": "problem:loop-invariant-inference",
+        "bridge": "Noether's move: conservation is derived from invariance. Programs: assertions preserved by all executions should be derived from transformations preserving the transition relation.",
+        "cheap_falsification": "Benchmark suite (e.g., SV-COMP loops): detect automorphism-like symmetries of integer transition relations; measure how often symmetry-derived candidates match the verification-grade invariant. Below ~20% coverage, pattern too thin."
+      }
+    },
+    {
+      "external_id": "combo:bethe-anesthesia",
+      "title": "Anesthesia mechanism via Bethe-ansatz consistency across agents",
+      "statement": "Postulate a restricted circuit-level form for consciousness disruption (e.g., a factorized interaction between arousal nuclei and cortical inhibition), then require consistency across pharmacologically diverse anesthetics. As in the Bethe ansatz, cross-agent consistency conditions may quantize the possible mechanisms to a small discrete set, converting a many-to-one mystery into constraint solving.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "neuroscience/anesthesiology/integrable systems analogy",
+      "source": "cross-domain combination of breakthrough:bethe-ansatz with problem:anesthesia-mechanism",
+      "axis_texts": {
+        "semantic": "Assume the mechanism's circuit form first; demand consistency across chemically diverse agents; let constraints select the mechanism.",
+        "mechanism": "ansatz-first restricted solution shape; consistency around diverse perturbations yields exact restrictions",
+        "math_structure": "factorized interactions consistency conditions constraint satisfaction network dynamics",
+        "problem_shape": "many-to-one convergence reduced to consistency-filtered hypothesis set",
+        "failure": "anesthetic diversity may act through genuinely non-factorizable pathways; consistency conditions may be satisfied trivially"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:bethe-ansatz",
+        "target_problem": "problem:anesthesia-mechanism",
+        "bridge": "Bethe's move: write down the solution's form before the derivation; internal consistency does the proving. Diverse anesthetics play the role of particle exchanges around which consistency is demanded.",
+        "cheap_falsification": "Fit the factorized circuit ansatz to published EEG dose-response data for 3+ agent classes; if no common reduced parameterization fits within reasonable error, the ansatz class is wrong."
+      }
+    },
+    {
+      "external_id": "combo:shannon-frankl",
+      "title": "Union-closed abundance as a typicality statement",
+      "statement": "Strip Frankl's conjecture of set-theoretic meaning and keep only statistics: model union closure as a channel merging information sources, and ask whether the abundant element is forced by a Shannon-style typicality/capacity argument. Conjecture: union closure implies an entropy inequality whose consequence is the >=1/2 frequency bound.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "combinatorics/information theory",
+      "source": "cross-domain combination of breakthrough:shannon-entropy with problem:frankl-union-closed",
+      "axis_texts": {
+        "semantic": "Read union closure as an information-merging operation; prove element abundance as a statistical necessity.",
+        "mechanism": "discard structure retain frequencies; closure as noisy channel; abundance as capacity/typicality phenomenon",
+        "math_structure": "entropy inequalities set systems shearer's inequality extremal frequency bounds",
+        "problem_shape": "combinatorial existence converted into information inequality",
+        "failure": "known entropy approaches (Shearer-based) already stalled; channel view may add nothing"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:shannon-entropy",
+        "target_problem": "problem:frankl-union-closed",
+        "bridge": "Shannon's move: strip meaning, keep statistics. Union-closed families: forget what sets mean; frequencies under a merge operation obey information inequalities.",
+        "cheap_falsification": "Search for a union-closed family violating the proposed entropy inequality computationally up to ground size ~30; a counterexample to the inequality route appears quickly if it exists.",
+        "assessment": "weakened",
+        "verification": {
+          "branch": "verify/shannon-frankl",
+          "commit": "a6e4e9e",
+          "experiment": "experiments/shannon-frankl",
+          "verdict": "AGAINST",
+          "summary": "Exhaustive n=4 + 59k samples n=6-8: naive entropy ceilings (I2), one-bit-merge Shearer bound (I3), dropout monotonicity (I5) are violated by real union-closed families; surviving bounds (Reimer, Knill) provably do not imply Frankl, and the distribution-universal ceiling saturates exactly at t=1/2 so no ceiling-type inequality can cross the Frankl boundary. Controls show entropy stats barely distinguish closed from unclosed families."
+        }
+      }
+    },
+    {
+      "external_id": "combo:mendel-sex",
+      "title": "Sex as active maintenance of Mendelian discreteness",
+      "statement": "Invert Mendel's move: his breakthrough discretized heredity against blending appearance; recombination's evolutionary role can be framed as the machinery actively defending that discreteness against informational decay. Hypothesis: sex is selected as error-correction for the discrete substrate - recombination restores integer-like genotypes degraded by mutation and drift, paying the twofold cost when degradation rates exceed a threshold expressible in mutation-rate units.",
+      "record_type": "hypothesis",
+      "epistemic_status": "speculative",
+      "domain": "evolutionary biology/population genetics/information theory",
+      "source": "cross-domain combination of breakthrough:mendel with problem:evolution-of-sex",
+      "axis_texts": {
+        "semantic": "Frame recombination as defense of hereditary discreteness; sex pays off exactly when discrete units degrade faster than selection repairs them.",
+        "mechanism": "discretize hidden substrate; identify process that maintains discreteness; derive cost-benefit threshold from degradation rate",
+        "math_structure": "mutation-selection balance linkage disequilibrium information decay error-correcting codes",
+        "problem_shape": "many competing benefits reduced to single threshold criterion testable by rate measurements",
+        "failure": "mutation-rate threshold predictions may sit far from observed biological regimes; classic mutational-deterministic critique applies"
+      },
+      "metadata": {
+        "source_breakthrough": "breakthrough:mendel",
+        "target_problem": "problem:evolution-of-sex",
+        "bridge": "Mendel's move reversed onto its own domain: discreteness was the insight; ask what maintains it. Sex = maintenance protocol for the discrete substrate.",
+        "cheap_falsification": "Cross-species comparison: correlate recombination rates with measured genomic degradation proxies (mutation rate x genome length, transposable load). Predicted positive threshold-like relation either holds in existing datasets or does not."
+      }
+    }
+  ],
+  "evidence": [],
+  "relations": [
+    {"claim": "breakthrough:galois", "target_claim": "combo:galois-edit-distance", "relation": "MOTIVATES"},
+    {"claim": "problem:edit-distance-barrier", "target_claim": "combo:galois-edit-distance", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:boltzmann-statistical", "target_claim": "combo:boltzmann-intermittency", "relation": "MOTIVATES"},
+    {"claim": "problem:turbulence-intermittency", "target_claim": "combo:boltzmann-intermittency", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:kohn-sham", "target_claim": "combo:kohnsham-enzyme", "relation": "MOTIVATES"},
+    {"claim": "problem:enzyme-catalysis-origin", "target_claim": "combo:kohnsham-enzyme", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:prion", "target_claim": "combo:prion-glass", "relation": "MOTIVATES"},
+    {"claim": "problem:glass-transition", "target_claim": "combo:prion-glass", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:cohen-forcing", "target_claim": "combo:cohen-planted-clique", "relation": "MOTIVATES"},
+    {"claim": "problem:planted-clique-hardness", "target_claim": "combo:cohen-planted-clique", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:black-scholes", "target_claim": "combo:black-scholes-auctions", "relation": "MOTIVATES"},
+    {"claim": "problem:auction-design-robustness", "target_claim": "combo:black-scholes-auctions", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:noether", "target_claim": "combo:noether-loop-invariants", "relation": "MOTIVATES"},
+    {"claim": "problem:loop-invariant-inference", "target_claim": "combo:noether-loop-invariants", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:bethe-ansatz", "target_claim": "combo:bethe-anesthesia", "relation": "MOTIVATES"},
+    {"claim": "problem:anesthesia-mechanism", "target_claim": "combo:bethe-anesthesia", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:shannon-entropy", "target_claim": "combo:shannon-frankl", "relation": "MOTIVATES"},
+    {"claim": "problem:frankl-union-closed", "target_claim": "combo:shannon-frankl", "relation": "MOTIVATES"},
+    {"claim": "breakthrough:mendel", "target_claim": "combo:mendel-sex", "relation": "MOTIVATES"},
+    {"claim": "problem:evolution-of-sex", "target_claim": "combo:mendel-sex", "relation": "MOTIVATES"}
+  ]
+}

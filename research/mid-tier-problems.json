@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "external_id": "problem:frankl-union-closed",
+      "title": "Frankl union-closed sets conjecture",
+      "statement": "Every finite union-closed family of sets (other than the trivial family) contains an element present in at least half the members. Verified computationally for families up to moderate size, no general proof known.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "combinatorics",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "In any union-closed family some element must be abundant; abundance is forced by closure alone.",
+        "mechanism": "closure operation forces concentration of element frequencies",
+        "math_structure": "set families closure operators frequency counting extremal combinatorics",
+        "problem_shape": "local rule to global counting guarantee existence of abundant object",
+        "failure": "proof attempts reduce to frequency vectors without exploitable structure"
+      },
+      "metadata": {"figures": ["Peter Frankl"], "status": "open since ~1978"}
+    },
+    {
+      "external_id": "problem:glass-transition",
+      "title": "Glass transition: thermodynamic transition or kinetic crossover?",
+      "statement": "Whether the structural glass transition reflects a genuine underlying thermodynamic phase transition (e.g., an ideal random first-order transition) or is merely a smooth kinetic slowdown remains unresolved.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "condensed matter/statistical mechanics",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Distinguish a genuine collective transition from a smooth finite-time crossover in supercooled liquids.",
+        "mechanism": "separate thermodynamic singularity from dynamical arrest mechanisms",
+        "math_structure": "energy landscapes metastability mode-coupling random first order transition",
+        "problem_shape": "genuine singularity versus finite-size finite-time artifact",
+        "failure": "every proposed static signature has a kinetic control that mimics it"
+      },
+      "metadata": {"status": "open"}
+    },
+    {
+      "external_id": "problem:planted-clique-hardness",
+      "title": "Planted clique: average-case hardness beyond log n",
+      "statement": "Recovering a planted clique of size k in G(n,1/2) is easy when k exceeds ~sqrt(n) spectral thresholds and conjectured hard near log(n); proving average-case hardness for k between log n and sqrt n, or even ruling out polynomial algorithms below sqrt(n)/log^2(n) for natural semidefinite hierarchies, is open.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "theoretical computer science/average-case complexity",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Locate the true computational threshold for detecting a planted structure inside a random graph.",
+        "mechanism": "separate information-theoretic possibility from algorithmic reachability",
+        "math_structure": "random graphs spectral methods semidefinite programming sum-of-squares lower bounds",
+        "problem_shape": "threshold location; proving absence of algorithms rather than presence",
+        "failure": "lower bounds restricted to narrow algorithm classes; reductions circular"
+      },
+      "metadata": {"status": "open"}
+    },
+    {
+      "external_id": "problem:edit-distance-barrier",
+      "title": "Edit distance quadratic time barrier",
+      "statement": "Whether edit distance on strings admits a strongly subquadratic algorithm is equivalent to the Strong Exponential Time Hypothesis being false; decades of attempts produced only log-factor improvements and conditional barrier results.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "algorithms/stringology",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Prove or break the quadratic-time barrier for sequence comparison.",
+        "mechanism": "conditional lower bound via fine-grained reductions; search for exploitable string structure",
+        "math_structure": "dynamic programming fine-grained complexity SETH reductions orthogonal vectors",
+        "problem_shape": "prove impossibility or find hidden structure enabling speedup",
+        "failure": "all known techniques hit the alignment-table quadratic information content"
+      },
+      "metadata": {"status": "open"}
+    },
+    {
+      "external_id": "problem:turbulence-intermittency",
+      "title": "Intermittency anomalies in turbulence",
+      "statement": "Velocity-gradient statistics in high-Reynolds turbulence show anomalous scaling exponents not explained by Kolmogorov 1941 theory; no derivation of the multifractal spectrum from the Navier-Stokes equations exists.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "fluid mechanics/turbulence",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Derive anomalous scaling of extreme fluctuations from the governing dynamics instead of fitting it.",
+        "mechanism": "extreme events dominate moments; cascade models parameterize rather than derive",
+        "math_structure": "multifractal formalism structure functions scale invariance breakdown large deviations",
+        "problem_shape": "fitting phenomenology replaced by first-principles derivation",
+        "failure": "cascade models are descriptive; closures miss intermittency universally"
+      },
+      "metadata": {"status": "open"}
+    },
+    {
+      "external_id": "problem:enzyme-catalysis-origin",
+      "title": "Physical origin of enzyme catalytic power",
+      "statement": "Enzymes accelerate reactions by up to 10^20-fold, but how much comes from transition-state stabilization, ground-state destabilization, dynamical effects, and preorganization remains contested; no predictive theory computes rate acceleration from structure alone.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "biochemistry/enzymology",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Decompose catalytic power into physically separable contributions with predictive power.",
+        "mechanism": "rate acceleration decomposed into candidate contributions that resist clean separation",
+        "math_structure": "transition state theory free energy surfaces reorganization protein dynamics",
+        "problem_shape": "attribution problem; structure-to-rate prediction",
+        "failure": "each decomposition depends on arbitrary partitioning of the free energy surface"
+      },
+      "metadata": {"status": "open"}
+    },
+    {
+      "external_id": "problem:evolution-of-sex",
+      "title": "Maintenance of sex and recombination",
+      "statement": "Sex carries the twofold cost of males and breaks up successful gene combinations, yet recombination dominates eukaryotic reproduction. Which advantage reliably overcomes these costs in nature remains unsettled among many proposed mechanisms.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "evolutionary biology/population genetics",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Identify the advantage that systematically pays the twofold cost of sexual reproduction.",
+        "mechanism": "recombination reshuffles variation; candidate benefits are condition-dependent",
+        "math_structure": "population genetics linkage disequilibrium selection epistasis mutation load",
+        "problem_shape": "cost-benefit attribution across fluctuating environments",
+        "failure": "every proposed benefit works in some regime and fails in others; no universal winner demonstrated"
+      },
+      "metadata": {"status": "open", "figures": ["John Maynard Smith", "George Williams"]}
+    },
+    {
+      "external_id": "problem:anesthesia-mechanism",
+      "title": "Mechanism of general anesthesia",
+      "statement": "How diverse agents (inert gases, halogenated ethers, barbiturates) reversibly abolish consciousness through shared circuit-level mechanisms remains unexplained despite identified molecular targets like GABA-A receptors.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "neuroscience/anesthesiology",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Explain why chemically heterogeneous agents produce one reversible behavioral endpoint.",
+        "mechanism": "diverse molecular targets converge on unknown circuit-level integration mechanism",
+        "math_structure": "neural circuits excitation inhibition balance network dynamics arousal systems",
+        "problem_shape": "many-to-one convergence; identify the invariant circuit signature",
+        "failure": "molecular-target theories do not predict consciousness loss; correlates abound, mechanism absent"
+      },
+      "metadata": {"status": "open"}
+    },
+    {
+      "external_id": "problem:auction-design-robustness",
+      "title": "Robust prior-free combinatorial auction design",
+      "statement": "Designing combinatorial auctions whose revenue and efficiency guarantees hold without distributional knowledge of bidder values, and remain computationally tractable with expressive bids, lacks a satisfactory general theory.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "market design/algorithmic game theory",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Get good auction guarantees without knowing bidder value distributions.",
+        "mechanism": "prior-free mechanisms compete against benchmarks; combinatorial structure defeats tractability",
+        "math_structure": "mechanism design incentive compatibility approximation algorithms worst-case analysis learning theory",
+        "problem_shape": "unknown environment made harmless by design; expressiveness versus tractability tension",
+        "failure": "distributional assumptions sneak back in via benchmarks; welfare-revenue tradeoffs unresolved"
+      },
+      "metadata": {"status": "open"}
+    },
+    {
+      "external_id": "problem:loop-invariant-inference",
+      "title": "Automated loop invariant inference at scale",
+      "statement": "Automatically synthesizing the inductive invariants needed to verify realistic loops remains fragile: template-based, constraint-based, and learning-based methods each fail on loops outside their assumed shape, and no method reliably finds non-obvious nonlinear invariants.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "programming languages/formal verification",
+      "source": "mid-tier open problem card",
+      "axis_texts": {
+        "semantic": "Find the right shape of loop invariants automatically instead of guessing templates.",
+        "mechanism": "inductive assertions exist but their discovery resists systematic search",
+        "math_structure": "fixed points inductive assertions constraint solving abstract interpretation",
+        "problem_shape": "search space explosion; template selection as hidden bottleneck",
+        "failure": "methods tuned to linear arithmetic fragment on nonlinear or disjunctive invariants"
+      },
+      "metadata": {"status": "open"}
+    }
+  ],
+  "evidence": [],
+  "relations": []
+}

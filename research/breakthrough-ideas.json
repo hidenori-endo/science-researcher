@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "external_id": "breakthrough:galois",
+      "title": "Galois: decide solvability by root symmetry, not by formulas",
+      "statement": "The unsolvability of the quintic was proved not by exhausting formula attempts but by shifting the object of study: attach to each equation the permutation group of its roots, and reduce solvability-by-radicals to group solvability. S5 is not a solvable group, therefore no radical formula exists.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "algebra/theory-of-equations",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Prove impossibility of a solution formula by studying the symmetry structure of the solutions instead of searching for the formula.",
+        "mechanism": "shift the object of study from candidate solutions to invariant structure any solution must respect; obstruction becomes provable",
+        "math_structure": "group theory field extensions Galois correspondence solvable groups",
+        "problem_shape": "formula search replaced by structural obstruction; existence question turned into nonexistence proof",
+        "failure": "group-theoretic solvability does not construct explicit solutions; resolvent computation remains hard"
+      },
+      "metadata": {
+        "year": 1832,
+        "figures": ["Evariste Galois"],
+        "original_difficulty": "No general radical formula for degree >=5; two centuries of failed formula searches.",
+        "why_unconventional": "Stopped asking 'what is the solution' and asked 'what structure must every solution preserve'. Impossibility became a theorem about symmetries.",
+        "transferable_pattern": "To prove something cannot be done, find an invariant that any successful method would have to respect, then show the invariant is absent. Applies wherever search keeps failing: compilers, optimization, protocol design."
+      }
+    },
+    {
+      "external_id": "breakthrough:cantor-diagonalization",
+      "title": "Cantor: completed infinities and the diagonal construction",
+      "statement": "Infinite sets are legitimate mathematical objects that can be compared by bijection. The diagonal construction produces, from any purported enumeration of the reals, a real missing from the list; hence uncountability and a hierarchy of infinite cardinalities.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "set theory/foundations of mathematics",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Treat completed infinities as objects; refute any universal list by constructing an element defined to differ from every entry.",
+        "mechanism": "define a witness by opposition: at position n differ from the nth candidate; the list can never be complete",
+        "math_structure": "bijection cardinality diagonal argument self-reference negation",
+        "problem_shape": "enumeration attempt converted into non-enumerability proof",
+        "failure": "naive comprehension paradoxes; requires axiomatic set theory to be safe"
+      },
+      "metadata": {
+        "year": 1891,
+        "figures": ["Georg Cantor"],
+        "original_difficulty": "Contemporaries rejected actual infinities; infinity was treated as potential, not an object.",
+        "why_unconventional": "Accepted the completed infinite as an object of study and used self-referential definition as a proof engine.",
+        "transferable_pattern": "Universal claims ('all X are enumerable/representable/compressible') can be refuted by one adversarially defined witness. Reusable against any enumeration argument: formal languages, program behaviors, hash preimages."
+      }
+    },
+    {
+      "external_id": "breakthrough:boltzmann-statistical",
+      "title": "Boltzmann: entropy and irreversibility from microstate counting",
+      "statement": "Macroscopic irreversibility and entropy are derived by counting microscopic configurations, S proportional to log W. Probability replaces trajectory-level determinism: the most probable macrostate dominates because it has overwhelmingly more microstates.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "thermodynamics/kinetic theory",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Explain a law-like macroscopic regularity by counting microscopic possibilities rather than solving dynamics.",
+        "mechanism": "reframe an intractable deterministic question as an ensemble counting question; typicality replaces prediction",
+        "math_structure": "combinatorics logarithmic additivity law of large numbers ensemble counting",
+        "problem_shape": "microscopic to macroscopic; reversible dynamics to irreversible law",
+        "failure": "reversibility (Loschmidt) and recurrence (Zermelo) objections; ergodic assumptions needed"
+      },
+      "metadata": {
+        "year": 1877,
+        "figures": ["Ludwig Boltzmann"],
+        "original_difficulty": "Thermodynamics was phenomenological; reconciling reversible microscopic mechanics with irreversible macroscopic law seemed impossible.",
+        "why_unconventional": "Abandoned trajectory-level explanation entirely; made probability the fundamental physical concept, decades before atomism was accepted.",
+        "transferable_pattern": "When exact prediction is hopeless, define the right ensemble and count. Typical-case analysis beats worst-case analysis in algorithms, epidemiology, systems reliability."
+      }
+    },
+    {
+      "external_id": "breakthrough:mendel",
+      "title": "Mendel: particulate inheritance before its material carrier was known",
+      "statement": "Heredity is particulate: discrete factors combine in fixed ratios (3:1 in F2) rather than blending. Mendel discretized the hidden substrate purely theoretically and confirmed the combinatorial ratios by counting, decades before chromosomes or DNA were implicated.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "genetics/heredity",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Discretize a hidden substrate and predict observable integer ratios, before knowing what the substrate physically is.",
+        "mechanism": "discretize the hidden variable; derive observable ratios as pure combinatorics; test by counting",
+        "math_structure": "discrete factors segregation ratios combinatorial probability",
+        "problem_shape": "continuous blending dogma replaced by discrete factors; hidden variable inferred from ratio statistics",
+        "failure": "does not cover continuous traits or linkage; initially ignored because no physical carrier was known"
+      },
+      "metadata": {
+        "year": 1866,
+        "figures": ["Gregor Mendel"],
+        "original_difficulty": "Blending inheritance was the accepted model; it cannot explain persistence of variation.",
+        "why_unconventional": "Committed to discreteness of the hereditary substrate with zero mechanistic knowledge of it, letting arithmetic do the theory.",
+        "transferable_pattern": "You can fix the algebraic form of an unknown mechanism (discrete units, integer ratios) before identifying its implementation. Analogous to assuming quantization or granularity in unknown systems to get testable signatures."
+      }
+    },
+    {
+      "external_id": "breakthrough:noether",
+      "title": "Noether: conservation laws as shadows of symmetries",
+      "statement": "Every differentiable symmetry of the action yields a conserved current; conversely, conserved quantities are not independent facts but consequences of invariance. Energy conservation follows from time-translation symmetry, momentum from space-translation symmetry.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "theoretical physics/variational calculus",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Derive the invariant quantity you need from the invariance of the generating functional, instead of postulating it.",
+        "mechanism": "vary the action under a continuous symmetry; the boundary term is the conserved current",
+        "math_structure": "variational principle Lie groups Noether currents conservation laws",
+        "problem_shape": "symmetry to law; independent-looking facts unified as consequences of invariance",
+        "failure": "requires a variational formulation and differentiable symmetries; quantum anomalies break classical conservation"
+      },
+      "metadata": {
+        "year": 1918,
+        "figures": ["Emmy Noether"],
+        "original_difficulty": "Conservation laws were empirical facts, verified case by case, with no reason given for their universality.",
+        "why_unconventional": "Reversed the explanatory direction: conservation is derived from symmetry, collapsing many independent laws into instances of one principle.",
+        "transferable_pattern": "If a quantity stays constant in your system, look for the invariance that generates it; if you can impose an invariance, you get guarantees for free. Used in ML (invariant representations), cryptography, distributed systems."
+      }
+    },
+    {
+      "external_id": "breakthrough:godel-arithmetization",
+      "title": "Goedel: arithmetization of syntax and self-referential incompleteness",
+      "statement": "Statements about arithmetic can be encoded as natural numbers (Goedel numbering), making metamathematics part of arithmetic itself. One can then construct a sentence that essentially asserts its own unprovability; if the theory is consistent, that sentence is true yet unprovable.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "mathematical logic/foundations",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Collapse the meta-level into the object level by encoding reasoning about the system inside the system; self-reference then does the work.",
+        "mechanism": "encode syntax as numbers; build fixed-point sentence referring to its own proof status",
+        "math_structure": "Goedel numbering recursive functions diagonal lemma incompleteness",
+        "problem_shape": "meta-level to object-level collapse; limitation proofs become internal constructions",
+        "failure": "applies to effectively axiomatizable theories expressive enough for arithmetic; consistency strength caveats"
+      },
+      "metadata": {
+        "year": 1931,
+        "figures": ["Kurt Goedel"],
+        "original_difficulty": "Hilbert's program expected a finitary completeness proof for mathematics.",
+        "why_unconventional": "Turned mathematical reasoning itself into a mathematical object and weaponized self-reference inside it.",
+        "transferable_pattern": "Any system that can represent its own descriptions inherits diagonal limits (halting problem, Rice's theorem, no perfect self-modeling). When designing reflective systems, expect and exploit these fixed points."
+      }
+    },
+    {
+      "external_id": "breakthrough:cohen-forcing",
+      "title": "Cohen: forcing - prove independence by building models",
+      "statement": "The independence of the continuum hypothesis was proved not by finding a proof or refutation inside ZFC but by constructing an enlarged model of set theory adjoined with a 'generic' set whose properties are controlled only through dense-set approximation. A statement undecided inside can be decided by choosing the ambient universe.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "set theory/foundations",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "If you cannot decide a statement inside the system, build a larger universe in which you control the answer through finite approximation.",
+        "mechanism": "extend the model with a generic object constrained by meeting dense sets; truth controlled via finite approximations",
+        "math_structure": "partial orders generic filters forcing relation model construction",
+        "problem_shape": "prove non-provability by construction; finite control of infinite objects",
+        "failure": "cardinal preservation requires combinatorial side conditions; forcing relation bookkeeping is delicate"
+      },
+      "metadata": {
+        "year": 1963,
+        "figures": ["Paul Cohen"],
+        "original_difficulty": "Goedel showed CH consistent (1938); showing it unprovable required a method to build genuinely new models.",
+        "why_unconventional": "Replaced 'find an argument' with 'engineer a universe'; the truth value becomes a design parameter of the construction.",
+        "transferable_pattern": "For undecidable or stuck questions, ask whether the answer depends on the ambient environment and design environments realizing each outcome. Analogous to adversarial examples exposing underdetermination in ML, or counterexample-driven specification testing."
+      }
+    },
+    {
+      "external_id": "breakthrough:taylor-wiles",
+      "title": "Taylor-Wiles: prove a ring isomorphism by counting an infinite auxiliary family",
+      "statement": "Modularity lifting (hence Fermat's Last Theorem) reduces to an equality between a Galois deformation ring R and a Hecke algebra T. The equality is established numerically: patch infinitely many auxiliary modular forms into one system whose Selmer group counts both sides; equal cardinalities force R = T.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "number theory/arithmetic geometry",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Prove a structural identity by computing an independent numerical invariant on both sides and matching them.",
+        "mechanism": "count deformations two ways; introduce an auxiliary infinite family that makes both sides countable in the same units",
+        "math_structure": "Galois deformations Selmer groups commutative algebra length counting patching systems",
+        "problem_shape": "infinite family compressed into a single object; isomorphism proved by size comparison forced by construction",
+        "failure": "requires smoothness assumptions; non-minimal cases needed refined Taylor-Wiles-Kisin systems"
+      },
+      "metadata": {
+        "year": 1995,
+        "figures": ["Andrew Wiles", "Richard Taylor"],
+        "original_difficulty": "The key ring equality resisted direct attack for two years; the horizontal Iwasawa theory route collapsed.",
+        "why_unconventional": "Salvaged a broken proof by changing the question into counting points of algebraic structures over an engineered family - arithmetic done by size comparison.",
+        "transferable_pattern": "When an identity cannot be shown directly, find a quantity computable on both sides whose agreement is strong enough to imply it. Counting arguments, dimension counts, entropy comparisons."
+      }
+    },
+    {
+      "external_id": "breakthrough:perelman-w-entropy",
+      "title": "Perelman: topological classification via entropy monotonicity of a geometric flow",
+      "statement": "The Poincare conjecture and Thurston geometrization were proved by running Ricci flow while excising singularity regions via surgery. Control comes from a weighted entropy functional monotone under the flow: monotonicity gives local rigidity, prevents collapse, and quantifies singularity formation.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "geometric analysis/topology",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Classify rigid global structure by evolving a smoothing flow and controlling its singularities with an entropic Lyapunov function.",
+        "mechanism": "find a monotone thermodynamic-style functional; monotonicity converts local smoothing into global classification; excise singular regions and restart",
+        "math_structure": "gradient flow Ricci flow entropy monotonicity optimal transportation surgery",
+        "problem_shape": "topology problem solved as heat-flow dynamics; singularity control by quantitative monotonicity",
+        "failure": "surgery parameters must be tuned precisely; noncompact and local versions are delicate"
+      },
+      "metadata": {
+        "year": 2003,
+        "figures": ["Grigori Perelman"],
+        "original_difficulty": "Hamilton's Ricci flow program stalled on singularities and collapse for over twenty years.",
+        "why_unconventional": "Imported thermodynamic thinking (entropy, monotonicity) into pure topology and treated singularities surgically rather than avoiding them.",
+        "transferable_pattern": "Attach a Lyapunov/entropy functional to any evolving process; monotonicity yields rigidity and long-time classification. Applicable to optimization dynamics, network evolution, ecosystem models."
+      }
+    },
+    {
+      "external_id": "breakthrough:cole-hopf",
+      "title": "Cole-Hopf: exact linearization of Burgers by exponential substitution",
+      "statement": "The quadratic nonlinearity of the viscous Burgers equation is removed exactly by the substitution u = -2 nu (log phi)_x, mapping Burgers to the linear heat equation with positive solution phi. Shocks become zeros of phi; the full nonlinear problem is solved by linear theory plus back-substitution.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "partial differential equations/fluid dynamics",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Find a change of variables making the nonlinearity exact; solve the resulting linear problem and map features back.",
+        "mechanism": "exponential change of dependent variable converts quadratic advection into logarithmic derivative of a linearly diffusing field",
+        "math_structure": "nonlinear-to-linear substitution logarithmic derivative heat equation maximum principle",
+        "problem_shape": "nonlinear to linear; shock formation recast as zero accumulation of a positive quantity",
+        "failure": "works only for special nonlinearities; no analogue known for 3D Navier-Stokes vorticity"
+      },
+      "metadata": {
+        "year": 1950,
+        "figures": ["Julian Cole", "Eberhard Hopf"],
+        "original_difficulty": "Nonlinear advective terms produce shocks; no general solution technique existed.",
+        "why_unconventional": "A single clever substitution dissolved the defining difficulty instead of attacking it with estimates.",
+        "transferable_pattern": "Before fighting a nonlinearity, ask if some reparametrization makes it exact. Log-transforms, ratios, and cumulative sums play this role in statistics, finance, and population dynamics."
+      }
+    },
+    {
+      "external_id": "breakthrough:wick-rotation",
+      "title": "Wick rotation: compute in imaginary time, continue back",
+      "statement": "Oscillatory Lorentzian path integrals are ill-defined, but rotating time to the imaginary axis turns them into convergent Euclidean integrals with positive-definite weight. Physical real-time amplitudes are recovered by analytic continuation, when the continuation exists.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "quantum field theory/mathematical physics",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Solve a well-posed relative of the hard problem where it becomes positive and convergent, then analytically continue back.",
+        "mechanism": "rotate a parameter into the complex plane converting oscillation into damping; recover original answers by continuation",
+        "math_structure": "analytic continuation contour rotation reflection positivity Euclidean field theory",
+        "problem_shape": "divergent oscillatory to convergent; real time to imaginary time",
+        "failure": "the return continuation is ill-posed; scattering and real-time response resist Euclidean reconstruction"
+      },
+      "metadata": {
+        "year": 1954,
+        "figures": ["Gian Carlo Wick"],
+        "original_difficulty": "Path integrals over phases do not converge; rigorous QFT seemed blocked.",
+        "why_unconventional": "Deliberately left physical spacetime, computed in an unphysical regime, and trusted analyticity to carry results home.",
+        "transferable_pattern": "Replace an oscillating or divergent object with its damped counterpart (Fourier to Laplace, risk-neutral measure, smoothed objectives), solve there, and transport back along the analytic bridge."
+      }
+    },
+    {
+      "external_id": "breakthrough:kohn-sham",
+      "title": "Kohn-Sham: replace the interacting system with a fictitious solvable twin",
+      "statement": "The interacting many-electron problem is replaced by a fictitious noninteracting system constrained to reproduce the exact ground-state density. All many-body complexity is absorbed into a single unknown exchange-correlation functional which is approximated; electrons move in an effective self-consistent potential.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "condensed matter/quantum chemistry",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Keep only the minimal state variable that determines everything; push all intractability into one unknown functional to be approximated.",
+        "mechanism": "density replaces wavefunction as fundamental variable; fictitious solvable system mirrors the true one observable-by-observable",
+        "math_structure": "variational principle Hohenberg-Kohn theorem self-consistent field fixed-point iteration",
+        "problem_shape": "many-body reduced to effective single-particle; exactness relocated into a functional approximation",
+        "failure": "the exact functional is unknown; self-interaction and derivative-discontinuity errors; fictitious orbitals lack direct physical meaning"
+      },
+      "metadata": {
+        "year": 1965,
+        "figures": ["Walter Kohn", "Lu Jeu Sham", "Pierre Hohenberg"],
+        "original_difficulty": "Wavefunction dimensionality grows exponentially with electron number; direct many-body computation hopeless for materials.",
+        "why_unconventional": "Accepted an unsolved piece on purpose: define the perfect surrogate system now, defer the hard part into one improvable black-box term.",
+        "transferable_pattern": "Design surrogate models matching the target on observables while being internally solvable, concentrating all error into one improvable component. Emulation, digital twins, mean-field ML."
+      }
+    },
+    {
+      "external_id": "breakthrough:bethe-ansatz",
+      "title": "Bethe ansatz: guess the answer's form, then demand consistency",
+      "statement": "Exact eigenstates of the 1D Heisenberg spin chain were found by postulating superpositions of plane waves in which every scattering event is two-body, elastic, and factorized. Consistency of the ansatz around particle exchanges forces quantization conditions and yields the full spectrum.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "integrable systems/1D quantum many-body",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Assume the obstruction factorizes; the self-consistency condition of the assumed form becomes the defining structure of the solution.",
+        "mechanism": "ansatz-first: postulate a restricted solution shape; consistency around permutations yields exact equations",
+        "math_structure": "factorized scattering Yang-Baxter equation Bethe equations integrability",
+        "problem_shape": "guess-and-verify; many-body reduced to two-body data plus consistency",
+        "failure": "restricted to 1D integrable models; higher-dimensional scattering diffracts and the ansatz fails"
+      },
+      "metadata": {
+        "year": 1931,
+        "figures": ["Hans Bethe"],
+        "original_difficulty": "No method existed for interacting quantum many-body systems beyond perturbation theory.",
+        "why_unconventional": "Wrote down the solution's form before having any derivation; the ansatz's internal consistency did the proving.",
+        "transferable_pattern": "Propose a restricted structural hypothesis and check closure/consistency - the check itself may generate the full solution (constraint solvers, loop-invariant discovery, grammar induction)."
+      }
+    },
+    {
+      "external_id": "breakthrough:shannon-entropy",
+      "title": "Shannon: strip meaning from communication, keep statistics",
+      "statement": "Communication was modeled purely statistically: information content measured by entropy, source limits by typical sequences, channel limits by capacity. Semantic content is deliberately discarded; the engineering problem becomes exact mathematics with sharp coding theorems.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "information theory/communication engineering",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Strip a messy applied problem to its statistical skeleton; the limits then become variational quantities.",
+        "mechanism": "discard meaning, retain distribution; asymptotic equipartition makes messages typical and compressible at rate entropy",
+        "math_structure": "entropy typical sequences mutual information channel capacity random coding",
+        "problem_shape": "semantic to syntactic; engineering rules replaced by existence theorems with achievable bounds",
+        "failure": "single-message and semantic guarantees out of scope; finite-blocklength gaps require refinements"
+      },
+      "metadata": {
+        "year": 1948,
+        "figures": ["Claude Shannon"],
+        "original_difficulty": "Communication quality was judged informally; no notion of a fundamental limit on compression or transmission existed.",
+        "why_unconventional": "Declared meaning irrelevant on purpose - an outrageous abstraction that turned a craft into a science overnight.",
+        "transferable_pattern": "Identify which aspect of a fuzzy problem is load-bearing (here: frequencies, not meanings) and formalize only that. The deliberate omission defines the field."
+      }
+    },
+    {
+      "external_id": "breakthrough:black-scholes",
+      "title": "Black-Scholes-Merton: price by replication, not prediction",
+      "statement": "A derivative's price is derived as the cost of a self-financing dynamic trading strategy replicating its payoff. Under continuous rebalancing the unknown risk premium cancels exactly, giving preference-free pricing and the risk-neutral valuation formula; pricing becomes PDE/martingale mathematics independent of forecasts.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "mathematical finance/stochastic calculus",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Eliminate an unknown quantity (utility, beliefs, risk premia) by constructing a dynamic strategy that makes it cancel.",
+        "mechanism": "continuous delta-hedging locally removes risk; change of probability measure absorbs preferences",
+        "math_structure": "Ito calculus martingales Girsanov theorem parabolic PDE self-financing portfolios",
+        "problem_shape": "unknown-preference pricing made preference-free; forecasting replaced by hedging",
+        "failure": "assumes continuous trading, known volatility, no gaps; crashes break replication"
+      },
+      "metadata": {
+        "year": 1973,
+        "figures": ["Fischer Black", "Myron Scholes", "Robert Merton"],
+        "original_difficulty": "Centuries of attempts to price options from forecasts of future prices or utility theory.",
+        "why_unconventional": "Stopped trying to predict the underlying and built the price out of a hedge instead - agreement-by-construction rather than estimation.",
+        "transferable_pattern": "When some quantity cannot be estimated, design a mechanism whose output is invariant to it (hedging, arbitrage arguments, zero-knowledge style constructions)."
+      }
+    },
+    {
+      "external_id": "breakthrough:prion",
+      "title": "Prusiner: inheritance of form without nucleic acid - the prion hypothesis",
+      "statement": "Scrapie and related diseases are transmitted by a protein conformation propagating itself by templated conversion of normal protein, with no nucleic acid genome. The hypothesis violated the central dogma's assumption that infectious agents must carry genetic material, and was confirmed despite initial near-universal rejection.",
+      "record_type": "known_result",
+      "epistemic_status": "established",
+      "domain": "molecular biology/neurodegeneration",
+      "source": "historical breakthrough card",
+      "axis_texts": {
+        "semantic": "Separate the informational process from its assumed material carrier; ask what the minimal carrier could be.",
+        "mechanism": "templated conformational conversion: structure alone encodes the replicating information; autocatalysis via nucleated polymerization",
+        "math_structure": "autocatalysis nucleation polymerization kinetics conformational templating",
+        "problem_shape": "substrate-free inheritance; central-dogma violation resolved by redefining the carrier",
+        "failure": "strain phenomena initially seemed to require nucleic acid; species barriers are kinetic effects"
+      },
+      "metadata": {
+        "year": 1982,
+        "figures": ["Stanley Prusiner"],
+        "original_difficulty": "All known infectious agents carried nucleic acids; radiation inactivation data contradicted this but no alternative existed.",
+        "why_unconventional": "Kept the informational process (templated replication) while discarding the assumed substrate (DNA/RNA), against the entire framework of molecular biology.",
+        "transferable_pattern": "When a process resists explanation, strip it to its abstract transfer rule and search for the minimal substrate implementing that rule. Applies to memory, culture, tumor evolution, self-propagating states in matter and software."
+      }
+    }
+  ],
+  "evidence": [
+    {"external_id": "evidence:galois-memoire", "title": "Galois memoir on the solvability of equations", "summary": "Posthumously published memoir reducing equation solvability to properties of the permutation group of the roots.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "E. Galois, 'Memoire sur les conditions de resolubilite des equations par radicaux', ed. J. Liouville, J. Math. Pures Appl. 11 (1846) 417-433.", "metadata": {"domain": "algebra/theory-of-equations"}},
+    {"external_id": "evidence:cantor-1891", "title": "Cantor's diagonal argument paper", "summary": "Introduces the diagonal construction proving uncountability of the reals.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "G. Cantor, 'Uber eine elementare Frage der Mannigfaltigkeitslehre', Jahresber. Deutsch. Math. Verein. 1 (1891) 75-78.", "source_uri": "https://doi.org/10.1007/BF01445200"},
+    {"external_id": "evidence:boltzmann-1877", "title": "Boltzmann on the relation between entropy and probability", "summary": "Derives S proportional to log W by combinatorial counting of microstates.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "L. Boltzmann, 'Uber die Beziehung zwischen dem zweiten Hauptsatze der mechanischen Warmetheorie und der Wahrscheinlichkeitsrechnung', Wiener Berichte 76 (1877) 373-435."},
+    {"external_id": "evidence:mendel-1866", "title": "Mendel's experiments on plant hybridization", "summary": "Reports discrete-factor inheritance with reproducible 3:1 F2 ratios across seven traits.", "evidence_type": "experimental_result", "epistemic_status": "established", "citation": "G. Mendel, 'Versuche uber Pflanzen-Hybriden', Verh. naturf. Ver. Brunnn 4 (1866) 3-47."},
+    {"external_id": "evidence:noether-1918", "title": "Noether's theorem on variational symmetries", "summary": "Proves the correspondence between differentiable symmetries of the action and conservation laws.", "evidence_type": "theorem", "epistemic_status": "established", "citation": "E. Noether, 'Invariante Variationsprobleme', Nachr. Ges. Wiss. Goettingen (1918) 235-257."},
+    {"external_id": "evidence:godel-1931", "title": "Goedel's incompleteness paper", "summary": "Arithmetizes syntax and constructs an undecidable self-referential sentence.", "evidence_type": "theorem", "epistemic_status": "established", "citation": "K. Goedel, 'Uber formal unentscheidbare Satze der Principia Mathematica und verwandter Systeme I', Monatsh. Math. Phys. 38 (1931) 173-198.", "source_uri": "https://doi.org/10.1007/BF01700692"},
+    {"external_id": "evidence:cohen-pnas-1963", "title": "Cohen: the independence of the continuum hypothesis", "summary": "Introduces forcing and proves CH independent of ZFC axioms.", "evidence_type": "theorem", "epistemic_status": "established", "citation": "P. J. Cohen, 'The independence of the continuum hypothesis', PNAS 50 (1963) 1143-1148.", "source_uri": "https://doi.org/10.1073/pnas.50.6.1143"},
+    {"external_id": "evidence:taylor-wiles-1995", "title": "Taylor-Wiles ring-theoretic properties of certain Hecke algebras", "summary": "Establishes the R = T numerical equality via patching systems, completing the proof of modularity lifting.", "evidence_type": "theorem", "epistemic_status": "established", "citation": "R. Taylor, A. Wiles, Ann. of Math. 141 (1995) 553-572; A. Wiles, Ann. of Math. 142 (1995) 443-551.", "source_uri": "https://doi.org/10.2307/2118560"},
+    {"external_id": "evidence:perelman-arxiv-2002", "title": "Perelman: the entropy formula for the Ricci flow", "summary": "Introduces the W-functional, proves its monotonicity, and outlines surgery for geometrization.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "G. Perelman, 'The entropy formula for the Ricci flow and its geometric applications', arXiv:math/0211159 (2002).", "source_uri": "https://arxiv.org/abs/math/0211159"},
+    {"external_id": "evidence:hopf-cole-1950-51", "title": "Hopf and Cole papers on Burgers equation", "summary": "Independently derive the exact transformation mapping viscous Burgers to the heat equation.", "evidence_type": "theorem", "epistemic_status": "established", "citation": "J. D. Cole, Q. Appl. Math. 9 (1951) 225-236; E. Hopf, Comm. Pure Appl. Math. 3 (1950) 201-230.", "source_uri": "https://doi.org/10.1002/cpa.3160030301"},
+    {"external_id": "evidence:wick-1954", "title": "Wick: Properties of Bethe-Salpeter wave functions", "summary": "Introduces the rotation to imaginary time connecting Lorentzian and Euclidean formulations.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "G. C. Wick, Phys. Rev. 96 (1954) 1124-1134.", "source_uri": "https://doi.org/10.1103/PhysRev.96.1124"},
+    {"external_id": "evidence:kohn-sham-1965", "title": "Kohn-Sham self-consistent equations", "summary": "Introduces the fictitious noninteracting system reproducing the exact density.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "W. Kohn, L. J. Sham, 'Self-consistent equations including exchange and correlation effects', Phys. Rev. 140 (1965) A1133-A1138.", "source_uri": "https://doi.org/10.1103/PhysRev.140.A1133"},
+    {"external_id": "evidence:bethe-1931", "title": "Bethe: Zur Theorie der Metalle", "summary": "Original Bethe ansatz solving the 1D Heisenberg chain eigenvalue problem.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "H. Bethe, 'Zur Theorie der Metalle. I. Eigenwerte und Eigenfunktionen der linearen Atomkette', Z. Phys. 71 (1931) 205-226.", "source_uri": "https://doi.org/10.1007/BF01342164"},
+    {"external_id": "evidence:shannon-1948", "title": "Shannon: A mathematical theory of communication", "summary": "Founding paper defining entropy-based information measures and channel capacity.", "evidence_type": "theorem", "epistemic_status": "established", "citation": "C. E. Shannon, Bell Syst. Tech. J. 27 (1948) 379-423, 623-656.", "source_uri": "https://doi.org/10.1002/j.1538-7305.1948.tb01338.x"},
+    {"external_id": "evidence:black-scholes-1973", "title": "Black-Scholes: The pricing of options and corporate liabilities", "summary": "Derives preference-free option pricing from continuous dynamic replication.", "evidence_type": "literature_result", "epistemic_status": "established", "citation": "F. Black, M. Scholes, J. Polit. Econ. 81 (1973) 637-654; R. C. Merton, Bell J. Econ. Manage. Sci. 4 (1973) 141-183.", "source_uri": "https://doi.org/10.1086/260062"},
+    {"external_id": "evidence:prusiner-1982", "title": "Prusiner: Novel proteinaceous infectious particles cause scrapie", "summary": "Proposes and supports experimentally the protein-only infectious agent hypothesis.", "evidence_type": "experimental_result", "epistemic_status": "established", "citation": "S. B. Prusiner, Science 216 (1982) 136-144.", "source_uri": "https://doi.org/10.1126/science.6801762"}
+  ],
+  "relations": [
+    {"claim": "breakthrough:galois", "evidence": "evidence:galois-memoire", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:cantor-diagonalization", "evidence": "evidence:cantor-1891", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:boltzmann-statistical", "evidence": "evidence:boltzmann-1877", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:mendel", "evidence": "evidence:mendel-1866", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:noether", "evidence": "evidence:noether-1918", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:godel-arithmetization", "evidence": "evidence:godel-1931", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:cohen-forcing", "evidence": "evidence:cohen-pnas-1963", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:taylor-wiles", "evidence": "evidence:taylor-wiles-1995", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:perelman-w-entropy", "evidence": "evidence:perelman-arxiv-2002", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:cole-hopf", "evidence": "evidence:hopf-cole-1950-51", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:wick-rotation", "evidence": "evidence:wick-1954", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:kohn-sham", "evidence": "evidence:kohn-sham-1965", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:bethe-ansatz", "evidence": "evidence:bethe-1931", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:shannon-entropy", "evidence": "evidence:shannon-1948", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:black-scholes", "evidence": "evidence:black-scholes-1973", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:prion", "evidence": "evidence:prusiner-1982", "relation": "SUPPORTS"},
+    {"claim": "breakthrough:godel-arithmetization", "target_claim": "breakthrough:cantor-diagonalization", "relation": "DERIVED_FROM", "metadata": {"note": "diagonal lemma is a diagonalization argument"}},
+    {"claim": "breakthrough:cohen-forcing", "target_claim": "breakthrough:godel-arithmetization", "relation": "DEPENDS_ON", "metadata": {"note": "Goedel proved CH consistency; Cohen completed independence"}},
+    {"claim": "breakthrough:shannon-entropy", "target_claim": "breakthrough:boltzmann-statistical", "relation": "DERIVED_FROM", "metadata": {"note": "thermodynamic entropy formalism imported into communication theory"}}
+  ]
+}
