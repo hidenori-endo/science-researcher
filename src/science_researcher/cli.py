@@ -7,6 +7,8 @@ import sys
 import uuid
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 from .embedding_openai import OpenAIEmbeddingProvider
 from .embeddings import HashEmbedder
 from .models import (
@@ -430,6 +432,9 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Load .env from the current directory (and parents) before any store or
+    # provider reads DATABASE_URL / API keys. Existing environment variables win.
+    load_dotenv()
     args = build_parser().parse_args(argv)
     return int(args.func(args))
 
