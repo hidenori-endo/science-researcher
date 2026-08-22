@@ -16,7 +16,15 @@
         "problem_shape": "universal existence statement reduced to checking finitely many residue patterns",
         "failure": "proofs cover density-1 subsets; exceptional residue classes resist all known methods"
       },
-      "metadata": {"agent_testability": "formal", "planned": true, "figures": ["Paul Erdos", "Ernst Straus"], "status": "open"}
+      "metadata": {
+        "agent_testability": "formal",
+        "planned": true,
+        "figures": [
+          "Paul Erdos",
+          "Ernst Straus"
+        ],
+        "status": "open"
+      }
     },
     {
       "external_id": "problem:lonely-runner",
@@ -33,7 +41,17 @@
         "problem_shape": "existential over continuous time reduced to finite speed-ratio structure",
         "failure": "chromatic lower bounds insufficient beyond small k; equidistribution gives no uniform rate"
       },
-      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+      "metadata": {
+        "agent_testability": "formal",
+        "planned": true,
+        "status": "open",
+        "attack_notes": {
+          "branch": "verify/math-lonely-runner",
+          "commit": "255ea7d",
+          "verdict": "OBSTRUCTION-IDENTIFIED",
+          "summary": "New exact chain up to EQ* yields conditional theorem: C(8) holds for generic 8-speed sets under pair-decay. Unblocking lemma identified in THEORY.md."
+        }
+      }
     },
     {
       "external_id": "problem:singmaster",
@@ -50,7 +68,11 @@
         "problem_shape": "global bound from point-counting on curves",
         "failure": "effective bounds from Faltings-type results are astronomically weak"
       },
-      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+      "metadata": {
+        "agent_testability": "formal",
+        "planned": true,
+        "status": "open"
+      }
     },
     {
       "external_id": "problem:lehmer-totient",
@@ -67,7 +89,11 @@
         "problem_shape": "nonexistence via structural constraints plus finite search",
         "failure": "each added factor multiplies search space; constraints weaken as factor count grows"
       },
-      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+      "metadata": {
+        "agent_testability": "formal",
+        "planned": true,
+        "status": "open"
+      }
     },
     {
       "external_id": "problem:giuga",
@@ -84,7 +110,11 @@
         "problem_shape": "nonexistence via rare structured intersection of two sparse classes",
         "failure": "candidate class unbounded; searches rely on Carmichael enumeration growth"
       },
-      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+      "metadata": {
+        "agent_testability": "formal",
+        "planned": true,
+        "status": "open"
+      }
     },
     {
       "external_id": "problem:graceful-tree",
@@ -101,7 +131,17 @@
         "problem_shape": "universal construction statement; induction over tree decompositions fails globally",
         "failure": "known constructions cover restricted families (caterpillars, symmetrical trees); general trees resist"
       },
-      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+      "metadata": {
+        "agent_testability": "formal",
+        "planned": true,
+        "status": "open",
+        "attack_notes": {
+          "branch": "verify/math-graceful-tree",
+          "commit": "d4c3313",
+          "verdict": "OBSTRUCTION-IDENTIFIED",
+          "summary": "Three classical routes proved blocked (affine rigidity + budget pigeonhole kill composition; leaf-induction strengthening refuted at n=6, machine-checked). Minimal separating lemma stated in THEORY.md."
+        }
+      }
     }
   ],
   "evidence": [],

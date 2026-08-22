@@ -124,7 +124,15 @@
         "source_breakthrough": "breakthrough:cohen-forcing",
         "target_problem": "problem:planted-clique-hardness",
         "bridge": "Cohen's move: if undecided inside, build larger universes realizing each outcome. For average-case complexity: build input ensembles making each behavior actual.",
-        "cheap_falsification": "Try engineering two k ~ log^2(n) ensembles that are statistically close yet separate a specific algorithm class (e.g., SDP-based); if closeness always forces same SDP outcome, the constructive program stalls early."
+        "cheap_falsification": "Try engineering two k ~ log^2(n) ensembles that are statistically close yet separate a specific algorithm class (e.g., SDP-based); if closeness always forces same SDP outcome, the constructive program stalls early.",
+        "assessment": "falsified at this scale",
+        "verification": {
+          "branch": "verify/cohen-clique",
+          "commit": "4f7e670",
+          "experiment": "experiments/cohen-planted-clique",
+          "verdict": "AGAINST (at this scale)",
+          "summary": "Pre-registered forcing-style construction at n=1000: engineered worlds matched on chosen statistics but zero implemented detectors (greedy, spectral, combinatorial) separated them - AGAINST per pre-registration. Scale-limited; recorded as evidence the constructive program needs larger n or stronger statistics."
+        }
       }
     },
     {
@@ -177,14 +185,21 @@
         "target_problem": "problem:loop-invariant-inference",
         "bridge": "Noether's move: conservation is derived from invariance. Programs: assertions preserved by all executions should be derived from transformations preserving the transition relation.",
         "cheap_falsification": "Benchmark suite (e.g., SV-COMP loops): detect automorphism-like symmetries of integer transition relations; measure how often symmetry-derived candidates match the verification-grade invariant. Below ~20% coverage, pattern too thin.",
-        "assessment": "supported on benchmark",
+        "assessment": "inconclusive at stage 2",
         "verification": {
           "branch": "verify/noether-loops",
           "commit": "14fc0a1",
           "experiment": "experiments/noether-loop-invariants",
           "verdict": "SUPPORT",
           "summary": "30 SV-COMP-style integer loops, exact rational polynomial engine. Extended coverage 23/30=76.7%, strict (finite automorphisms only) 15/30=50.0% - both clear the 20% kill bar, including nonlinear invariants (y-x^2) found as eigenforms of mixed-rate scaling symmetries. Misses: quadratic conserved quantities with no point symmetry, non-polynomial/gcd targets, irrational-eigenvalue (golden ratio) symmetries, inequality-only control-heavy loops.",
-          "caveat": "translation-duality half of extended coverage reduces to constant-shift linear-invariant generation; honest reading is pure symmetry detection carries ~half the benchmark"
+          "caveat": "translation-duality half of extended coverage reduces to constant-shift linear-invariant generation; honest reading is pure symmetry detection carries ~half the benchmark",
+          "stage2": {
+            "branch": "verify/noether-loops-stage2",
+            "commit": "dd28a3c",
+            "experiment": "experiments/noether-stage2",
+            "verdict": "INCONCLUSIVE",
+            "summary": "Real SV-COMP corpus vs linear template baseline under pre-registered rules: baseline-symmetry gap 15.15pt misses the 15pt UPGRADE window by 0.15; nonlinear wins 7 (>=5); DOWNGRADE conditions not met. Post-hoc: strict-symmetry gap equals exactly the translation-duality share; quadratic-accumulator loops need cohomological-equation solving beyond point symmetries."
+          }
         }
       }
     },
