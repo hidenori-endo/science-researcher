@@ -76,3 +76,68 @@
   (agreement is expected and is NOT evidence of novelty: both
    conditions are equivalent to E-S for p, so this only confirms
    the two normalizations are the same construction.)
+
+=== CHECK 8: Lemma F -- F1 is DECIDABLE (w <= (p+1)/3) ===
+  (added 2026-08-23; supports THEORY.md 9.1 and 9.3)
+  bounded form vs naive form (z'<=3000), p<400: mismatches = none
+  primes p<20000 for which F1 is FALSE (complete decision, NOT a
+  truncated search -- Lemma F bounds w, so 'no witness' is a proof):
+    [3, 7, 31, 79, 127, 199, 409, 577, 2719, 5569, 8191, 9601]
+  of these, in an exceptional class mod 840: [(5569, 529), (9601, 361)]
+  => (M1) is settled NEGATIVELY: F1 alone cannot cover the six
+     exceptional classes.
+
+=== CHECK 9: (M0) exhaustion lemma is FALSE ===
+  (M0) asked: does every prime with a family-G solution also have
+  an F1-type solution? Two counterexamples, fully enumerated.
+  p=7: family-G witness (z'=3, m=11, sigma=1) exists.
+        F1: Lemma F bounds w <= 2; exhausting it --
+          w=1: divisors of p+w=8 are [1, 2, 4, 8], none is -1 mod 4
+          w=2: divisors of p+w=9 are [1, 3, 9], none is -1 mod 8
+        => F1(7) is FALSE. (M0) fails.
+  p=31: family-G witness (z'=2, m=7, sigma=1) exists.
+        F1: Lemma F bounds w <= 10; exhausting it --
+          w=1: divisors of p+w=32 are [1, 2, 4, 8, 16, 32], none is -1 mod 4
+          w=2: divisors of p+w=33 are [1, 3, 11, 33], none is -1 mod 8
+          w=3: divisors of p+w=34 are [1, 2, 17, 34], none is -1 mod 12
+          w=4: divisors of p+w=35 are [1, 5, 7, 35], none is -1 mod 16
+          w=5: divisors of p+w=36 are [1, 2, 3, 4, 6, 9, 12, 18, 36], none is -1 mod 20
+          w=6: divisors of p+w=37 are [1, 37], none is -1 mod 24
+          w=7: divisors of p+w=38 are [1, 2, 19, 38], none is -1 mod 28
+          w=8: divisors of p+w=39 are [1, 3, 13, 39], none is -1 mod 32
+          w=9: divisors of p+w=40 are [1, 2, 4, 5, 8, 10, 20, 40], none is -1 mod 36
+          w=10: divisors of p+w=41 are [1, 41], none is -1 mod 40
+        => F1(31) is FALSE. (M0) fails.
+  => (M0) is FALSE. The Gate A break of 5.1 cannot be repaired by
+     proving an exhaustion lemma; F1 has to be widened instead.
+
+=== CHECK 9b: NL survives -- F1-false exceptional primes have (F2) ===
+  p=5569 (mod 840 = 529), F1 FALSE: family-D cert g=706 K=141 L=2 -> (99546, 1412, 1108743348)
+  p=9601 (mod 840 = 361), F1 FALSE: family-D cert g=1265 K=37 L=2 -> (46805, 2530, 898749610)
+  => NL = F1 or F2 is NOT refuted, but for these primes it rests
+     entirely on the F2 side.
+
+=== CHECK 10: tau normal form, and Lopez arXiv:2404.01508 ===
+  (supports THEORY.md 9.4 and 9.5)
+  (G) 'm | sigma + p z'' <=> 'm | 4 p tau + 1', tau = z'^2/sigma:
+    11909 (p, z') pairs checked, mismatches = 0
+  F1 <=> tau | z'   (versus tau | z'^2 for all of G):
+    11909 (p, z') pairs checked, mismatches = 0
+  Lopez (A) p=-4d, (B) p=-n, (C) p=-4d^2 (mod m=4dn-1) correspond
+  to tau = d n^2, d, n^2 with z'=dn: mismatches = 0
+  In particular (B) IS F1 (w=n, tau=d | z'): F1 is published.
+  Lopez's tau set {d, n^2, d n^2} does NOT exhaust div(z'^2):
+    z'=12: |div(z'^2)|=15, tau missing from Lopez's system: [8, 18]
+    z'=18: |div(z'^2)|=15, tau missing from Lopez's system: [12, 27]
+    z'=20: |div(z'^2)|=15, tau missing from Lopez's system: [8, 50]
+    z'=24: |div(z'^2)|=21, tau missing from Lopez's system: [18, 32]
+
+=== CHECK 11 [pre-registered]: is the tau form strictly wider? ===
+  Search primes p<20000, levels z'<=300, for (p, z') where the tau
+  criterion holds but none of Lopez's three tau values works, and
+  for primes where that happens at EVERY level (which would refute
+  Lopez's conjecture).
+  (p, z') levels where only the tau form works: 4426
+  primes where Lopez's tau never works for z'<=300: none
+  => the tau form is strictly wider level-by-level, but Lopez's
+     conjecture is NOT refuted in this range.
