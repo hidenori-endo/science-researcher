@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "external_id": "problem:battery-interface-degradation",
+      "title": "Predicting battery interface degradation from first principles",
+      "statement": "Lithium-ion and next-generation batteries fail through evolving interphases (SEI, cathode-electrolyte interfaces) whose chemistry and mechanics change with every cycle. No predictive model connects atomic-scale interfacial processes to cycle life across chemistries and operating conditions; degradation is managed empirically per design.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "electrochemistry/materials science",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Connect atomic-scale interface chemistry to device-level lifetime prediction.",
+        "mechanism": "interphase growth coupled to transport, mechanics, and side-reaction networks resists closed-form modeling",
+        "math_structure": "reaction diffusion stochastic interfaces coupled multiscale models aging laws",
+        "problem_shape": "atomistic to device-lifetime extrapolation; cross-chemistry generality",
+        "failure": "empirical aging laws do not transfer across chemistries; atomistic simulations too slow for cycles"
+      },
+      "metadata": {"impact": "EV range, grid storage, consumer electronics; safety", "status": "open"}
+    },
+    {
+      "external_id": "problem:cloud-feedback-sensitivity",
+      "title": "Cloud feedback: the dominant uncertainty in climate sensitivity",
+      "statement": "How low marine clouds and tropical high clouds respond to warming remains the largest single source of spread in equilibrium climate sensitivity across models. Decades of observations and kilometer-scale simulations have narrowed but not resolved which feedback pathways dominate.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "climate physics/atmospheric science",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Determine how cloud cover and altitude distributions change with warming, and which mechanisms control it.",
+        "mechanism": "competing positive and negative cloud feedbacks across regimes; subgrid turbulence-convection coupling",
+        "math_structure": "radiative convective equilibrium large eddy simulation mixed layer budgets emergent constraint statistics",
+        "problem_shape": "subgrid process to global sensitivity attribution among competing mechanisms",
+        "failure": "global models parameterize clouds; LES covers limited domains and timescales"
+      },
+      "metadata": {"impact": "carbon policy targets, adaptation planning, trillions in infrastructure", "status": "open"}
+    },
+    {
+      "external_id": "problem:fusion-edge-turbulence-control",
+      "title": "Controlling edge turbulence and heat loads in fusion plasmas",
+      "statement": "Tokamak performance is limited by edge-localized modes and boundary turbulence that can dump destructive heat fluxes onto plasma-facing walls. Predictive control of the pedestal-edge region across scenarios remains unsolved despite major experimental programs.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "plasma physics/energy",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Predict and control turbulent transport and transient heat loads at a magnetically confined plasma edge.",
+        "mechanism": "pressure-gradient-driven instabilities interacting with shear flows and radiation",
+        "math_structure": "gyrokinetics magnetohydrodynamics bifurcation control real-time estimation",
+        "problem_shape": "microscale turbulence to macroscopic stability margins; prediction to actuation",
+        "failure": "reduced models tuned per device; first-principles simulation far slower than real time"
+      },
+      "metadata": {"impact": "commercial fusion viability", "status": "open"}
+    },
+    {
+      "external_id": "problem:predictive-catalyst-design",
+      "title": "First-principles predictive design of earth-abundant electrocatalysts",
+      "statement": "Designing catalysts for hydrogen evolution, CO2 reduction, or nitrogen fixation from computed properties alone fails reliably: activity descriptors (e.g., scaling relations) cap selectivity, and dynamic surface reconstruction under potential invalidates static pictures.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "chemistry/electrocatalysis/green energy",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Go from computed material properties to a synthesizable catalyst with predicted activity and selectivity.",
+        "mechanism": "descriptor-based screening hits scaling relation ceilings; operando surfaces differ from modeled ones",
+        "math_structure": "dft scaling relations microkinetic models genetic algorithm search operando spectroscopy",
+        "problem_shape": "static property to dynamic working-state prediction; screening to synthesis",
+        "failure": "scaling relations force tradeoffs; reconstruction dynamics rarely captured"
+      },
+      "metadata": {"impact": "green hydrogen, carbon utilization, fertilizer energy cost", "status": "open"}
+    },
+    {
+      "external_id": "problem:epidemic-trajectory-forecasting",
+      "title": "Skillful mid-term epidemic trajectory forecasting",
+      "statement": "Short-horizon epidemic forecasts have modest skill, but predicting trajectories beyond 4-8 weeks (where decisions matter most) has largely failed: behavior change, waning immunity, variant emergence, and reporting noise interact nonlinearly. Mechanistic models and statistical learning both underperform at this horizon.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "epidemiology/public health",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Predict disease trajectory weeks ahead despite behavioral and immunological feedback.",
+        "mechanism": "human behavior couples to incidence; pathogen evolution shifts the system mid-forecast",
+        "math_structure": "branching processes renewal equations mechanistic compartmental models ensemble probabilistic forecasting",
+        "problem_shape": "nonstationary coupled system; decision-relevant horizons",
+        "failure": "models fit past waves but miss regime changes; data delays corrupt calibration"
+      },
+      "metadata": {"impact": "hospital capacity, vaccination strategy, pandemic preparedness", "status": "open"}
+    },
+    {
+      "external_id": "problem:crop-photosynthesis-limit",
+      "title": "Raising crop photosynthetic efficiency beyond natural limits",
+      "statement": "C3 photosynthesis converts well under 5% of available solar energy into biomass, with known engineered inefficiencies (photorespiration, slow recovery from shade, insufficient Rubisco speed). Which intervention combination actually raises field yields - not just leaf-level rates - remains unpredictable from current physiology.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "plant science/agriculture",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Translate known photosynthetic inefficiencies into reliable field-level yield gains.",
+        "mechanism": "leaf-scale improvements wash out through canopy, source-sink, and stress interactions",
+        "math_structure": "canopy radiation transfer enzyme kinetics whole-plant allocation quantitative genetics",
+        "problem_shape": "molecular mechanism to agronomic trait; controlled environment to field",
+        "failure": "leaf-level gains historically fail to propagate to yield; genotype-environment management interactions dominate"
+      },
+      "metadata": {"impact": "food security under climate stress", "status": "open"}
+    },
+    {
+      "external_id": "problem:earthquake-rupture-forecast",
+      "title": "Physics-based earthquake rupture and aftershock forecasting",
+      "statement": "Earthquake prediction beyond statistical recurrence catalogs remains elusive: fault stress states are unobservable directly, rupture initiation physics spans nanometers to kilometers, and proposed precursors (foreshock patterns, slow slip) lack reliable operational skill for mainshock timing and magnitude.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "seismology/geophysics",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Forecast where and when ruptures will grow, from indirectly observed stress and fault geometry.",
+        "mechanism": "stress accumulation and heterogeneous friction produce cascading ruptures sensitive to fine detail",
+        "math_structure": "rate-and-state friction elastodynamics point process statistics Coulomb stress transfer",
+        "problem_shape": "unobservable initial condition to probabilistic forecast; scale separation",
+        "failure": "catalogs are statistical not physical; candidate precursors fail out-of-sample tests"
+      },
+      "metadata": {"impact": "building codes, insurance, disaster response", "status": "open"}
+    },
+    {
+      "external_id": "problem:antibiotic-resistance-prediction",
+      "title": "Predicting antibiotic resistance emergence before it spreads",
+      "statement": "Which mutations, gene acquisitions, and backgrounds will confer clinically relevant resistance - and in which species and settings they will emerge - cannot be predicted reliably. Surveillance detects resistance after establishment; prospective evolution remains beyond reach even for single drug-bug pairs.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "microbiology/evolutionary medicine",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Anticipate evolutionary paths to resistance before clinical detection.",
+        "mechanism": "genotype-phenotype maps for resistance are context-dependent; fitness costs and compensation vary by environment",
+        "math_structure": "fitness landscapes epistasis population genetics phylogenetic forecasting machine learning on sequences",
+        "problem_shape": "forecast of contingent evolution; laboratory fitness to clinical success",
+        "failure": "predictive models trained on known paths generalize poorly to novel mutations"
+      },
+      "metadata": {"impact": "antimicrobial stewardship, drug development priorities, global health", "status": "open"}
+    },
+    {
+      "external_id": "problem:materials-fatigue-microstructure",
+      "title": "Microstructure-to-lifetime prediction for structural materials fatigue",
+      "statement": "Fatigue life of metals and composites varies by orders of magnitude due to microstructural detail (inclusions, grain orientation, defects) that scatter standard S-N curves. Predicting remaining life of an individual component from its measured microstructure is not currently possible, forcing conservative inspection schedules.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "mechanical engineering/materials science",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Predict a specific part's fatigue life from its measured microstructure instead of population statistics.",
+        "mechanism": "crack initiation at extreme microstructural features dominates; extremes resist continuum modeling",
+        "math_structure": "fracture mechanics crystal plasticity extreme value statistics defect distributions",
+        "problem_shape": "extreme-event-dominated lifetime; specimen statistics to individual part",
+        "failure": "models calibrated on averages miss tail events that determine failure"
+      },
+      "metadata": {"impact": "aviation safety, infrastructure maintenance cost, wind turbines", "status": "open"}
+    },
+    {
+      "external_id": "problem:wildfire-spread-prediction",
+      "title": "Reliable wildfire spread prediction in complex terrain under extreme weather",
+      "statement": "Fire spread models perform adequately in mild conditions but break down exactly when stakes are highest: wind-fire coupling, spotting, dry thunderstorms, and fuel heterogeneity make extreme-fire behavior chaotic. Evacuation decisions routinely rely on forecasts with unknown reliability at the critical moment.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "fire science/hazard prediction",
+      "source": "real-world-impact open problem card",
+      "axis_texts": {
+        "semantic": "Deliver trustworthy spread predictions precisely in the extreme regimes where fires become disasters.",
+        "mechanism": "fire-atmosphere coupling creates self-organized extreme behavior; fuels data too coarse",
+        "math_structure": "coupled fire atmosphere models cellular automata emulators probabilistic ensembles remote sensing assimilation",
+        "problem_shape": "tail-risk prediction; coupling between fluid dynamics and combustion at landscape scale",
+        "failure": "models validated on ordinary fires; extreme cases are rare, fast, and data-poor"
+      },
+      "metadata": {"impact": "life safety, land management, insurance retreat from wildfire zones", "status": "open"}
+    }
+  ],
+  "evidence": [],
+  "relations": []
+}
