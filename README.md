@@ -103,7 +103,7 @@ Structural Abstractions ---- Multi-axis vectors
                           Discovery memory
 ```
 
-See [docs/architecture.md](docs/architecture.md) for the full design, [docs/research-records.md](docs/research-records.md) for first-class claims/evidence and JSON import, [docs/providers.md](docs/providers.md) for LLM integration, and [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup.
+See [docs/architecture.md](docs/architecture.md) for the full design, [docs/research-records.md](docs/research-records.md) for first-class claims/evidence and JSON import, [docs/theory-verdicts.md](docs/theory-verdicts.md) for how a formal attack on an open problem is graded, [docs/providers.md](docs/providers.md) for LLM integration, and [docs/storage.md](docs/storage.md) for SQLite/Neon/Postgres setup.
 
 ## Current scope
 

@@ -76,6 +76,16 @@ The status vocabulary is deliberately explicit:
 
 In particular, numerical Python output must remain `computational`; it must not be promoted to a proof status merely because the experiment is reproducible.
 
+## Attack notes on an open problem
+
+A formal attack on an open problem is delivered as `experiments/<name>/THEORY.md`
+and mirrored onto the problem claim under `metadata.attack_notes`. Its verdict
+vocabulary, the two gates that must pass before a ladder label may be used, and
+the `attack_notes` schema are defined in
+[theory-verdicts.md](theory-verdicts.md). That vocabulary is separate from the
+`SUPPORT` / `AGAINST` / `INCONCLUSIVE` verdicts used for pre-registered
+falsification experiments.
+
 ## Knowledge, discovery, evidence, computation, and proof
 
 These concepts intentionally remain separate:
