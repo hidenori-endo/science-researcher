@@ -196,7 +196,15 @@
         "source_breakthrough": "breakthrough:shannon-entropy",
         "target_problem": "problem:frankl-union-closed",
         "bridge": "Shannon's move: strip meaning, keep statistics. Union-closed families: forget what sets mean; frequencies under a merge operation obey information inequalities.",
-        "cheap_falsification": "Search for a union-closed family violating the proposed entropy inequality computationally up to ground size ~30; a counterexample to the inequality route appears quickly if it exists."
+        "cheap_falsification": "Search for a union-closed family violating the proposed entropy inequality computationally up to ground size ~30; a counterexample to the inequality route appears quickly if it exists.",
+        "assessment": "weakened",
+        "verification": {
+          "branch": "verify/shannon-frankl",
+          "commit": "a6e4e9e",
+          "experiment": "experiments/shannon-frankl",
+          "verdict": "AGAINST",
+          "summary": "Exhaustive n=4 + 59k samples n=6-8: naive entropy ceilings (I2), one-bit-merge Shearer bound (I3), dropout monotonicity (I5) are violated by real union-closed families; surviving bounds (Reimer, Knill) provably do not imply Frankl, and the distribution-universal ceiling saturates exactly at t=1/2 so no ceiling-type inequality can cross the Frankl boundary. Controls show entropy stats barely distinguish closed from unclosed families."
+        }
       }
     },
     {
