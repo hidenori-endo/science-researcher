@@ -1,0 +1,78 @@
+=== CHECK 1: dichotomy (D)/(G) on ALL solutions for primes <= 48 ===
+  151 solutions checked, failures=0, family counts={'D': 104, 'G': 47}
+
+=== CHECK 2: small-modulus family-G classes (m | 840) ===
+  m=  3 (z'=  1): classes mod 3: [2]
+  m=  7 (z'=  2): classes mod 7: [3, 5, 6]
+  m= 15 (z'=  4): classes mod 15: [7, 11, 13, 14]
+  m= 35 (z'=  9): classes mod 35: [23, 26, 31, 32, 34]
+  units mod 840 not covered by ANY small (m|840) G-class (24 of 192):
+  [1, 79, 109, 121, 151, 169, 211, 289, 319, 331, 361, 379, 421, 499, 529, 541, 571, 589, 631, 709, 739, 751, 781, 799]
+  superset of EXCEPTIONAL? True
+
+=== CHECK 3 [pre-registered falsification of H*, forward dir] ===
+  exceptional primes p<=10000, G-search z'<=100000 (any hit falsifies H*)
+  exceptional primes found: [1009, 1129, 1201, 1801, 2521, 2689, 3049, 3361, 3529, 3889, 4201, 4561, 4729, 5209, 5569, 5881, 6841, 7561, 7681, 8089, 8521, 8689, 8761, 8929, 9241, 9601, 9769]
+    p= 1009: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 1129: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 1201: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 1801: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 2521: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 2689: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 3049: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 3361: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 3529: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 3889: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 4201: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 4561: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 4729: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 5209: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 5569: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 5881: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 6841: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 7561: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 7681: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 8089: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 8521: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 8689: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 8761: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 8929: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 9241: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 9601: G-solution in z'<=100000? True   <-- FALSIFIES H*
+    p= 9769: G-solution in z'<=100000? True   <-- FALSIFIES H*
+
+=== CHECK 4 [pre-registered falsification of H*, reverse dir] ===
+  non-exceptional primes p<=400, G-search z'<=20000 (any miss falsifies H*)
+  77 primes tested, misses: none
+
+=== CHECK 5: family-D certificates for exceptional primes ===
+    p= 1009: min-L cert g=  23 L=    11 K=  3700  max-param/p = 3.67
+    p= 1129: no cert with g<=600
+    p= 1201: no cert with g<=600
+    p= 1801: min-L cert g=  41 L=    11 K=  6604  max-param/p = 3.67
+    p= 2521: no cert with g<=600
+    p= 2689: no cert with g<=600
+    p= 3049: no cert with g<=600
+    p= 3361: min-L cert g=  29 L=    29 K= 32490  max-param/p = 9.67
+
+=== CHECK 6: F1 is a PROPER subfamily of family (G) ===
+  (added 2026-08-23 with the re-verdict; supports THEORY.md 5.1)
+  F1 restricts sigma to sigma = z'*w with w | z'. Listing primes
+  that admit a family-G witness whose sigma is NOT of that form.
+  primes p<200 with a non-F1 family-G witness: 41
+  first eight (p, z', m=4z'-1, sigma): [(7, 3, 11, 1), (11, 4, 15, 1), (17, 2, 7, 1), (19, 6, 23, 1), (23, 7, 27, 1), (29, 3, 11, 1), (31, 2, 7, 1), (37, 4, 15, 2)]
+  note: sigma=1 with z'>1 is never of the form z'*w, so the
+  sigma=1 route of THEORY.md 2.5 lies outside F1 entirely.
+
+=== CHECK 7: THEORY (D)/(G) vs the Bradford divisor condition ===
+  (added 2026-08-23; supports THEORY.md 8.2)
+  Bradford: exists x with ceil(p/4)<=x<=ceil(p/2) and d | x*x with
+    d = -p*x (mod 4x-p),  or  d <= x and d = -x (mod 4x-p).
+  THEORY:   exists z' with (D) p | 4z'-1, or
+            (G) exists sigma | z'^2 with 4z'-1 | sigma + p*z'.
+  Both are the SFFT divisor condition of the same equation; they
+  differ only in which denominator is eliminated first.
+  45 primes tested, solvability disagreements: 0
+  (agreement is expected and is NOT evidence of novelty: both
+   conditions are equivalent to E-S for p, so this only confirms
+   the two normalizations are the same construction.)

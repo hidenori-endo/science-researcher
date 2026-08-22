@@ -245,6 +245,85 @@ def main():
         else:
             print(f"    p={p:5d}: no cert with g<=600")
 
+    print("\n=== CHECK 6: F1 is a PROPER subfamily of family (G) ===")
+    print("  (added 2026-08-23 with the re-verdict; supports THEORY.md 5.1)")
+    print("  F1 restricts sigma to sigma = z'*w with w | z'. Listing primes")
+    print("  that admit a family-G witness whose sigma is NOT of that form.")
+    witnesses = []
+    for p in range(5, 200):
+        if not is_prime(p):
+            continue
+        hit = None
+        for z in range(1, 400):
+            m = 4 * z - 1
+            if p % m == 0:          # family (D), not (G)
+                continue
+            ds = divisors_sq(factor(z), cap=10**6)
+            if not ds:
+                continue
+            f1_sigmas = {z * w for w in divisors(z)}
+            target = (-p * z) % m
+            for s in ds:
+                if s % m == target and s not in f1_sigmas:
+                    hit = (p, z, m, s)
+                    break
+            if hit:
+                break
+        if hit:
+            witnesses.append(hit)
+    print(f"  primes p<200 with a non-F1 family-G witness: {len(witnesses)}")
+    print(f"  first eight (p, z', m=4z'-1, sigma): {witnesses[:8]}")
+    print("  note: sigma=1 with z'>1 is never of the form z'*w, so the")
+    print("  sigma=1 route of THEORY.md 2.5 lies outside F1 entirely.")
+
+    print("\n=== CHECK 7: THEORY (D)/(G) vs the Bradford divisor condition ===")
+    print("  (added 2026-08-23; supports THEORY.md 8.2)")
+    print("  Bradford: exists x with ceil(p/4)<=x<=ceil(p/2) and d | x*x with")
+    print("    d = -p*x (mod 4x-p),  or  d <= x and d = -x (mod 4x-p).")
+    print("  THEORY:   exists z' with (D) p | 4z'-1, or")
+    print("            (G) exists sigma | z'^2 with 4z'-1 | sigma + p*z'.")
+    print("  Both are the SFFT divisor condition of the same equation; they")
+    print("  differ only in which denominator is eliminated first.")
+
+    def bradford(p):
+        lo = -(-p // 4)
+        hi = -(-p // 2)
+        for x in range(lo, hi + 1):
+            q = 4 * x - p
+            if q <= 0:
+                continue
+            ds = divisors(x * x)
+            if any(d % q == (-p * x) % q for d in ds):
+                return x, "I"
+            if any(d <= x and d % q == (-x) % q for d in ds):
+                return x, "II"
+        return None
+
+    def theory(p):
+        for z in range(1, 300):
+            m = 4 * z - 1
+            if m % p == 0:
+                return z, "D"
+            ds = divisors_sq(factor(z), cap=10**6)
+            if ds and any(s % m == (-p * z) % m for s in ds):
+                return z, "G"
+        return None
+
+    mismatch = 0
+    tested = 0
+    for p in range(3, 200):
+        if not is_prime(p):
+            continue
+        tested += 1
+        b, t = bradford(p), theory(p)
+        if (b is None) != (t is None):
+            mismatch += 1
+            print(f"  !! p={p}: bradford={b} theory={t}")
+    print(f"  {tested} primes tested, solvability disagreements: {mismatch}")
+    print("  (agreement is expected and is NOT evidence of novelty: both")
+    print("   conditions are equivalent to E-S for p, so this only confirms")
+    print("   the two normalizations are the same construction.)")
+
 
 if __name__ == "__main__":
     sys.setrecursionlimit(100000)
