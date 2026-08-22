@@ -282,7 +282,15 @@
         "source_breakthrough": "breakthrough:mendel",
         "target_problem": "problem:evolution-of-sex",
         "bridge": "Mendel's move reversed onto its own domain: discreteness was the insight; ask what maintains it. Sex = maintenance protocol for the discrete substrate.",
-        "cheap_falsification": "Cross-species comparison: correlate recombination rates with measured genomic degradation proxies (mutation rate x genome length, transposable load). Predicted positive threshold-like relation either holds in existing datasets or does not."
+        "cheap_falsification": "Cross-species comparison: correlate recombination rates with measured genomic degradation proxies (mutation rate x genome length, transposable load). Predicted positive threshold-like relation either holds in existing datasets or does not.",
+        "assessment": "inconclusive, boundary leaning against",
+        "verification": {
+          "branch": "verify/mendel-sex",
+          "commit": "668dc5b",
+          "experiment": "experiments/mendel-sex",
+          "verdict": "INCONCLUSIVE (boundary case leaning AGAINST)",
+          "summary": "Wright-Fisher grid, 32/32 cells: finite U* threshold for recombination exists (structural claim confirmed) but U* ~ 0.6-1.1 covers only the top of empirical genomic-U ranges; model cannot repay the twofold cost for most obligately sexual taxa - classic mutational-deterministic critique reproduced from first principles."
+        }
       }
     }
   ],
