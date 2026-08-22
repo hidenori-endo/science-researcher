@@ -1,0 +1,41 @@
+=== C1: exact delta for extremal / reference sets ===
+S=[1, 2]  k=2  1/(k+1)=0.333333  delta=0.333333333  argmax~333333333/1000000000
+S=[2, 3]  k=2  1/(k+1)=0.333333  delta=0.400000000  argmax~1/5
+S=[5, 7]  k=2  1/(k+1)=0.333333  delta=0.500000000  argmax~1/2
+S=[1, 2, 3]  k=3  1/(k+1)=0.250000  delta=0.250000000  argmax~1/4
+S=[1, 2, 4]  k=3  1/(k+1)=0.250000  delta=0.333333333  argmax~333333333/1000000000
+S=[1, 3, 4]  k=3  1/(k+1)=0.250000  delta=0.285714286  argmax~571428571/1000000000
+S=[1, 2, 3, 4, 5, 6, 7, 8]  k=8  1/(k+1)=0.111111  delta=0.111111111  argmax~388888889/500000000
+
+=== C2: resonance identity EQ* vs exact teeth arithmetic ===
+pair (1, 2): EQ* = 0.111111111  teeth-exact = 0.111111111  |diff| = 6.41e-12
+pair (1, 3): EQ* = 0.074074074  teeth-exact = 0.074074074  |diff| = 3.76e-12
+pair (2, 6): EQ* = 0.074074074  teeth-exact = 0.074074074  |diff| = 3.76e-12
+pair (10, 11): EQ* = 0.050505051  teeth-exact = 0.050505051  |diff| = 1.16e-13
+pair (30, 31): EQ* = 0.049462366  teeth-exact = 0.049462366  |diff| = 6.41e-15
+pair (97, 211): EQ* = 0.049380303  teeth-exact = 0.049380303  |diff| = 3.47e-17
+pair (300, 301): EQ* = 0.049383536  teeth-exact = 0.049383536  |diff| = 3.68e-16
+
+=== C3: pairwise defect Delta_2 vs reduced entry size ===
+(2 eps)^2 = 0.049382716
+pair (1, 2) (reduced 1,2): mu = 0.111111111  Delta_2 = +6.173e-02
+pair (1, 3) (reduced 1,3): mu = 0.074074074  Delta_2 = +2.469e-02
+pair (10, 11) (reduced 10,11): mu = 0.050505051  Delta_2 = +1.122e-03
+pair (30, 31) (reduced 30,31): mu = 0.049462366  Delta_2 = +7.965e-05
+pair (97, 98) (reduced 97,98): mu = 0.049395703  Delta_2 = +1.299e-05
+pair (300, 301) (reduced 300,301): mu = 0.049383536  Delta_2 = +8.203e-07
+
+=== C4: triple defects vs (2 eps)^3 (Monte Carlo, 5e6 samples) ===
+(2 eps)^3 = 0.010973937
+triple (10, 11, 12): mu(cap B) ~ 0.025948 (+/-0.000213)  Delta_3 ~ +1.497e-02
+triple (50, 51, 52): mu(cap B) ~ 0.024758 (+/-0.000208)  Delta_3 ~ +1.378e-02
+triple (1000, 1001, 1002): mu(cap B) ~ 0.024711 (+/-0.000208)  Delta_3 ~ +1.374e-02
+triple (137, 251, 503): mu(cap B) ~ 0.011257 (+/-0.000142)  Delta_3 ~ +2.835e-04
+
+=== C5: uncovered measure mu(U), k=8, eps=1/9 (MC 5e6) ===
+random model (7/9)^8 = 0.133919631
+generic primes     : mu(U) ~ 0.135990 (+/-0.000460)
+consecutive 50..57 : mu(U) ~ 0.130327 (+/-0.000452)
+
+=== C5b: exact delta(50..57) (arrangement vertices) ===
+delta(50..57) = 0.467289720 >= 1/9   argmax ~ 4672897/500000000
