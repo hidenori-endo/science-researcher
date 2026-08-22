@@ -20,7 +20,15 @@
         "source_breakthrough": "breakthrough:galois",
         "target_problem": "problem:edit-distance-barrier",
         "bridge": "Galois's move: replace 'try harder to solve' with 'characterize what any solution preserves'. For algorithms: characterize what any subquadratic comparison can read.",
-        "cheap_falsification": "Attempt the invariant formalization on a toy variant (e.g., bounded-alphabet LCS); if even there no nontrivial invariant separates fast from slow algorithms within a month of effort, downgrade."
+        "cheap_falsification": "Attempt the invariant formalization on a toy variant (e.g., bounded-alphabet LCS); if even there no nontrivial invariant separates fast from slow algorithms within a month of effort, downgrade.",
+        "assessment": "inconclusive leaning against",
+        "verification": {
+          "branch": "verify/galois-edit",
+          "commit": "682d265",
+          "experiment": "experiments/galois-edit",
+          "verdict": "INCONCLUSIVE leaning AGAINST",
+          "summary": "136 exact-DP pairs probed: every cheap statistic is either provably foolable on structured families or reduces to known statements; the pre-registered AGAINST bar was not fully met. A live Galois route would need a sketch that provably bounds what any o(n^2)-time algorithm extracts."
+        }
       }
     },
     {
@@ -138,7 +146,15 @@
         "source_breakthrough": "breakthrough:black-scholes",
         "target_problem": "problem:auction-design-robustness",
         "bridge": "Black-Scholes's move: stop predicting the underlying; build output from hedge. Auctions: stop learning the distribution; build revenue from offsetting positions across bidders/types.",
-        "cheap_falsification": "Single-item case: does a dynamic portfolio of posted prices replicate the optimal-distribution benchmark within constant factor without samples? If even this fails, combinatorial version hopeless."
+        "cheap_falsification": "Single-item case: does a dynamic portfolio of posted prices replicate the optimal-distribution benchmark within constant factor without samples? If even this fails, combinatorial version hopeless.",
+        "assessment": "supported at stage 1",
+        "verification": {
+          "branch": "verify/bsx-auction",
+          "commit": "19c7276",
+          "experiment": "experiments/bsx-auction",
+          "verdict": "SUPPORT (upgrade path)",
+          "summary": "Sample-free dynamic posted-price portfolios (exp3, exp3-anytime, uniform-mix) achieve CR mean <10 and worst-seed <50 vs clairvoyant fixed-price benchmark across all test families (uniform, power-law, bimodal, adversarial permutations). Pre-registered SUPPORT criteria met; advances with stricter criteria."
+        }
       }
     },
     {
@@ -249,25 +265,105 @@
   ],
   "evidence": [],
   "relations": [
-    {"claim": "breakthrough:galois", "target_claim": "combo:galois-edit-distance", "relation": "MOTIVATES"},
-    {"claim": "problem:edit-distance-barrier", "target_claim": "combo:galois-edit-distance", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:boltzmann-statistical", "target_claim": "combo:boltzmann-intermittency", "relation": "MOTIVATES"},
-    {"claim": "problem:turbulence-intermittency", "target_claim": "combo:boltzmann-intermittency", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:kohn-sham", "target_claim": "combo:kohnsham-enzyme", "relation": "MOTIVATES"},
-    {"claim": "problem:enzyme-catalysis-origin", "target_claim": "combo:kohnsham-enzyme", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:prion", "target_claim": "combo:prion-glass", "relation": "MOTIVATES"},
-    {"claim": "problem:glass-transition", "target_claim": "combo:prion-glass", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:cohen-forcing", "target_claim": "combo:cohen-planted-clique", "relation": "MOTIVATES"},
-    {"claim": "problem:planted-clique-hardness", "target_claim": "combo:cohen-planted-clique", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:black-scholes", "target_claim": "combo:black-scholes-auctions", "relation": "MOTIVATES"},
-    {"claim": "problem:auction-design-robustness", "target_claim": "combo:black-scholes-auctions", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:noether", "target_claim": "combo:noether-loop-invariants", "relation": "MOTIVATES"},
-    {"claim": "problem:loop-invariant-inference", "target_claim": "combo:noether-loop-invariants", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:bethe-ansatz", "target_claim": "combo:bethe-anesthesia", "relation": "MOTIVATES"},
-    {"claim": "problem:anesthesia-mechanism", "target_claim": "combo:bethe-anesthesia", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:shannon-entropy", "target_claim": "combo:shannon-frankl", "relation": "MOTIVATES"},
-    {"claim": "problem:frankl-union-closed", "target_claim": "combo:shannon-frankl", "relation": "MOTIVATES"},
-    {"claim": "breakthrough:mendel", "target_claim": "combo:mendel-sex", "relation": "MOTIVATES"},
-    {"claim": "problem:evolution-of-sex", "target_claim": "combo:mendel-sex", "relation": "MOTIVATES"}
+    {
+      "claim": "breakthrough:galois",
+      "target_claim": "combo:galois-edit-distance",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:edit-distance-barrier",
+      "target_claim": "combo:galois-edit-distance",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:boltzmann-statistical",
+      "target_claim": "combo:boltzmann-intermittency",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:turbulence-intermittency",
+      "target_claim": "combo:boltzmann-intermittency",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:kohn-sham",
+      "target_claim": "combo:kohnsham-enzyme",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:enzyme-catalysis-origin",
+      "target_claim": "combo:kohnsham-enzyme",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:prion",
+      "target_claim": "combo:prion-glass",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:glass-transition",
+      "target_claim": "combo:prion-glass",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:cohen-forcing",
+      "target_claim": "combo:cohen-planted-clique",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:planted-clique-hardness",
+      "target_claim": "combo:cohen-planted-clique",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:black-scholes",
+      "target_claim": "combo:black-scholes-auctions",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:auction-design-robustness",
+      "target_claim": "combo:black-scholes-auctions",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:noether",
+      "target_claim": "combo:noether-loop-invariants",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:loop-invariant-inference",
+      "target_claim": "combo:noether-loop-invariants",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:bethe-ansatz",
+      "target_claim": "combo:bethe-anesthesia",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:anesthesia-mechanism",
+      "target_claim": "combo:bethe-anesthesia",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:shannon-entropy",
+      "target_claim": "combo:shannon-frankl",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:frankl-union-closed",
+      "target_claim": "combo:shannon-frankl",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "breakthrough:mendel",
+      "target_claim": "combo:mendel-sex",
+      "relation": "MOTIVATES"
+    },
+    {
+      "claim": "problem:evolution-of-sex",
+      "target_claim": "combo:mendel-sex",
+      "relation": "MOTIVATES"
+    }
   ]
 }
