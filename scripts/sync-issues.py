@@ -28,6 +28,27 @@ LABELS = {
     "methodological_lesson": ("claim/precedent", "Cross-field methodological precedent", "fbca04"),
 }
 MARKER = "science-researcher:claim-payload v1"
+TESTABILITY_LABELS = {
+    "formal": ("testability/formal", "Agent-provable / computationally falsifiable", "0e8a16"),
+    "simulable": ("testability/simulable", "Hypothesis-checkable via reduced simulations", "1d76db"),
+    "empirical": ("testability/empirical", "Resolution requires experiments/observations; not planned for agent work", "b60205"),
+}
+
+
+def apply_testability_labels(num: int, claim: dict) -> None:
+    meta = claim.get("metadata") or {}
+    tag = meta.get("agent_testability")
+    labels = []
+    if tag in TESTABILITY_LABELS:
+        labels.append(TESTABILITY_LABELS[tag][0])
+    if meta.get("planned") is False:
+        labels.append("not-planned")
+        subprocess.run(["gh", "label", "create", "not-planned",
+                        "--description", "Deprioritized per research policy", "--color", "cccccc"],
+                       capture_output=True)
+    if labels:
+        subprocess.run(["gh", "issue", "edit", str(num), "--add-label", ",".join(labels)],
+                       capture_output=True, text=True)
 
 
 def gh(*args: str, input: str | None = None) -> str:
@@ -39,6 +60,11 @@ def gh(*args: str, input: str | None = None) -> str:
 
 def ensure_labels() -> None:
     for name, desc, color in LABELS.values():
+        subprocess.run(
+            ["gh", "label", "create", name, "--description", desc, "--color", color],
+            capture_output=True,
+        )
+    for name, desc, color in TESTABILITY_LABELS.values():
         subprocess.run(
             ["gh", "label", "create", name, "--description", desc, "--color", color],
             capture_output=True,
@@ -232,6 +258,7 @@ def main() -> int:
             body_path = fh.name
         gh("issue", "edit", str(num), "--title", title, "--body-file", body_path)
         Path(body_path).unlink(missing_ok=True)
+        apply_testability_labels(num, claim)
         created_or_updated += 1
     print(f"synced {created_or_updated} claim issues")
 

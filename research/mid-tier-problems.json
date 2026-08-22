@@ -16,7 +16,14 @@
         "problem_shape": "local rule to global counting guarantee existence of abundant object",
         "failure": "proof attempts reduce to frequency vectors without exploitable structure"
       },
-      "metadata": {"figures": ["Peter Frankl"], "status": "open since ~1978"}
+      "metadata": {
+        "figures": [
+          "Peter Frankl"
+        ],
+        "status": "open since ~1978",
+        "agent_testability": "formal",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:glass-transition",
@@ -33,7 +40,11 @@
         "problem_shape": "genuine singularity versus finite-size finite-time artifact",
         "failure": "every proposed static signature has a kinetic control that mimics it"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "simulable",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:planted-clique-hardness",
@@ -50,7 +61,11 @@
         "problem_shape": "threshold location; proving absence of algorithms rather than presence",
         "failure": "lower bounds restricted to narrow algorithm classes; reductions circular"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "formal",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:edit-distance-barrier",
@@ -67,7 +82,11 @@
         "problem_shape": "prove impossibility or find hidden structure enabling speedup",
         "failure": "all known techniques hit the alignment-table quadratic information content"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "formal",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:turbulence-intermittency",
@@ -84,7 +103,11 @@
         "problem_shape": "fitting phenomenology replaced by first-principles derivation",
         "failure": "cascade models are descriptive; closures miss intermittency universally"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "simulable",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:enzyme-catalysis-origin",
@@ -101,7 +124,11 @@
         "problem_shape": "attribution problem; structure-to-rate prediction",
         "failure": "each decomposition depends on arbitrary partitioning of the free energy surface"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "empirical",
+        "planned": false
+      }
     },
     {
       "external_id": "problem:evolution-of-sex",
@@ -118,7 +145,15 @@
         "problem_shape": "cost-benefit attribution across fluctuating environments",
         "failure": "every proposed benefit works in some regime and fails in others; no universal winner demonstrated"
       },
-      "metadata": {"status": "open", "figures": ["John Maynard Smith", "George Williams"]}
+      "metadata": {
+        "status": "open",
+        "figures": [
+          "John Maynard Smith",
+          "George Williams"
+        ],
+        "agent_testability": "simulable",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:anesthesia-mechanism",
@@ -135,7 +170,11 @@
         "problem_shape": "many-to-one convergence; identify the invariant circuit signature",
         "failure": "molecular-target theories do not predict consciousness loss; correlates abound, mechanism absent"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "empirical",
+        "planned": false
+      }
     },
     {
       "external_id": "problem:auction-design-robustness",
@@ -152,7 +191,11 @@
         "problem_shape": "unknown environment made harmless by design; expressiveness versus tractability tension",
         "failure": "distributional assumptions sneak back in via benchmarks; welfare-revenue tradeoffs unresolved"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "formal",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:loop-invariant-inference",
@@ -169,7 +212,11 @@
         "problem_shape": "search space explosion; template selection as hidden bottleneck",
         "failure": "methods tuned to linear arithmetic fragment on nonlinear or disjunctive invariants"
       },
-      "metadata": {"status": "open"}
+      "metadata": {
+        "status": "open",
+        "agent_testability": "formal",
+        "planned": true
+      }
     }
   ],
   "evidence": [],

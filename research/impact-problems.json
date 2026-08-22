@@ -16,7 +16,12 @@
         "problem_shape": "atomistic to device-lifetime extrapolation; cross-chemistry generality",
         "failure": "empirical aging laws do not transfer across chemistries; atomistic simulations too slow for cycles"
       },
-      "metadata": {"impact": "EV range, grid storage, consumer electronics; safety", "status": "open"}
+      "metadata": {
+        "impact": "EV range, grid storage, consumer electronics; safety",
+        "status": "open",
+        "agent_testability": "empirical",
+        "planned": false
+      }
     },
     {
       "external_id": "problem:cloud-feedback-sensitivity",
@@ -33,7 +38,12 @@
         "problem_shape": "subgrid process to global sensitivity attribution among competing mechanisms",
         "failure": "global models parameterize clouds; LES covers limited domains and timescales"
       },
-      "metadata": {"impact": "carbon policy targets, adaptation planning, trillions in infrastructure", "status": "open"}
+      "metadata": {
+        "impact": "carbon policy targets, adaptation planning, trillions in infrastructure",
+        "status": "open",
+        "agent_testability": "simulable",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:fusion-edge-turbulence-control",
@@ -50,7 +60,12 @@
         "problem_shape": "microscale turbulence to macroscopic stability margins; prediction to actuation",
         "failure": "reduced models tuned per device; first-principles simulation far slower than real time"
       },
-      "metadata": {"impact": "commercial fusion viability", "status": "open"}
+      "metadata": {
+        "impact": "commercial fusion viability",
+        "status": "open",
+        "agent_testability": "simulable",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:predictive-catalyst-design",
@@ -67,7 +82,12 @@
         "problem_shape": "static property to dynamic working-state prediction; screening to synthesis",
         "failure": "scaling relations force tradeoffs; reconstruction dynamics rarely captured"
       },
-      "metadata": {"impact": "green hydrogen, carbon utilization, fertilizer energy cost", "status": "open"}
+      "metadata": {
+        "impact": "green hydrogen, carbon utilization, fertilizer energy cost",
+        "status": "open",
+        "agent_testability": "empirical",
+        "planned": false
+      }
     },
     {
       "external_id": "problem:epidemic-trajectory-forecasting",
@@ -84,7 +104,12 @@
         "problem_shape": "nonstationary coupled system; decision-relevant horizons",
         "failure": "models fit past waves but miss regime changes; data delays corrupt calibration"
       },
-      "metadata": {"impact": "hospital capacity, vaccination strategy, pandemic preparedness", "status": "open"}
+      "metadata": {
+        "impact": "hospital capacity, vaccination strategy, pandemic preparedness",
+        "status": "open",
+        "agent_testability": "simulable",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:crop-photosynthesis-limit",
@@ -101,7 +126,12 @@
         "problem_shape": "molecular mechanism to agronomic trait; controlled environment to field",
         "failure": "leaf-level gains historically fail to propagate to yield; genotype-environment management interactions dominate"
       },
-      "metadata": {"impact": "food security under climate stress", "status": "open"}
+      "metadata": {
+        "impact": "food security under climate stress",
+        "status": "open",
+        "agent_testability": "empirical",
+        "planned": false
+      }
     },
     {
       "external_id": "problem:earthquake-rupture-forecast",
@@ -118,7 +148,12 @@
         "problem_shape": "unobservable initial condition to probabilistic forecast; scale separation",
         "failure": "catalogs are statistical not physical; candidate precursors fail out-of-sample tests"
       },
-      "metadata": {"impact": "building codes, insurance, disaster response", "status": "open"}
+      "metadata": {
+        "impact": "building codes, insurance, disaster response",
+        "status": "open",
+        "agent_testability": "empirical",
+        "planned": false
+      }
     },
     {
       "external_id": "problem:antibiotic-resistance-prediction",
@@ -135,7 +170,12 @@
         "problem_shape": "forecast of contingent evolution; laboratory fitness to clinical success",
         "failure": "predictive models trained on known paths generalize poorly to novel mutations"
       },
-      "metadata": {"impact": "antimicrobial stewardship, drug development priorities, global health", "status": "open"}
+      "metadata": {
+        "impact": "antimicrobial stewardship, drug development priorities, global health",
+        "status": "open",
+        "agent_testability": "empirical",
+        "planned": false
+      }
     },
     {
       "external_id": "problem:materials-fatigue-microstructure",
@@ -152,7 +192,12 @@
         "problem_shape": "extreme-event-dominated lifetime; specimen statistics to individual part",
         "failure": "models calibrated on averages miss tail events that determine failure"
       },
-      "metadata": {"impact": "aviation safety, infrastructure maintenance cost, wind turbines", "status": "open"}
+      "metadata": {
+        "impact": "aviation safety, infrastructure maintenance cost, wind turbines",
+        "status": "open",
+        "agent_testability": "simulable",
+        "planned": true
+      }
     },
     {
       "external_id": "problem:wildfire-spread-prediction",
@@ -169,7 +214,12 @@
         "problem_shape": "tail-risk prediction; coupling between fluid dynamics and combustion at landscape scale",
         "failure": "models validated on ordinary fires; extreme cases are rare, fast, and data-poor"
       },
-      "metadata": {"impact": "life safety, land management, insurance retreat from wildfire zones", "status": "open"}
+      "metadata": {
+        "impact": "life safety, land management, insurance retreat from wildfire zones",
+        "status": "open",
+        "agent_testability": "simulable",
+        "planned": true
+      }
     }
   ],
   "evidence": [],
