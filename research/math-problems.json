@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "external_id": "problem:erdos-straus",
+      "title": "Erdos-Straus conjecture: 4/n as three unit fractions",
+      "statement": "For every integer n >= 2, the equation 4/n = 1/x + 1/y + 1/z has a solution in positive integers x <= y <= z. Verified computationally far beyond 10^14 via divisor-enumeration methods, but no proof covering all n is known.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "number theory/Diophantine equations",
+      "source": "math open problem card",
+      "axis_texts": {
+        "semantic": "Every reciprocal expansion of 4/n needs at most three terms.",
+        "mechanism": "divisor structure of quadratic polynomials in n parametrizes all solutions",
+        "math_structure": "egyptian fractions divisor counting congruence classes density arguments",
+        "problem_shape": "universal existence statement reduced to checking finitely many residue patterns",
+        "failure": "proofs cover density-1 subsets; exceptional residue classes resist all known methods"
+      },
+      "metadata": {"agent_testability": "formal", "planned": true, "figures": ["Paul Erdos", "Ernst Straus"], "status": "open"}
+    },
+    {
+      "external_id": "problem:lonely-runner",
+      "title": "Lonely Runner Conjecture",
+      "statement": "Given k runners with distinct constant speeds on a unit-length circular track, each runner is at some time at distance at least 1/(k+1) from every other runner ('lonely'). Proved only for small k (k <= 7ish); general case open.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "combinatorics/dynamical systems",
+      "source": "math open problem card",
+      "axis_texts": {
+        "semantic": "Among k runners on a circle someone eventually gets at least 1/(k+1) ahead of all others simultaneously.",
+        "mechanism": "view of view graph chromatic number bounds; torus orbit equidistribution",
+        "math_structure": "view obstructions chromatic numbers diophantine approximation torus flows",
+        "problem_shape": "existential over continuous time reduced to finite speed-ratio structure",
+        "failure": "chromatic lower bounds insufficient beyond small k; equidistribution gives no uniform rate"
+      },
+      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+    },
+    {
+      "external_id": "problem:singmaster",
+      "title": "Singmaster's conjecture: bounded multiplicity in Pascal's triangle",
+      "statement": "There is a finite upper bound on how many times any integer > 1 can appear in Pascal's triangle. The maximum known multiplicity is 6 (entry 3003); extensive searches found nothing above it, but no proof.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "combinatorics/number theory",
+      "source": "math open problem card",
+      "axis_texts": {
+        "semantic": "No binomial coefficient value repeats more than boundedly often.",
+        "mechanism": "equalities C(n,k)=C(m,l) define algebraic curves whose integral points are rare",
+        "math_structure": "binomial coefficients diophantine equations algebraic curves effective bounds",
+        "problem_shape": "global bound from point-counting on curves",
+        "failure": "effective bounds from Faltings-type results are astronomically weak"
+      },
+      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+    },
+    {
+      "external_id": "problem:lehmer-totient",
+      "title": "Lehmer's totient problem",
+      "statement": "No composite n satisfies phi(n) | (n-1). If such n exists it must be odd, squarefree, and have at least 15 distinct prime factors (bounds pushed by successive searches); none found.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "number theory",
+      "source": "math open problem card",
+      "axis_texts": {
+        "semantic": "Compositeness is witnessed by phi(n) failing to divide n-1.",
+        "mechanism": "phi divisibility forces extremely constrained multiplicative structure",
+        "math_structure": "totients carmichael-like structures sieving modular arithmetic",
+        "problem_shape": "nonexistence via structural constraints plus finite search",
+        "failure": "each added factor multiplies search space; constraints weaken as factor count grows"
+      },
+      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+    },
+    {
+      "external_id": "problem:giuga",
+      "title": "Giuga's conjecture",
+      "statement": "A composite n with sum_{p|n} 1/p - prod_{p|n} 1/p being an integer would be a counterexample to Giuga's conjecture that no such n exists. Any counterexample must be a Carmichael number with p | (n/p - 1) for every prime factor; searches among Carmichael numbers found none.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "number theory",
+      "source": "math open problem card",
+      "axis_texts": {
+        "semantic": "Composite n cannot satisfy this harmonic-sum integrality condition.",
+        "mechanism": "condition couples primality-like behavior with prime-factor reciprocals",
+        "math_structure": "carmichael numbers agoh-giuga congruences harmonic sums sieving",
+        "problem_shape": "nonexistence via rare structured intersection of two sparse classes",
+        "failure": "candidate class unbounded; searches rely on Carmichael enumeration growth"
+      },
+      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+    },
+    {
+      "external_id": "problem:graceful-tree",
+      "title": "Graceful Tree Conjecture (Ringel-Kotzig)",
+      "statement": "Every tree with m edges admits a graceful labeling: injective vertex labels from {0,...,m} such that edge labels |difference| are all distinct (1..m). Open since 1967 despite intense effort; verified computationally for many tree families and small sizes; all trees up to moderate vertex counts admit labelings under heuristic search.",
+      "record_type": "conjecture",
+      "epistemic_status": "conjectural",
+      "domain": "graph theory/combinatorics",
+      "source": "math open problem card",
+      "axis_texts": {
+        "semantic": "Every tree can be gracefully labeled.",
+        "mechanism": "labeling constraints propagate along tree structure; constructive induction resists generalization",
+        "math_structure": "graph labelings combinatorial search parity arguments bipartite structure",
+        "problem_shape": "universal construction statement; induction over tree decompositions fails globally",
+        "failure": "known constructions cover restricted families (caterpillars, symmetrical trees); general trees resist"
+      },
+      "metadata": {"agent_testability": "formal", "planned": true, "status": "open"}
+    }
+  ],
+  "evidence": [],
+  "relations": []
+}
